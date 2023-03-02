@@ -12,8 +12,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <calculator-panel />
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <calculator-panel />
+  </div>
 </template>
 <style lang="less">
 #app {
