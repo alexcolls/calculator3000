@@ -5,12 +5,14 @@ import { defineComponent } from 'vue';
 import useStore from './services/store';
 import ScreenPanel from './components/ScreenPanel.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
+import FooterBar from './components/FooterBar.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     ScreenPanel,
     KeyboardPanel,
+    FooterBar
   },
   setup() {
     const store = useStore();
@@ -33,6 +35,7 @@ export default defineComponent({
     </div>
     <screen-panel class="p-8" />
     <keyboard-panel class="p-8" />
+    <footer-bar />
   </div>
 
 </template>

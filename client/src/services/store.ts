@@ -7,14 +7,22 @@ const useStore = defineStore("calculator", {
       operations: [],
       history: [],
       dark: true,
+      sound: true,
+      color: "white/20",
     };
   },
   getters: {
-    doubleCount: (state) => state.number * 2,
+    switchDark: (state) => !state.dark,
   },
   actions: {
-    increment() {
-      this.number++;
+    switchDark() {
+      this.dark = !this.dark;
+    },
+    switchSound() {
+      this.sound = !this.sound;
+    },
+    changeColor(color: string) {
+      this.color = color;
     },
   },
 });
