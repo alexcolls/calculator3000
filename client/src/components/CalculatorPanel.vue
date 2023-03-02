@@ -9,8 +9,7 @@ export default {
   },
   data() {
     return {
-      number: 0,
-     
+      number: 0
     }
   },
   setup () {
@@ -25,13 +24,14 @@ export default {
   },
   methods: {
     clickNum(num:number): void {
-      this.number = num;
+      console.log(num);
+      // TODO
     },
     resetNum(): void {
-      this.number = 0;
+      // TODO
     },
     deleteNum(): void {
-      this.number = 0;
+      // TODO
     }
   }
 }
