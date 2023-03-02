@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-const useStore = defineStore("calculator", {
+const useStore = defineStore("main", {
   state: () => {
     return {
       number: 0,

@@ -1,6 +1,5 @@
 
 <script lang="ts">
-
 import { defineComponent } from 'vue';
 import useStore from './services/store';
 import ScreenPanel from './components/ScreenPanel.vue';
@@ -21,11 +20,9 @@ export default defineComponent({
     }
   }
 });
-
 </script>
 
 <template>
-
   <div class="pt-4 h-screen w-screen"
     :class="store.dark ?
     'bg-gray-900 shadow-gray-700 border-gray-200 text-gray-200' :
@@ -37,11 +34,9 @@ export default defineComponent({
     <keyboard-panel class="p-8" />
     <footer-bar />
   </div>
-
 </template>
 
 <style>
-
 #app {
   text-align: center;
 }
@@ -66,5 +61,4 @@ html {
   background:  linear-gradient(30deg, #1bd3247c, #21b913be);
   box-shadow: inset 0 0 6px #30d31b,
 }
-
 </style>
