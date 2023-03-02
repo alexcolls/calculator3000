@@ -11,9 +11,6 @@ const useStore = defineStore("main", {
       color: "white/20",
     };
   },
-  getters: {
-    switchDark: (state) => !state.dark,
-  },
   actions: {
     switchDark() {
       this.dark = !this.dark;

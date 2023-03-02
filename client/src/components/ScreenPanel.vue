@@ -37,9 +37,9 @@ export default {
 }
 </script>
 <template>
-  <div class="m-auto w-[420px] p-2 mt-0">
+  <div class="m-auto p-2">
     <div class="text-2xl py-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-600">
-      <a class="text-xl mr-5 ">
+      <a class="text-xl ">
         ⛏️ CALCULATE 
       </a>
       {{ nf.format(Number(number)).replaceAll(',', ' ') }}

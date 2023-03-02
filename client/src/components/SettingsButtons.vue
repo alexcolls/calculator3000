@@ -1,5 +1,6 @@
 <script lang="ts">
 import useStore from '../services/store';
+import sound_black from '../assets/img/sound.png';
 
 export default {
   setup() {
@@ -18,10 +19,10 @@ export default {
         purple: 'purple',
         pink: 'pink',
         violet: 'violet',
-        sound_black: '../assets/img/sound.png',
-        sound_white: '../assets/ico/sound-white.png',
-        mute_black: '../assets/ico/mute.png',
-        mute_white: '../assets/ico/mute-white.png',
+        sound_white: '../assets/img/sound-white.png',
+        mute_black: '../assets/img/mute.png',
+        mute_white: '../assets/img/mute-white.png',
+        sound_black
       }
     }
   }
@@ -35,8 +36,8 @@ export default {
   <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
   @click="store.switchSound()" 
   :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-    <img v-if="store.sound" :src="store.dark ? sound_white : sound_black" class="h-4 w-4"/>
-    <img v-else :src="store.dark ? mute_white : mute_black" class="h-4 w-4"/>
+    <img alt="Sound" v-if="store.sound" :src="store.dark ? sound_white : sound_black" class="h-4 w-4"/>
+    <img alt="Sound" v-else :src="store.dark ? mute_white : mute_black" class="h-4 w-4"/>
   </button>
   <!-- Color Button -->
   <button 
@@ -164,6 +165,14 @@ export default {
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
     </svg>
   </button>
+  <!-- Github Button -->
+    <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
+    @click="[store.switchDark(),
+    store.color.includes('white') && !store.dark ? store.changeColor(store.color.replace('white', 'black')) : '',
+    store.color.includes('black') && store.dark ? store.changeColor(store.color.replace('black', 'white')) : '']" 
+    :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
+
+    </button>
 </div>
 <div class="bg-black/90 shadow-black/90"></div>
 <div class="bg-black/60 shadow-black/60"></div>

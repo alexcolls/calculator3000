@@ -23,15 +23,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="pt-4 h-screen w-screen"
+  <div class="h-full md:h-screen"
     :class="store.dark ?
-    'bg-gray-900 shadow-gray-700 border-gray-200 text-gray-200' :
+    'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
     'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
-    <div class="flex justify-center align-middle p-4">
-      <img alt="Vue logo" src="./assets/logo.png">
+    <div class="flex justify-center align-middle p-4 pt-14">
+      <a href="https://www.innocv.com/" target="_blank">
+        <img alt="INNOCV logo" src="./assets/img/logo.png">
+      </a>
     </div>
-    <screen-panel class="p-8" />
-    <keyboard-panel class="p-8" />
+    <screen-panel />
+    <keyboard-panel />
     <footer-bar />
   </div>
 </template>
@@ -39,8 +41,9 @@ export default defineComponent({
 <style>
 #app {
   text-align: center;
+  height: 100% !important;
+  width: 100% !important;
 }
-¡
 html {
   overflow-x: hidden;
 }

@@ -40,7 +40,7 @@ export default {
       </div>
     </div>
     <div class="mt-8">
-      Made with 💚 for INNOCV SOLUTION <br/>2023 © Free rights of use.
+      Made with 💙 for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator" target="_blank">Free rights of use.</a>
     </div>
   </div>
 </template>
