@@ -71,9 +71,9 @@ export default {
       <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
         6
       </button>
-      <!-- X -->
+      <!-- x -->
       <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
-        X
+        x
       </button>
       <!-- ÷ -->
       <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
@@ -91,14 +91,34 @@ export default {
       <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
         9
       </button>
-      <!-- none -->
-      <button @click="resetNum()"  :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-2 px-2 rounded-3xl m-3 align-middle relative border"></button>
+      <!-- + -->
+      <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
+        +
+      </button>
+      <!-- - -->
+      <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
+        -
+      </button>
       <!-- 0 -->
-      <button @click="clickNum(0)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-b-xl align-middle relative border">
+      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
         0
       </button>
-      <!-- reset -->
-      <button @click="deleteNum()" :class="store.dark ? 'bg-gray/900 hover:bg-green-600' : 'bg-gray-50 hover:bg-green-600'" class="py-2 px-2 rounded-3xl m-3 align-middle relative border border-green-600">⛏️</button>          
+      <!-- · -->
+      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+        ·
+      </button>
+      <!-- ×10^ -->
+      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+        ×10^
+      </button>
+      <!-- ANS -->
+      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+        ANS
+      </button>
+      <!-- = -->
+      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+        =
+      </button> 
     </div>
   </div>
 </template>
