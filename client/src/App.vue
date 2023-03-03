@@ -5,7 +5,7 @@ import useStore from './services/store';
 import ScreenPanel from './components/ScreenPanel.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
 import FooterBar from './components/FooterBar.vue';
-import HistoryList from './components/HistoryList.vue';
+// import HistoryList from './components/HistoryList.vue';
 
 export default defineComponent({
   name: 'App',
@@ -13,7 +13,7 @@ export default defineComponent({
     ScreenPanel,
     KeyboardPanel,
     FooterBar,
-    HistoryList
+    // HistoryList
   },
   setup() {
     const store = useStore();
@@ -36,7 +36,7 @@ export default defineComponent({
     </div>
     <screen-panel />
     <keyboard-panel />
-    <history-list />
+    <!-- <history-list /> -->
     <footer-bar class="pt-24"/>
   </div>
 </template>
