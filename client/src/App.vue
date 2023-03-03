@@ -34,7 +34,7 @@ export default defineComponent({
     </div>
     <screen-panel />
     <keyboard-panel />
-    <footer-bar />
+    <footer-bar class="pt-24"/>
   </div>
 </template>
 
