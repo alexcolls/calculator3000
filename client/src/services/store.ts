@@ -3,8 +3,9 @@ import { defineStore } from "pinia";
 const useStore = defineStore("main", {
   state: () => {
     return {
-      number: 0,
+      number: "0",
       operations: [],
+      result: 0,
       history: [],
       dark: true,
       sound: true,

@@ -1,25 +1,13 @@
 <script lang="ts">
-// import { ref } from 'vue';
 import useStore from '../services/store';
-// import click_sound from '../../assets/sounds/beep.mp3';
 
 export default {
-  components: {
-
-  },
-  data() {
-    return {
-      number: 0
-    }
-  },
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-
     return {
       store,
       nf
-     
     }
   },
   methods: {
@@ -38,11 +26,8 @@ export default {
 </script>
 <template>
   <div class="m-auto p-2">
-    <div class="text-2xl py-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-600">
-      <a class="text-xl ">
-        ⛏️ CALCULATE 
-      </a>
-      {{ nf.format(Number(number)).replaceAll(',', ' ') }}
+    <div class="text-4xl font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
+      {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}
     </div>
    
   </div>
