@@ -1,38 +1,46 @@
 <script lang="ts">
-// import { ref } from 'vue';
+import { ref } from 'vue';
 import useStore from '../services/store';
-// import click_sound from '../../assets/sounds/beep.mp3';
+// import click_sound from '../assets/sound/beep.mp3';
 
 export default {
-  components: {
-
-  },
-  data() {
-    return {
-      number: 0
-    }
-  },
   setup () {
     const store = useStore();
+    const NUMBER = ref('0');
     const nf = Intl.NumberFormat();
-
+    const maxNumber = 1000000;
+    // const audio = new Audio(click_sound);
+    // Keyboard functionality
+    function clickNum(n: number) {
+      if (store.sound)
+        // audio.play();
+      if (NUMBER.value[0] === '0') {
+        NUMBER.value = String(n);
+        return;
+      }
+      if (Number(NUMBER.value) + n <= maxNumber) {
+        NUMBER.value += n;
+        return;
+      } else {
+        return alert(`Number must be between -${nf.format(maxNumber)} and ${nf.format(maxNumber)}, including both.`);
+      }
+    }
+    function deleteNum() {
+      if (NUMBER.value.length > 1)
+        NUMBER.value = NUMBER.value.slice(0, -1);
+      else resetNum();
+    }
+    function resetNum() {
+      NUMBER.value = '0';
+    }
     return {
       store,
-      nf
-     
-    }
-  },
-  methods: {
-    clickNum(num:number): void {
-      console.log(num);
-      // TODO
-    },
-    resetNum(): void {
-      // TODO
-    },
-    deleteNum(): void {
-      // TODO
-    }
+      nf,
+      clickNum,
+      deleteNum,
+      resetNum,
+      // audio
+    };
   }
 }
 </script>

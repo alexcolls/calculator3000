@@ -1,6 +1,6 @@
 <script lang="ts">
 import useStore from '../services/store';
-import sound_black from '../assets/img/sound.png';
+// import sound_black from '../assets/image/sound.png';
 
 export default {
   setup() {
@@ -22,7 +22,7 @@ export default {
         sound_white: '../assets/img/sound-white.png',
         mute_black: '../assets/img/mute.png',
         mute_white: '../assets/img/mute-white.png',
-        sound_black
+        // sound_black
       }
     }
   }
@@ -36,8 +36,8 @@ export default {
   <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
   @click="store.switchSound()" 
   :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-    <img alt="Sound" v-if="store.sound" :src="store.dark ? sound_white : sound_black" class="h-4 w-4"/>
-    <img alt="Sound" v-else :src="store.dark ? mute_white : mute_black" class="h-4 w-4"/>
+    <img alt="Sound" v-if="store.sound" :src="store.dark ? 'sound_white' : 'sound_black'" class="h-4 w-4"/>
+    <img alt="Sound" v-else :src="store.dark ? 'mute_white' : 'mute_black'" class="h-4 w-4"/>
   </button>
   <!-- Color Button -->
   <button 
