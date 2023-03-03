@@ -6,7 +6,7 @@ export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-    const maxNumber = 1000000000;
+    const maxNumber = 1000000000000;
     // const audio = new Audio(click_sound);
     // Keyboard functionality
     function clickNum(n: number) {
