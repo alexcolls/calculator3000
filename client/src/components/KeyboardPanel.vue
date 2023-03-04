@@ -26,7 +26,7 @@ export default {
     function clickOperator(op: string): void {
       if (store.sound)
         // audio.play();
-      console.log(op);
+      store.operations.push(op);
       return;
     }
     function deleteNum(): void {

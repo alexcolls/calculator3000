@@ -1,7 +1,18 @@
 import { defineStore } from "pinia";
 
+interface State {
+  number: string;
+  operations: string[];
+  result: number;
+  history: string[];
+  dark: boolean;
+  sound: boolean;
+  color: string;
+  heart: string;
+}
+
 const useStore = defineStore("main", {
-  state: () => {
+  state: (): State => {
     return {
       number: "0",
       operations: [],
