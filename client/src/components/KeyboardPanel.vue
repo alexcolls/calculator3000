@@ -145,7 +145,7 @@ export default {
       <button @click="clickNum(9)" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
+      class="py-4 px-2 align-middle relative border shadow-sm">
         9
       </button>
       <!-- + -->
@@ -162,33 +162,33 @@ export default {
       class="py-4 px-2 align-middle relative border shadow-sm">
         -
       </button>
-      <!-- 0 -->
+      <!-- · -->
       <button @click="clickNum(0)" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-br-xl ">
-        0
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
+        ·
       </button>
-      <!-- · -->
+      <!-- 0 -->
       <button @click="clickOperator('.')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl ">
-        ·
-      </button>
-      <!-- ×10^ -->
-      <button @click="clickOperator('10^')" 
-      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
-      `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
-        ×10^
+        0
       </button>
       <!-- ANS -->
       <button @click="lastAns()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
         ANS
+      </button>
+      <!-- ×10^ -->
+      <button @click="clickOperator('10^')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
+        ×10^
       </button>
       <!-- = -->
       <button @click="calculate()" 
