@@ -9,18 +9,6 @@ export default {
       store,
       nf
     }
-  },
-  methods: {
-    clickNum(num:number): void {
-      console.log(num);
-      // TODO
-    },
-    resetNum(): void {
-      // TODO
-    },
-    deleteNum(): void {
-      // TODO
-    }
   }
 }
 </script>

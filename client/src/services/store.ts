@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 
 interface State {
   number: string;
+  decimals: string;
   negative: boolean;
   operations: string[];
   result: number;
@@ -16,6 +17,7 @@ const useStore = defineStore("main", {
   state: (): State => {
     return {
       number: "0",
+      decimals: "",
       negative: false,
       operations: [],
       result: 0,
