@@ -7,7 +7,7 @@ export default {
     const store = useStore();
     const nf = Intl.NumberFormat();
     const maxNumber = 1000000000000; // trillion
-    const maxDecimals = 5; // billion
+    const maxDecimals = 8;
     // const audio = new Audio(click_sound);
     // Keyboard functionality
     function clickNum(n: number): void {
@@ -36,8 +36,9 @@ export default {
         // audio.play();
       if (store.number === '0' && op === '-')
         store.negative = true;
-      else store.operations.push(`${op} ${store.number}`);
-      store.number = '0';
+      else store.operations.push(`${op} ${store.number}${store.decimals}`);
+      resetNum();
+
       return;
     }
     function clickDecimals(): void {
@@ -61,9 +62,10 @@ export default {
       store.number = '0';
       store.decimals = '';
       store.negative = false;
-      store.operations = [];
     }
-    function lastAns(): void {
+    function clickAC(): void {
+      resetNum();
+      store.operations = [];
       return;
     }
     function calculate(): void {
@@ -76,8 +78,7 @@ export default {
       clickOperator,
       clickDecimals,
       deleteNum,
-      resetNum,
-      lastAns,
+      clickAC,
       calculate
     };
   }
@@ -115,7 +116,7 @@ export default {
         DEL
       </button>
       <!-- AC -->
-      <button @click="resetNum()"
+      <button @click="clickAC()"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl text-sm">
