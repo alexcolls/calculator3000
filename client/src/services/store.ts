@@ -10,6 +10,7 @@ const useStore = defineStore("main", {
       dark: true,
       sound: true,
       color: "white/20",
+      heart: "🤍",
     };
   },
   actions: {
@@ -21,6 +22,9 @@ const useStore = defineStore("main", {
     },
     changeColor(color: string) {
       this.color = color;
+    },
+    changeHeart(heart: string) {
+      this.heart = heart;
     },
   },
 });

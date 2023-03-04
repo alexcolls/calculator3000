@@ -13,6 +13,7 @@ export default {
     const store = useStore();
     const time = ref('');
     const date = ref('');
+   
     setInterval( () => {
       time.value = getTime();
       date.value = getDate();
@@ -40,8 +41,7 @@ export default {
       </div>
     </div>
     <div class="mt-8">
-      Made with 💙 for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator" target="_blank">Free rights of use.</a>
+      Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator" target="_blank" class="underline">Free rights of use.</a>
     </div>
-    ❤️🧡💛💚💙💜💗🖤🤍
   </div>
 </template>

@@ -32,7 +32,7 @@ export default {
 <div>
 <div class="z-50 absolute top-0 -bottom-50 h-full left-0 right-0 w-full" @click="colorModal=false" v-if="colorModal"></div>
 <div class="flex justify-center p-4">
-  <!-- Dark/Light Button -->
+  <!-- Dark/Light button -->
   <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
   @click="[store.switchDark(),
   store.color.includes('white') && !store.dark ? store.changeColor(store.color.replace('white', 'black')) : '',
@@ -45,14 +45,14 @@ export default {
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
     </svg>
   </button>
-  <!-- Sound Button -->
+  <!-- Sound button -->
   <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
   @click="store.switchSound()" 
   :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
     <img alt="Sound" v-if="store.sound" :src="store.dark ? 'sound_white' : 'sound_black'" class="h-4 w-4"/>
     <img alt="Sound" v-else :src="store.dark ? 'mute_white' : 'mute_black'" class="h-4 w-4"/>
   </button>
-  <!-- Color Button -->
+  <!-- Color buttons -->
   <button 
   class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
   @click="colorModal=!colorModal"
@@ -62,104 +62,104 @@ export default {
     <div v-if="colorModal"
     class="z-50 absolute mt-72 py-4 flex flex-wrap justify-center w-36 p-2 rounded-xl shadow-xl"
     :class="store.dark ? 'bg-black/90 shadow-gray-700' : 'bg-white'">
-      <!-- dark mode -->
+      <!-- Dark mode -->
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('white/90')"
+      @click="[store.changeColor('white/90'), store.changeHeart('🤍')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
       v-if="store.dark">
         <div class="h-4 w-4 bg-white/90 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('white/60')"
+      @click="[store.changeColor('white/60'), store.changeHeart('🤍')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
       v-if="store.dark">
         <div class="h-4 w-4 bg-white/60 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('white/20')"
+      @click="[store.changeColor('white/20'), store.changeHeart('🤍')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
       v-if="store.dark">
         <div class="h-4 w-4 bg-white/20 rounded-full"></div>
       </button>
-      <!-- light mode -->
+      <!-- Light mode -->
       <div class="flex" v-if="!store.dark">
         <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-        @click="store.changeColor('black/90')"
+        @click="[store.changeColor('black/90'), store.changeHeart('🖤')]"
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
           <div class="h-4 w-4 bg-black/90 rounded-full"></div>
         </button>
         <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-        @click="store.changeColor('black/60')"
+        @click="[store.changeColor('black/60'), store.changeHeart('🖤')]"
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
           <div class="h-4 w-4 bg-black/60 rounded-full"></div>
         </button>
         <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-        @click="store.changeColor('black/20')"
+        @click="[store.changeColor('black/20'), store.changeHeart('🖤')]"
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
           <div class="h-4 w-4 bg-black/20 rounded-full"></div>
         </button>
       </div>
-      <!-- Red Colors -->
+      <!-- Red colors -->
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-      @click="store.changeColor('red-500')"
+      @click="[store.changeColor('red-500'), store.changeHeart('❤️')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-red-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-      @click="store.changeColor('orange-500')"
+      @click="[store.changeColor('orange-500'), store.changeHeart('🧡')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-orange-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('yellow-500')"
+      @click="[store.changeColor('yellow-500'), store.changeHeart('💛')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-yellow-500 rounded-full"></div>
       </button>
-      <!-- Green Colors -->
+      <!-- Green colors -->
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('green-500')"
+      @click="[store.changeColor('green-500'), store.changeHeart('💚')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-green-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('lime-500')"
+      @click="[store.changeColor('lime-500'), store.changeHeart('💚')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-lime-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-      @click="store.changeColor('emerald-500')"
+      @click="[store.changeColor('emerald-500'), store.changeHeart('💚')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-emerald-300 rounded-full"></div>
       </button>
-      <!-- Blue Colors -->
+      <!-- Blue colors -->
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-      @click="store.changeColor('blue-500')"
+      @click="[store.changeColor('blue-500'), store.changeHeart('💙')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-blue-600 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('sky-500')"
+      @click="[store.changeColor('sky-500'), store.changeHeart('💙')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-sky-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('cyan-500')"
+      @click="[store.changeColor('cyan-500'), store.changeHeart('💙')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-cyan-400 rounded-full"></div>
       </button>
-      <!-- Pink Colors -->
+      <!-- Pink colors -->
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('purple-500')"
+      @click="[store.changeColor('purple-500'), store.changeHeart('💜')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-purple-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
-      @click="store.changeColor('fuchsia-500')"
+      @click="[store.changeColor('fuchsia-500'), store.changeHeart('💜')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-fuchsia-500 rounded-full"></div>
       </button>
       <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl"
-      @click="store.changeColor('pink-500')"
+      @click="[store.changeColor('pink-500'), store.changeHeart('💗')]"
       :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
         <div class="h-4 w-4 bg-pink-500 rounded-full"></div>
       </button>
