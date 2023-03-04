@@ -24,15 +24,21 @@ export default {
       }
     }
     function clickOperator(op: string): void {
+      if (store.sound)
+        // audio.play();
       console.log(op);
       return;
     }
     function deleteNum(): void {
+      if (store.sound)
+        // audio.play();
       if (store.number.length > 1)
         store.number = store.number.slice(0, -1);
       else resetNum();
     }
     function resetNum(): void {
+      if (store.sound)
+        // audio.play();
       store.number = '0';
     }
     function lastAns(): void {
