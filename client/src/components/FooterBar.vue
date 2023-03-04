@@ -26,7 +26,7 @@ export default {
 }
 </script>
 <template>
-  <div class="p-4 mt-4 text-center text-xs text-gray-400 min-w-full" > 
+  <div class="absolute bottom-0 p-4 pb-24 mt-4 text-center text-xs text-gray-400 min-w-full" > 
     <settings-buttons />
     <social-buttons />
     <div class="flex flex-wrap justify-center items-center rounded-xl m-4 mt-8 min-w-full">

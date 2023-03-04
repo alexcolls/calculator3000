@@ -37,7 +37,7 @@ export default defineComponent({
     <screen-panel />
     <keyboard-panel />
     <!-- <history-list /> -->
-    <footer-bar class="pt-24"/>
+    <footer-bar />
   </div>
 </template>
 

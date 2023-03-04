@@ -46,27 +46,45 @@ export default {
   <div class="m-auto w-80">
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- 1 -->
-      <button @click="clickNum(1)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-tl-xl align-middle relative border">
+      <button @click="clickNum(1)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 rounded-tl-xl align-middle relative border shadow-sm">
         1
       </button>
       <!-- 2 -->
-      <button @click="clickNum(2)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickNum(2)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         2
       </button>
       <!-- 3 -->
-      <button @click="clickNum(3)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-tr-xl align-middle relative border">
+      <button @click="clickNum(3)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 rounded-tr-xl align-middle relative border shadow-sm">
         3
       </button>
       <!-- DEL -->
-      <button @click="clickNum(4)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="deleteNum()" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 rounded-tl-xl align-middle relative border shadow-sm">
         DEL
       </button>
       <!-- AC -->
-      <button @click="clickNum(4)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="resetNum()"
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 rounded-tr-xl align-middle relative border shadow-sm">
         AC
       </button>
       <!-- 4 -->
-      <button @click="clickNum(4)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickNum(4)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         4
       </button>
       <!-- 5 -->
