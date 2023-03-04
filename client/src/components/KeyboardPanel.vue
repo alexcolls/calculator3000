@@ -9,7 +9,7 @@ export default {
     const maxNumber = 1000000000000;
     // const audio = new Audio(click_sound);
     // Keyboard functionality
-    function clickNum(n: number) {
+    function clickNum(n: number): void {
       if (store.sound)
         // audio.play();
       if (store.number[0] === '0') {
@@ -23,21 +23,33 @@ export default {
         return alert(`store.number must be between -${nf.format(maxNumber)} and ${nf.format(maxNumber)}, including both.`);
       }
     }
-    function deleteNum() {
+    function clickOperator(op: string): void {
+      console.log(op);
+      return;
+    }
+    function deleteNum(): void {
       if (store.number.length > 1)
         store.number = store.number.slice(0, -1);
       else resetNum();
     }
-    function resetNum() {
+    function resetNum(): void {
       store.number = '0';
+    }
+    function lastAns(): void {
+      return;
+    }
+    function calculate(): void {
+      return;
     }
     return {
       store,
-      nf,
+      // audio
       clickNum,
+      clickOperator,
       deleteNum,
       resetNum,
-      // audio
+      lastAns,
+      calculate
     };
   }
 }
@@ -49,7 +61,7 @@ export default {
       <button @click="clickNum(1)" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 rounded-tl-xl align-middle relative border shadow-sm">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl">
         1
       </button>
       <!-- 2 -->
@@ -63,21 +75,21 @@ export default {
       <button @click="clickNum(3)" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 rounded-tr-xl align-middle relative border shadow-sm">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl">
         3
       </button>
       <!-- DEL -->
       <button @click="deleteNum()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 rounded-tl-xl align-middle relative border shadow-sm">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl">
         DEL
       </button>
       <!-- AC -->
       <button @click="resetNum()"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 rounded-tr-xl align-middle relative border shadow-sm">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl">
         AC
       </button>
       <!-- 4 -->
@@ -88,59 +100,101 @@ export default {
         4
       </button>
       <!-- 5 -->
-      <button @click="clickNum(5)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickNum(5)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         5
       </button>
       <!-- 6 -->
-      <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickNum(6)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         6
       </button>
       <!-- x -->
-      <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickOperator('*')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         x
       </button>
       <!-- ÷ -->
-      <button @click="clickNum(6)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickOperator('/')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         ÷
       </button>
       <!-- 7 -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="clickNum(7)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         7
       </button>
       <!-- 8 -->
-      <button @click="clickNum(8)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 align-middle relative border">
+      <button @click="clickNum(8)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         8
       </button>
       <!-- 9 -->
-      <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
+      <button @click="clickNum(9)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
         9
       </button>
       <!-- + -->
-      <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
+      <button @click="clickOperator('+')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         +
       </button>
       <!-- - -->
-      <button @click="clickNum(9)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-br-xl align-middle relative border">
+      <button @click="clickOperator('-')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         -
       </button>
       <!-- 0 -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="clickNum(0)" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-br-xl ">
         0
       </button>
       <!-- · -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="clickOperator('.')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl ">
         ·
       </button>
       <!-- ×10^ -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="clickOperator('10^')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         ×10^
       </button>
       <!-- ANS -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="lastAns()" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm">
         ANS
       </button>
       <!-- = -->
-      <button @click="clickNum(7)" :class="store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100'" class="py-4 px-2 rounded-bl-xl align-middle relative border">
+      <button @click="calculate()" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl ">
         =
       </button> 
     </div>
