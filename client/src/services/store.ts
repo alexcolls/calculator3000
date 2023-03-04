@@ -9,8 +9,8 @@ const useStore = defineStore("main", {
       history: [],
       dark: true,
       sound: true,
-      color: "white/20",
-      heart: "🤍",
+      color: "blue-500",
+      heart: "💙",
     };
   },
   actions: {
