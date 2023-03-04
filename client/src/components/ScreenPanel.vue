@@ -29,6 +29,6 @@ export default {
     <div class="text-4xl font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
       {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}
     </div>
-   
+
   </div>
 </template>

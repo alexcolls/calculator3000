@@ -113,19 +113,19 @@ export default {
       class="py-4 px-2 align-middle relative border shadow-sm">
         6
       </button>
-      <!-- x -->
-      <button @click="clickOperator('*')" 
+      <!-- + -->
+      <button @click="clickOperator('+')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
-        x
+        +
       </button>
-      <!-- ÷ -->
-      <button @click="clickOperator('/')" 
+      <!-- - -->
+      <button @click="clickOperator('-')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
-        ÷
+        -
       </button>
       <!-- 7 -->
       <button @click="clickNum(7)" 
@@ -148,19 +148,19 @@ export default {
       class="py-4 px-2 align-middle relative border shadow-sm">
         9
       </button>
-      <!-- + -->
-      <button @click="clickOperator('+')" 
+       <!-- x -->
+      <button @click="clickOperator('*')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
-        +
+        x
       </button>
-      <!-- - -->
-      <button @click="clickOperator('-')" 
+      <!-- ÷ -->
+      <button @click="clickOperator('/')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
-        -
+        ÷
       </button>
       <!-- · -->
       <button @click="clickNum(0)" 
@@ -176,26 +176,26 @@ export default {
       class="py-4 px-2 align-middle relative border shadow-sm">
         0
       </button>
-      <!-- ANS -->
-      <button @click="lastAns()" 
-      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
-      `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
-        ANS
-      </button>
-      <!-- ×10^ -->
-      <button @click="clickOperator('10^')" 
-      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
-      `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
-        ×10^
-      </button>
       <!-- = -->
       <button @click="calculate()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl ">
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
         =
+      </button>
+      <!-- xⁿ -->
+      <button @click="clickOperator('^')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
+        ×ⁿ
+      </button>
+      <!-- √ -->
+      <button @click="clickOperator('//')" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-400 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl ">
+        √
       </button> 
     </div>
   </div>
