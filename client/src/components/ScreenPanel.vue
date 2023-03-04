@@ -15,12 +15,7 @@ export default {
 <template>
   <div class="m-auto p-2 py-8">
     <div class="text-4xl font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
-      <div v-if="store.negative">
-        - {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
-      </div>
-      <div v-else >
-        {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
-      </div>
+      {{ store.operator }} {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
     </div>
     <lo class="" 
     :class="store.dark ? 'bg-gray-700 shadow-white/20' : 'bg-gray-200 shadow-black/20'">

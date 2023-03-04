@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 interface State {
   number: string;
   decimals: string;
-  negative: boolean;
+  operator: string;
   operations: string[];
   result: number;
   history: string[];
@@ -18,7 +18,7 @@ const useStore = defineStore("main", {
     return {
       number: "0",
       decimals: "",
-      negative: false,
+      operator: "",
       operations: [],
       result: 0,
       history: [],
@@ -29,16 +29,19 @@ const useStore = defineStore("main", {
     };
   },
   actions: {
-    switchDark() {
+    addOperator(op: string): void {
+      this.operator = op;
+    },
+    switchDark(): void {
       this.dark = !this.dark;
     },
-    switchSound() {
+    switchSound(): void {
       this.sound = !this.sound;
     },
-    changeColor(color: string) {
+    changeColor(color: string): void {
       this.color = color;
     },
-    changeHeart(heart: string) {
+    changeHeart(heart: string): void {
       this.heart = heart;
     },
   },

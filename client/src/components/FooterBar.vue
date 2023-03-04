@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <template>
-  <div class="lg:absolute lg:bottom-0 px-4 pt-16 pb-24 mt-24 text-center text-xs text-gray-400 min-w-full" 
+  <div class="w-full h-full px-4 pt-16 pb-24 mt-24 text-center text-xs text-gray-400" 
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'"> 
@@ -35,16 +35,16 @@ export default {
     <social-buttons />
     <div class="flex flex-wrap justify-center items-center rounded-xl m-4 mt-8 min-w-full">
       <!-- UTC date -->
-      <div class="text-center text-md tracking-widest font-semibold justify-center mr-8 text-gray-400">
+      <div class="text-md tracking-widest font-semibold justify-center mr-8">
         {{ date }}
       </div>
       <!-- UTC time -->
-      <div class="text-center text-md tracking-widest font-semibold justify-center mr-8 text-gray-400">
+      <div class="text-md tracking-widest font-semibold justify-center mr-8">
         {{ time }}<span class="text-xs"> UTC</span>
       </div>
     </div>
     <div class="mt-8">
       Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator" target="_blank" class="underline">Free rights of use.</a>
-    </div>
+    </div>  
   </div>
 </template>

@@ -34,11 +34,10 @@ export default {
     function clickOperator(op: string): void {
       if (store.sound)
         // audio.play();
-      if (store.number === '0' && op === '-')
-        store.negative = true;
+      if (store.number === '0')
+        store.addOperator(op);
       else store.operations.push(`${op} ${store.number}${store.decimals}`);
-      resetNum();
-
+      // resetNum();
       return;
     }
     function clickDecimals(): void {
@@ -61,7 +60,7 @@ export default {
         // audio.play();
       store.number = '0';
       store.decimals = '';
-      store.negative = false;
+      store.operator = '';
     }
     function clickAC(): void {
       resetNum();
