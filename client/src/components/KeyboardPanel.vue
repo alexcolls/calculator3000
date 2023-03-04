@@ -34,7 +34,7 @@ export default {
     function clickOperator(op: string): void {
       if (store.sound)
         // audio.play();
-      if (store.number==='0' && op==='-')
+      if (store.number === '0' && op === '-')
         store.negative = true;
       else store.operations.push(`${op} ${store.number}`);
       store.number = '0';
