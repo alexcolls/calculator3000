@@ -6,21 +6,29 @@ export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-    const maxNumber = 1000000000000;
+    const maxNumber = 1000000000000; // trillion
+    const maxDecimals = 5; // billion
     // const audio = new Audio(click_sound);
     // Keyboard functionality
     function clickNum(n: number): void {
       if (store.sound)
         // audio.play();
-      if (store.number[0] === '0') {
-        store.number = String(n);
-        return;
-      }
-      if (Number(store.number) + n <= maxNumber) {
-        store.number += n;
-        return;
+      if (!store.decimals) {
+        if (store.number[0] === '0') {
+          store.number = String(n);
+          return;
+        }
+        if (Number(store.number) + n <= maxNumber) {
+          store.number += n;
+          return;
+        } else {
+          return alert(`Number must be between -${nf.format(maxNumber)} and ${nf.format(maxNumber)}, including both.`);
+        }
       } else {
-        return alert(`store.number must be between -${nf.format(maxNumber)} and ${nf.format(maxNumber)}, including both.`);
+        if (store.decimals.length > maxDecimals)
+          return alert(`Sorry, maximum decimals allowed is ${maxDecimals}.`);
+        else
+          store.decimals += n;
       }
     }
     function clickOperator(op: string): void {
@@ -31,6 +39,14 @@ export default {
       else store.operations.push(`${op} ${store.number}`);
       store.number = '0';
       return;
+    }
+    function clickDecimals(): void {
+      if (store.sound)
+        // audio.play();
+      if (store.decimals)
+        store.decimals = '';
+      else
+        store.decimals = '.';
     }
     function deleteNum(): void {
       if (store.sound)
@@ -43,6 +59,7 @@ export default {
       if (store.sound)
         // audio.play();
       store.number = '0';
+      store.decimals = '';
       store.negative = false;
       store.operations = [];
     }
@@ -57,6 +74,7 @@ export default {
       // audio
       clickNum,
       clickOperator,
+      clickDecimals,
       deleteNum,
       resetNum,
       lastAns,
@@ -174,7 +192,7 @@ export default {
         ÷
       </button>
       <!-- · -->
-      <button @click="clickNum(0)" 
+      <button @click="clickDecimals()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
