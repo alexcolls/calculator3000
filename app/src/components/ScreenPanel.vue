@@ -64,7 +64,7 @@ export default {
         <p class="pt-2 text-sm">
           Message
         </p>
-        <button class="mr-3 pt-1 ounded-full h-6 w-6 m-2 flex justify-center text-xs text-gray-500" >
+        <button class="mr-3 pt-1 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
           [ {{String(store.idx)}} ]
         </button>
       </div>
