@@ -33,13 +33,13 @@ export default {
   'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'"> 
     <settings-buttons />
     <social-buttons />
-    <div class="flex flex-wrap justify-center items-center rounded-xl m-4 mt-8 min-w-full">
+    <div class="flex flex-wrap justify-center items-center rounded-xl mt-8 min-w-full">
       <!-- UTC date -->
-      <div class="text-md tracking-widest font-semibold justify-center mr-8">
+      <div class="text-md tracking-widest font-semibold justify-center mr-4">
         {{ date }}
       </div>
       <!-- UTC time -->
-      <div class="text-md tracking-widest font-semibold justify-center mr-8">
+      <div class="text-md tracking-widest font-semibold justify-center ml-4">
         {{ time }}<span class="text-xs"> UTC</span>
       </div>
     </div>

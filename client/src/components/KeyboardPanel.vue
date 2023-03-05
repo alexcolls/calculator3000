@@ -72,7 +72,6 @@ export default {
     }
     return {
       store,
-      // audio
       clickNum,
       clickOperator,
       clickDecimals,
