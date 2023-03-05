@@ -18,6 +18,7 @@ export default {
     }
     // Keyboard functionality
     function clickNum(n: number): void {
+      if (store.operator === '=') clickAC();
       if (!store.decimals) {
         if (store.number[0] === '0') {
           store.number = String(n);
@@ -36,6 +37,10 @@ export default {
       }
     }
     function clickOperator(op: string): void {
+      if (store.operator === '=') {
+        clickAC();
+        return;
+      }
       if (store.number === '0') {
         store.addOperator(op);
       } else {
@@ -47,6 +52,10 @@ export default {
       }
     }
     function clickDecimals(): void {
+      if (store.operator === '=') {
+        clickAC();
+        return;
+      }
       if (store.decimals) store.decimals = '';
       else store.decimals = '.';
     }
@@ -55,6 +64,10 @@ export default {
       store.decimals = '';
     }
     function clickDEL(): void {
+       if (store.operator === '=') {
+        clickAC();
+        return;
+      }
       if (store.number === '0') {
         store.operator = '';
         return;
