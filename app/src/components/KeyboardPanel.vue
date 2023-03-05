@@ -8,11 +8,13 @@ export default {
     const nf = Intl.NumberFormat();
     const maxNumber = 1000000000000; // trillion
     const maxDecimals = 8;
-    // const audio = new Audio(click_sound);
+    const audio = new Audio();
+    function playSound(): void {
+      if (store.sound) audio.play();
+    }
     // Keyboard functionality
     function clickNum(n: number): void {
-      if (store.sound)
-        // audio.play();
+      
       if (!store.decimals) {
         if (store.number[0] === '0') {
           store.number = String(n);
@@ -27,8 +29,7 @@ export default {
       } else {
         if (store.decimals.length > maxDecimals)
           return alert(`Sorry, maximum decimals allowed is ${maxDecimals}.`);
-        else
-          store.decimals += n;
+        else store.decimals += n;
       }
     }
     function clickOperator(op: string): void {
@@ -43,29 +44,29 @@ export default {
         store.addOperator(op);
         resetNum();
       }
-      // resetNum();
-      return;
     }
     function clickDecimals(): void {
-      if (store.sound)
-        // audio.play();
-      if (store.decimals)
-        store.decimals = '';
-      else
-        store.decimals = '.';
-    }
-    function deleteNum(): void {
-      if (store.sound)
-        // audio.play();
-      if (store.number.length > 1)
-        store.number = store.number.slice(0, -1);
-      else resetNum();
+      if (store.decimals) store.decimals = '';
+      else store.decimals = '.';
     }
     function resetNum(): void {
-      if (store.sound)
-        // audio.play();
       store.number = '0';
       store.decimals = '';
+    }
+    function clickDEL(): void {
+      if (store.number === '0') {
+        store.operator = '';
+        return;
+      }
+      if (store.decimals) {
+        store.decimals = store.decimals.slice(0, -1);
+        return;
+      }
+      if (store.number.length > 1) {
+        store.number = store.number.slice(0, -1);
+        return;
+      }
+      resetNum();
     }
     function clickAC(): void {
       if (store.sound)
@@ -87,22 +88,25 @@ export default {
         'ⁿ': (a: number, b: number): number => { return Math.pow(a, b) },
         '√': (a: number, b: number): number => { return a + Math.sqrt(b) },
       };
-      let result = 0;
       const ops = store.operations.split(' ');
-      let num = Number(ops[1]);
+      let result = Number(ops[1]);
+      let num = 0;
       for (const op of ops) {
+        console.log(op);
         if (/\d/.test(op)) num = Number(op);
         else result = operations[op](result, num);
+        console.log()
       }
       store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
       return;
     }
     return {
       store,
+      playSound,
       clickNum,
       clickOperator,
       clickDecimals,
-      deleteNum,
+      clickDEL,
       clickAC,
       calculate
     };
@@ -113,7 +117,7 @@ export default {
   <div class="m-auto w-80">
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- 1 -->
-      <button @click="clickNum(1)" 
+      <button @click="[clickNum(1), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl">
@@ -134,7 +138,7 @@ export default {
         3
       </button>
       <!-- DEL -->
-      <button @click="deleteNum()" 
+      <button @click="clickDEL()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl text-sm">
