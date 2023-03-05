@@ -124,133 +124,133 @@ export default {
         1
       </button>
       <!-- 2 -->
-      <button @click="clickNum(2)" 
+      <button @click="[clickNum(2), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         2
       </button>
       <!-- 3 -->
-      <button @click="clickNum(3)" 
+      <button @click="[clickNum(3), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl">
         3
       </button>
       <!-- DEL -->
-      <button @click="clickDEL()" 
+      <button @click="[clickDEL(), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl text-sm">
         DEL
       </button>
       <!-- AC -->
-      <button @click="clickAC()"
+      <button @click="[clickAC(), playSound()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl text-sm">
         AC
       </button>
       <!-- 4 -->
-      <button @click="clickNum(4)" 
+      <button @click="[clickNum(4), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         4
       </button>
       <!-- 5 -->
-      <button @click="clickNum(5)" 
+      <button @click="[clickNum(5), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         5
       </button>
       <!-- 6 -->
-      <button @click="clickNum(6)" 
+      <button @click="[clickNum(6), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         6
       </button>
       <!-- + -->
-      <button @click="clickOperator('+')" 
+      <button @click="[clickOperator('+'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         +
       </button>
       <!-- - -->
-      <button @click="clickOperator('-')" 
+      <button @click="[clickOperator('-'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         -
       </button>
       <!-- 7 -->
-      <button @click="clickNum(7)" 
+      <button @click="[clickNum(7), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         7
       </button>
       <!-- 8 -->
-      <button @click="clickNum(8)" 
+      <button @click="[clickNum(8), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         8
       </button>
       <!-- 9 -->
-      <button @click="clickNum(9)" 
+      <button @click="[clickNum(9), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         9
       </button>
        <!-- x -->
-      <button @click="clickOperator('x')" 
+      <button @click="[clickOperator('x'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm text-sm">
         x
       </button>
       <!-- ÷ -->
-      <button @click="clickOperator('÷')" 
+      <button @click="[clickOperator('÷'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         ÷
       </button>
       <!-- · -->
-      <button @click="clickDecimals()" 
+      <button @click="[clickDecimals(), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
         ·
       </button>
       <!-- 0 -->
-      <button @click="clickNum(0)" 
+      <button @click="[clickNum(0), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         0
       </button>
       <!-- = -->
-      <button @click="calculate()" 
+      <button @click="[calculate(), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
         =
       </button>
       <!-- xⁿ -->
-      <button @click="clickOperator('×ⁿ')" 
+      <button @click="[clickOperator('×ⁿ'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
         ×ⁿ
       </button>
       <!-- √ -->
-      <button @click="clickOperator('√')" 
+      <button @click="[clickOperator('√'), playSound()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl text-sm">
