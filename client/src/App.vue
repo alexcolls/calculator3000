@@ -26,15 +26,15 @@ export default defineComponent({
 
 <template>
   <div :class="store.dark ?
-    'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
-    'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
+  'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
+  'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
     <div class="flex justify-center align-middle p-4 pt-14">
       <a href="https://www.innocv.com/" target="_blank">
         <img alt="INNOCV logo" src="./assets/image/logo.png">
       </a>
     </div>
     <screen-panel />
-    <keyboard-panel />
+    <keyboard-panel class="pb-24"/>
     <!-- <history-list /> -->
     <footer-bar />
   </div>
