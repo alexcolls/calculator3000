@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <template>
-  <div class="w-full h-full px-4 pt-16 pb-24 mt-24 text-center text-xs text-gray-400" 
+  <div class="py-16 mt-16 text-center text-xs text-gray-400" 
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'"> 
@@ -43,7 +43,7 @@ export default {
         {{ time }}<span class="text-xs"> UTC</span>
       </div>
     </div>
-    <div class="mt-8">
+    <div class="py-8">
       Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator" target="_blank" class="underline">Free rights of use.</a>
     </div>  
   </div>
