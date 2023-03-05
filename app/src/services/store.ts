@@ -4,7 +4,7 @@ interface State {
   number: string;
   decimals: string;
   operator: string;
-  operations: string[];
+  operations: string;
   result: number;
   history: string[];
   dark: boolean;
@@ -19,7 +19,7 @@ const useStore = defineStore("main", {
       number: "0",
       decimals: "",
       operator: "",
-      operations: [],
+      operations: "",
       result: 0,
       history: [],
       dark: true,
@@ -31,6 +31,10 @@ const useStore = defineStore("main", {
   actions: {
     addOperator(op: string): void {
       this.operator = op;
+    },
+    addOperation(op: string): void {
+      if (!this.operations) this.operations = op;
+      else this.operations += " " + op;
     },
     switchDark(): void {
       this.dark = !this.dark;

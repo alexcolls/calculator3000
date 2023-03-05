@@ -37,7 +37,9 @@ export default {
       if (store.number === '0') {
         store.addOperator(op);
       } else {
-        store.operations.push(`${store.operator} ${store.number}${store.decimals}`);
+        let operator = '+';
+        if (store.operator) operator = store.operator;
+        store.addOperation(`${operator} ${store.number}${store.decimals}`);
         store.addOperator(op);
         resetNum();
       }
@@ -66,12 +68,33 @@ export default {
       store.decimals = '';
     }
     function clickAC(): void {
+      if (store.sound)
+        // audio.play();
       resetNum();
       store.operator = '';
-      store.operations = [];
+      store.operations = '';
       return;
     }
     function calculate(): void {
+      clickOperator(store.operator);
+      store.addOperator('=');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const operations: any = {
+        '+': (a: number, b: number): number => { return a + b },
+        '-': (a: number, b: number): number => { return a - b },
+        'x': (a: number, b: number): number => { return a * b },
+        '÷': (a: number, b: number): number => { return a / b },
+        'ⁿ': (a: number, b: number): number => { return Math.pow(a, b) },
+        '√': (a: number, b: number): number => { return a + Math.sqrt(b) },
+      };
+      let result = 0;
+      const ops = store.operations.split(' ');
+      let num = Number(ops[1]);
+      for (const op of ops) {
+        if (/\d/.test(op)) num = Number(op);
+        else result = operations[op](result, num);
+      }
+      store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
       return;
     }
     return {
@@ -202,7 +225,7 @@ export default {
         ·
       </button>
       <!-- 0 -->
-      <button @click="clickOperator('.')" 
+      <button @click="clickNum(0)" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
@@ -216,14 +239,14 @@ export default {
         =
       </button>
       <!-- xⁿ -->
-      <button @click="clickOperator('^')" 
+      <button @click="clickOperator('×ⁿ')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
         ×ⁿ
       </button>
       <!-- √ -->
-      <button @click="clickOperator('//')" 
+      <button @click="clickOperator('√')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl text-sm">

@@ -14,15 +14,12 @@ export default {
 </script>
 <template>
   <div class="m-auto py-8">
-    <div class="text-4xl font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
+    <div class="text-center text-semibold text-xl py-2" 
+    :class="[store.dark ? 'bg-gray-800 shadow-white/20' : 'bg-gray-200 shadow-black/20', `text-${store.color}`]">
+      {{ store.operations }}
+    </div>
+    <div class="text-4xl mt-8 font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
       <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
     </div>
-    <lo class="text-center" 
-    :class="store.dark ? 'bg-gray-700 shadow-white/20' : 'bg-gray-200 shadow-black/20'">
-      <div v-for="x of store.operations" :key="x">
-        {{ x }}
-      </div>
-
-    </lo>
   </div>
 </template>
