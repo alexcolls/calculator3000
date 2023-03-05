@@ -20,7 +20,6 @@ export default {
     </h1>
     <div class="m-auto py-2 w-80 rounded-xl border shadow-inner"
     :class="store.dark ? `bg-black/50 text-white/80 border-white/30 shadow-${store.color}` : `bg-white/50 text-black/80 border-black/30 shadow-${store.color}`" >
-      
       <div class="py-2 mt-2">
         {{ store.operations }}
       </div>
