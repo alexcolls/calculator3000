@@ -34,9 +34,13 @@ export default {
     function clickOperator(op: string): void {
       if (store.sound)
         // audio.play();
-      if (store.number === '0')
+      if (store.number === '0') {
         store.addOperator(op);
-      else store.operations.push(`${op} ${store.number}${store.decimals}`);
+      } else {
+        store.operations.push(`${store.operator} ${store.number}${store.decimals}`);
+        store.addOperator(op);
+        resetNum();
+      }
       // resetNum();
       return;
     }
@@ -60,10 +64,10 @@ export default {
         // audio.play();
       store.number = '0';
       store.decimals = '';
-      store.operator = '';
     }
     function clickAC(): void {
       resetNum();
+      store.operator = '';
       store.operations = [];
       return;
     }
@@ -177,14 +181,14 @@ export default {
         9
       </button>
        <!-- x -->
-      <button @click="clickOperator('*')" 
+      <button @click="clickOperator('x')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm text-sm">
         x
       </button>
       <!-- ÷ -->
-      <button @click="clickOperator('/')" 
+      <button @click="clickOperator('÷')" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
