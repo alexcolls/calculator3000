@@ -6,12 +6,18 @@ interface State {
   operator: string;
   operations: string;
   result: number;
-  history: string[];
+  history: History[];
   idx: number;
   dark: boolean;
   sound: boolean;
   color: string;
   heart: string;
+  message: string;
+}
+
+interface History {
+  operations: string;
+  result: number;
 }
 
 const useStore = defineStore("main", {
@@ -28,6 +34,7 @@ const useStore = defineStore("main", {
       sound: true,
       color: "blue-500",
       heart: "💙",
+      message: "Welcome to CALCULATOR 3000",
     };
   },
   actions: {
@@ -44,6 +51,13 @@ const useStore = defineStore("main", {
     addOperation(op: string): void {
       if (!this.operations) this.operations = op;
       else this.operations += " " + op;
+    },
+    addHistory(): void {
+      const hist: History = {
+        operations: this.operations,
+        result: this.result,
+      };
+      this.history.push(hist);
     },
     switchDark(): void {
       this.dark = !this.dark;

@@ -18,6 +18,8 @@ export default {
     }
     // Keyboard functionality
     function clickNum(n: number): void {
+      store.message = '';
+      store.idx = 0;
       if (store.operator === '=') clickAC();
       if (!store.decimals) {
         if (store.number[0] === '0') {
@@ -32,11 +34,13 @@ export default {
         }
       } else {
         if (store.decimals.length > maxDecimals)
-          return alert(`Sorry, maximum decimals allowed is ${maxDecimals}.`);
+          return alert(`Sorry, maximum ${maxDecimals} decimals allowed.`);
         else store.decimals += n;
       }
     }
     function clickOperator(op: string): void {
+      store.message = '';
+      store.idx = 0;
       if (store.operator === '=') {
         clickAC();
         return;
@@ -52,6 +56,7 @@ export default {
       }
     }
     function clickDecimals(): void {
+      if (store.operator === '0') return;
       if (store.operator === '=') {
         clickAC();
         return;
@@ -89,7 +94,7 @@ export default {
       return;
     } 
     function calculate(): void {
-       if (store.operator === '=' 
+      if (store.operator === '=' 
        || (!store.operations && store.number === '0')) {
         clickAC();
         return;
@@ -121,6 +126,16 @@ export default {
         console.log()
       }
       store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
+      const randomMsgs = [
+        'Great calculation!',
+        'You are a 🧠',
+        "2+2 is not always 4, isn't it? 🤔",
+        'Fantastic! 👍',
+        'You are a genius!'
+      ];
+      const idx = Math.floor(Math.random() * randomMsgs.length + 1);
+      store.message = randomMsgs[idx];
+      store.addHistory();
       return;
     }
     return {

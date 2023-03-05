@@ -16,6 +16,14 @@ export default {
       store.operations = store.operations + ' )';
     }
     function clickANS(): void {
+      if (store.history.length === store.idx+1) {
+        store.message = 'You have no more history!';
+        return;
+      }
+      const hist = store.history[store.idx];
+      store.operations = hist.operations;
+      store.result = hist.result;
+      store.operator = '=';
       store.idx++;
     }
     return {
@@ -61,8 +69,8 @@ export default {
         @click="clickANS()" >
           ANS
         </button>
-        <p class="pt-2 text-sm">
-          Message
+        <p class="pt-4 text-xs">
+          {{ store.message }}
         </p>
         <button class="mr-3 pt-1 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
           [ {{String(store.idx)}} ]
