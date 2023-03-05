@@ -7,6 +7,7 @@ interface State {
   operations: string;
   result: number;
   history: string[];
+  idx: number;
   dark: boolean;
   sound: boolean;
   color: string;
@@ -22,6 +23,7 @@ const useStore = defineStore("main", {
       operations: "",
       result: 0,
       history: [],
+      idx: 0,
       dark: true,
       sound: true,
       color: "blue-500",

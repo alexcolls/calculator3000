@@ -47,20 +47,19 @@ export default {
       <div class="m-auto">
         {{ store.operations }}
       </div>
-      <div class="py-2 mb-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
+      <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-600`" >
         <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
       </div>
       <div class="flex justify-between">
-        <button class="ml-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
-        @click="openParenthesis()" 
-        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-          (
+        <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
+        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
+          ANS
         </button>
-        <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
-          @click="openParenthesis()" 
-          :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-          )
+        <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs" 
+        :class="store.dark ? 'text-gray-500' : 'text-gray-300'" 
+         >
+          [ {{String(store.idx)}} ]
         </button>
       </div>
     </div>
