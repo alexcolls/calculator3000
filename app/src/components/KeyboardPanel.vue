@@ -89,7 +89,8 @@ export default {
       return;
     } 
     function calculate(): void {
-       if (store.operator === '=') {
+       if (store.operator === '=' 
+       || (!store.operations && store.number === '0')) {
         clickAC();
         return;
       }
