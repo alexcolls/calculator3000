@@ -25,8 +25,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="w-screen h-screen"
-    :class="store.dark ?
+  <div :class="store.dark ?
     'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
     'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
     <div class="flex justify-center align-middle p-4 pt-14">
@@ -64,7 +63,7 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background:  linear-gradient(30deg, #335B7F, #F69F8A);
+  background:  linear-gradient(30deg, #F69F8A, #335B7F);
   box-shadow: inset 0 0 6px #A66684,
 }
 </style>
