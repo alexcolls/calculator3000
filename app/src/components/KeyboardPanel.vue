@@ -279,7 +279,7 @@ export default {
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl text-sm">
         √
-      </button> 
+      </button>
     </div>
   </div>
 </template>
