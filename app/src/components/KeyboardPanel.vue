@@ -9,8 +9,12 @@ export default {
     const maxNumber = 1000000000000; // trillion
     const maxDecimals = 8;
     const audio = new Audio();
+    const audio2 = new Audio();
     function playSound(): void {
       if (store.sound) audio.play();
+    }
+    function playSound2(): void {
+      if (store.sound) audio2.play();
     }
     // Keyboard functionality
     function clickNum(n: number): void {
@@ -103,6 +107,7 @@ export default {
     return {
       store,
       playSound,
+      playSound2,
       clickNum,
       clickOperator,
       clickDecimals,
@@ -236,7 +241,7 @@ export default {
         0
       </button>
       <!-- = -->
-      <button @click="[calculate(), playSound()]" 
+      <button @click="[calculate(), playSound2()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
