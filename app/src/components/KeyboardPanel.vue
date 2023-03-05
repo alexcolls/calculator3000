@@ -18,7 +18,6 @@ export default {
     }
     // Keyboard functionality
     function clickNum(n: number): void {
-      
       if (!store.decimals) {
         if (store.number[0] === '0') {
           store.number = String(n);
@@ -37,8 +36,6 @@ export default {
       }
     }
     function clickOperator(op: string): void {
-      if (store.sound)
-        // audio.play();
       if (store.number === '0') {
         store.addOperator(op);
       } else {
