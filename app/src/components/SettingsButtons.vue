@@ -192,5 +192,24 @@ export default {
 <div class="bg-purple-500 text-purple-500 shadow-purple-500 border-purple-500"></div>
 <div class="bg-fuchsia-500 text-fuchsia-500 shadow-fuchsia-500 border-fuchsia-500"></div>
 <div class="bg-pink-500 text-pink-500 shadow-pink-500 border-pink-500"></div>
+<!-- from to -->
+<div class="from-black/90 to-black/90"></div>
+<div class="from-black/60 to-black/60"></div>
+<div class="from-black/20 to-black/20"></div>
+<div class="from-white/90 to-white/90"></div>
+<div class="from-white/60 to-white/60"></div>
+<div class="from-white/20 to-white/20"></div>
+<div class="from-red-500 to-red-500"></div>
+<div class="from-orange-500 to-orange-500"></div>
+<div class="from-yellow-500 to-yellow-500"></div>
+<div class="from-green-500 to-green-500"></div>
+<div class="from-emerald-500 to-emerald-500"></div>
+<div class="from-lime-500 to-lime-500"></div>
+<div class="from-blue-500 to-blue-500"></div>
+<div class="from-sky-500 to-sky-500 "></div>
+<div class="from-cyan-500 to-cyan-500"></div>
+<div class="from-purple-500 to-purple-500"></div>
+<div class="from-fuchsia-500 to-fuchsia-500"></div>
+<div class="from-pink-500 to-pink-500"></div>
 </div>
 </template>
