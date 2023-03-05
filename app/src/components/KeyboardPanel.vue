@@ -64,7 +64,7 @@ export default {
       store.decimals = '';
     }
     function clickDEL(): void {
-       if (store.operator === '=') {
+      if (store.operator === '=') {
         clickAC();
         return;
       }
@@ -83,14 +83,16 @@ export default {
       resetNum();
     }
     function clickAC(): void {
-      if (store.sound)
-        // audio.play();
       resetNum();
       store.operator = '';
       store.operations = '';
       return;
     } 
     function calculate(): void {
+       if (store.operator === '=') {
+        clickAC();
+        return;
+      }
       clickOperator(store.operator);
       store.addOperator('=');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -111,7 +113,7 @@ export default {
         if (/\d/.test(op)) {
           num = Number(op);
         } else {
-          const opSplit = op.split(' '); // For negative operations. Ex: op: 'x -'
+          const opSplit = op.split(' '); // For negative operations. Example: op: 'x -'
           result = operations[opSplit[0]](result, num);
           if (opSplit.length > 1) result = -result;
         }
