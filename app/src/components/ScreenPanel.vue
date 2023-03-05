@@ -5,21 +5,25 @@ export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-    function openParenthesis() {
+    function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
       store.operations = `${store.operations} ${op} (`;
     }
-    function closeParenthesis() {
+    function closeParenthesis(): void {
       const ops = store.operations.split(' ');
       if (ops.length > 3)   
       store.operations = store.operations + ' )';
+    }
+    function clickANS(): void {
+      store.idx++;
     }
     return {
       store,
       nf,
       openParenthesis,
-      closeParenthesis
+      closeParenthesis,
+      clickANS
     }
   }
 }
@@ -34,13 +38,13 @@ export default {
     :class="store.dark ? `bg-black/50 text-white/80 border-white/30 shadow-${store.color}` : `bg-white/50 text-black/80 border-black/30 shadow-${store.color}`" >
       <div class="flex justify-between">
         <button class="ml-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
-        @click="openParenthesis()" 
-        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
+        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
+        @click="openParenthesis()" >
           (
         </button>
         <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
-          @click="openParenthesis()" 
-          :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
+        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
+        @click="openParenthesis()" >
           )
         </button>
       </div>
@@ -53,12 +57,14 @@ export default {
       </div>
       <div class="flex justify-between">
         <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
-        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
+        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
+        @click="clickANS()" >
           ANS
         </button>
-        <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs" 
-        :class="store.dark ? 'text-gray-500' : 'text-gray-300'" 
-         >
+        <p class="pt-2 text-sm">
+          Message
+        </p>
+        <button class="mr-3 pt-1 ounded-full h-6 w-6 m-2 flex justify-center text-xs text-gray-500" >
           [ {{String(store.idx)}} ]
         </button>
       </div>
