@@ -76,7 +76,7 @@ export default {
       store.operator = '';
       store.operations = '';
       return;
-    }
+    } 
     function calculate(): void {
       clickOperator(store.operator);
       store.addOperator('=');
@@ -91,11 +91,17 @@ export default {
       };
       const ops = store.operations.split(' ');
       let result = Number(ops[1]);
+      if (ops[0] === '-') result = -result;
       let num = 0;
       for (const op of ops) {
         console.log(op);
-        if (/\d/.test(op)) num = Number(op);
-        else result = operations[op](result, num);
+        if (/\d/.test(op)) {
+          num = Number(op);
+        } else {
+          const opSplit = op.split(' '); // For negative operations. Ex: op: 'x -'
+          result = operations[opSplit[0]](result, num);
+          if (opSplit.length > 1) result = -result;
+        }
         console.log()
       }
       store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));

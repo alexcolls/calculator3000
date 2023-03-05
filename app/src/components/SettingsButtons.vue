@@ -174,23 +174,23 @@ export default {
 
     </button>
 </div>
-<div class="bg-black/90 shadow-black/90"></div>
-<div class="bg-black/60 shadow-black/60"></div>
-<div class="bg-black/20 shadow-black/20"></div>
-<div class="bg-white/90 shadow-white/90"></div>
-<div class="bg-white/60 shadow-white/60"></div>
-<div class="bg-white/20 shadow-white/20"></div>
-<div class="bg-red-500 shadow-red-500"></div>
-<div class="bg-orange-500 shadow-orange-500"></div>
-<div class="bg-yellow-500 shadow-yellow-500"></div>
-<div class="bg-green-500 shadow-green-500"></div>
-<div class="bg-emerald-500 shadow-emerald-500"></div>
-<div class="bg-lime-500 shadow-lime-500"></div>
-<div class="bg-blue-500 shadow-blue-500"></div>
-<div class="bg-sky-500 shadow-sky-500"></div>
-<div class="bg-cyan-500 shadow-cyan-500"></div>
-<div class="bg-purple-500 shadow-purple-500"></div>
-<div class="bg-fuchsia-500 shadow-fuchsia-500"></div>
-<div class="bg-pink-500 shadow-pink-500"></div>
+<div class="bg-black/90 text-black/90 shadow-black/90 border-black/90"></div>
+<div class="bg-black/60 text-black/60 shadow-black/60 border-black/60"></div>
+<div class="bg-black/20 text-black/20 shadow-black/20 border-black/20"></div>
+<div class="bg-white/90 text-white/90 shadow-white/90 border-white/90"></div>
+<div class="bg-white/60 text-white/60 shadow-white/60 border-white/60"></div>
+<div class="bg-white/20 text-white/20 shadow-white/20 border-white/20"></div>
+<div class="bg-red-500  text-red-500 shadow-red-500 border-red-500"></div>
+<div class="bg-orange-500 text-orange-500 shadow-orange-500 border-orange-500"></div>
+<div class="bg-yellow-500 text-yellow-500 shadow-yellow-500 border-yellow-500"></div>
+<div class="bg-green-500 text-green-500 shadow-green-500 border-green-500"></div>
+<div class="bg-emerald-500 text-emerald-500 shadow-emerald-500 border-emerald-500"></div>
+<div class="bg-lime-500 text-lime-500 shadow-lime-500 border-lime-500 "></div>
+<div class="bg-blue-500 text-blue-500 shadow-blue-500 border-blue-500 "></div>
+<div class="bg-sky-500  text-sky-500  shadow-sky-500 border-sky-500 "></div>
+<div class="bg-cyan-500 text-cyan-500 shadow-cyan-500 border-cyan-500 "></div>
+<div class="bg-purple-500 text-purple-500 shadow-purple-500 border-purple-500"></div>
+<div class="bg-fuchsia-500 text-fuchsia-500 shadow-fuchsia-500 border-fuchsia-500"></div>
+<div class="bg-pink-500 text-pink-500 shadow-pink-500 border-pink-500"></div>
 </div>
 </template>

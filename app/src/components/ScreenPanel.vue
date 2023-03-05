@@ -13,12 +13,13 @@ export default {
 }
 </script>
 <template>
-  <div class="m-auto py-8">
-    <div class="text-center text-semibold text-xl py-2" 
-    :class="[store.dark ? 'bg-gray-800 shadow-white/20' : 'bg-gray-200 shadow-black/20', `text-${store.color}`]">
+  <div class="m-auto my-8 py-2 w-80 rounded-xl border shadow-inner"
+  :class="store.dark ? `bg-black border-${store.color} shadow-white/20` : 'bg-gray-400'">
+    <div class="py-2 text-center text-2xl text-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
       {{ store.operations }}
     </div>
-    <div class="text-4xl mt-8 font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-600">
+    <div class="py-4 text-4xl font-bold"
+    :class="`text-${store.color}`" >
       <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
     </div>
   </div>

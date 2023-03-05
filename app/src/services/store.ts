@@ -31,8 +31,12 @@ const useStore = defineStore("main", {
   actions: {
     addOperator(op: string): void {
       const rest = ["+", "-"];
-      if (op === "-" && rest.includes(this.operator))
-        this.operator = "- " + this.operator;
+      if (
+        op === "-" &&
+        !rest.includes(this.operator) &&
+        !this.operator.includes("-")
+      )
+        this.operator = this.operator + " -";
       else this.operator = op;
     },
     addOperation(op: string): void {
