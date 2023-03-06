@@ -4,8 +4,8 @@ import { defineComponent } from 'vue';
 import useStore from './services/store';
 import ScreenPanel from './components/ScreenPanel.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
+import MathButtons from './components/MathButtons.vue';
 import FooterBar from './components/FooterBar.vue';
-// import HistoryList from './components/HistoryList.vue';
 
 export default defineComponent({
   name: 'App',
@@ -13,6 +13,7 @@ export default defineComponent({
     ScreenPanel,
     KeyboardPanel,
     FooterBar,
+    MathButtons,
     // HistoryList
   },
   setup() {
@@ -34,8 +35,8 @@ export default defineComponent({
       </a>
     </div>
     <screen-panel />
-    <keyboard-panel class="pb-24"/>
-    <!-- <history-list /> -->
+    <keyboard-panel />
+    <math-buttons class="py-8"/>
     <footer-bar />
   </div>
 </template>
