@@ -31,8 +31,7 @@ export default {
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'"> 
-    <settings-buttons />
-    <social-buttons />
+    <settings-buttons class="mt-4"/>
     <div class="py-4 flex flex-wrap justify-center items-center rounded-xl min-w-full">
       <!-- UTC date -->
       <div class="text-md tracking-widest font-semibold justify-center mr-4">
@@ -44,7 +43,7 @@ export default {
       </div>
     </div>
     <!-- Credits -->
-    <div class="py-4 -mb-4">
+    <div class="py-4 -mb-2">
       Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator/" target="_blank" class="underline">Free rights of use.</a>
     </div>  
   </div>
