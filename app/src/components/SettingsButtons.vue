@@ -54,7 +54,7 @@ export default {
       <div class="h-4 w-4 rounded-full"
       :class="`bg-${store.color}`"></div>
       <div v-if="colorModal"
-      class="z-50 absolute mb-52 py-4 flex flex-wrap justify-center w-36 p-2 rounded-xl shadow-md rotate-90"
+      class="z-50 absolute mb-52 py-4 flex flex-wrap justify-center w-36 p-2 rounded-xl shadow-sm  rotate-90"
       :class="[store.dark ? 'bg-black/90 shadow-gray-700' : 'bg-white', `shadow-${store.color}`]">
         <!-- Dark mode -->
         <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
@@ -157,6 +157,14 @@ export default {
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
           <div class="h-4 w-4 bg-pink-500 rounded-full"></div>
         </button>
+      </div>
+      <div v-if="colorModal"
+      class="absolute z-50 -mr-2 -mt-[44px]" >
+        <div class="w-8 overflow-hidden inline-block">
+          <div class="h-4 w-4 -rotate-45 transform origin-top-left shadow-sm"
+          :class="[store.dark ? 'bg-black' : 'bg-white', `shadow-${store.color}`]">
+          </div>
+        </div>
       </div>
     </button>
     <!-- Linkedin Button -->
