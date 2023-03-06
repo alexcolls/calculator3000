@@ -49,7 +49,7 @@ yarn deploy
 or
 
 ```
-git subtree push --prefix dist origin gh-pages && gh-pahes
+git subtree push --prefix dist origin gh-pages && gh-pages
 ```
 
 \* Make sure to install gh-pages cli
