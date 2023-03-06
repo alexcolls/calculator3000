@@ -10,7 +10,7 @@ https://quanitum-rock.github.io/innocv-calculator
 Clone the app repo, main branch:
 
 ```
-https://github.com/quantium-rock/innocv-calculator/tree/main/app
+git clone https://github.com/quantium-rock/innocv-calculator/tree/main/app
 ```
 
 ### Install packages
