@@ -1,3 +1,38 @@
+# Calculator 300 Vue3 ts app
+
+## App commands
+
+```
+cd app
+```
+
+### Install packages
+
+```
+yarn
+```
+
+You can use 'npm i' instead.
+
+### Compiles and hot-reloads for development
+
+Run locally:
+
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+
+Build for production:
+
+```
+npm run build
+
+```
+
+## Instructions
+
 Using the Vue framework, build a functional calculator with a nice user interface using only HTML, CSS or a style preprocessor and TypeScript (JavaScript can be used but the use of TypeScript is the one that will be most valued). It does not need to handle all types of errors, but there should be some basic error reporting.
 
 Requirements:
