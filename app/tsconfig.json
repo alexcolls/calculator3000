@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -15,11 +15,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "node_modules/@types",
-      "src/types/",
       "webpack-env",
       "jest"
     ],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "paths": {
       "@/*": [
         "src/*"
@@ -32,14 +31,14 @@
       "scripthost"
     ]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/services/store/stor.ets", "src/services/store/stor.ets"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  // "include": [
+  //   "src/**/*.ts",
+  //   "src/**/*.tsx",
+  //   "src/**/*.vue",
+  //   "tests/**/*.ts",
+  //   "tests/**/*.tsx" 
+  // ],
+  // "exclude": [
+  //   "node_modules"
+  // ]
 }

@@ -45,7 +45,7 @@ export default {
     </div>
     <!-- Credits -->
     <div class="py-4 -mb-4">
-      Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator/tree/main/client" target="_blank" class="underline">Free rights of use.</a>
+      Made with {{ store.heart }} for INNOCV SOLUTIONS <br/>2023 © <a href="https://github.com/quantium-rock/innocv-calculator/tree/main/app" target="_blank" class="underline">Free rights of use.</a>
     </div>  
   </div>
 </template>

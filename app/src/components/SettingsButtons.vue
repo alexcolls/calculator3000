@@ -1,19 +1,23 @@
 <script lang="ts">
 import useStore from '../services/store';
-// import sound_black from '../assets/image/sound.png';
+// import sound_black from '../assets/images/sound.png';
 
 export default {
   setup() {
     const store = useStore();
-    return { store };
+    return { 
+      store,
+      // sound_black 
+    };
   },
   data() {
     return {
       colorModal: false,
-      sound_black: '', //require('../assets/image/sound.png'),
-      sound_white: '', //require('../assets/img/sound-white.png'),
+      //sound_black//require('../assets/image/sound.png'),
+      sound_white: require('../assets/img/sound-white.png'),
       mute_black: '', //require('../assets/img/mute.png'),
       mute_white: '', //require('../assets/img/mute-white.png)',
+      // s_black: sound_black
     }
   }
 }
@@ -39,7 +43,7 @@ export default {
     <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
     @click="store.switchSound()" 
     :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-      <img alt="Sound" v-if="store.sound" :src="store.dark ? '../assets/img/sound-white.png' : 'sound_black'" class="h-4 w-4"/>
+      <img alt="Sound" v-if="store.sound" :src="store.dark ? 'sound_white' : 'sound_black'" class="h-4 w-4"/>
       <img alt="Sound" v-else :src="store.dark ? 'mute_white' : 'mute_black'" class="h-4 w-4"/>
     </button>
     <!-- Color buttons -->
