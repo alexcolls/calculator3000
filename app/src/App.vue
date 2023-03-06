@@ -5,7 +5,6 @@ import ScreenPanel from './components/ScreenPanel.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
 import MathButtons from './components/MathButtons.vue';
 import FooterBar from './components/FooterBar.vue';
-
 export default defineComponent({
   name: 'App',
   components: {

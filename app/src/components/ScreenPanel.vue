@@ -1,6 +1,5 @@
 <script lang="ts">
 import useStore, { History } from '../services/store';
-
 export default {
   setup () {
     const store = useStore();
@@ -82,7 +81,7 @@ export default {
           )
         </button>
       </div>
-      <div class="m-auto px-4">
+      <div class="m-auto px-8">
         {{ store.operations }}
       </div>
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
