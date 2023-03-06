@@ -45,6 +45,7 @@ export default defineComponent({
   width: 100% !important;
 }
 html {
+  box-sizing: border-box;
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
