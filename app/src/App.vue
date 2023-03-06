@@ -36,7 +36,7 @@ export default defineComponent({
     </div>
     <screen-panel />
     <keyboard-panel />
-    <math-buttons class="py-8"/>
+    <math-buttons class="py-8 pb-14"/>
     <footer-bar />
   </div>
 </template>
