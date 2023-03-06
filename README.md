@@ -2,7 +2,7 @@
 
 ## Calculator3000 demo
 
-https://quanitum-rock.github.io/innocv-calculator
+https://quantium-rock.github.io/innocv-calculator
 
 ## Run the app
 
