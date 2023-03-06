@@ -19,7 +19,7 @@ https://github.com/quantium-rock/innocv-calculator/tree/main/app
 yarn
 ```
 
-You can use 'npm i' instead.
+You can use ' npm i ' instead.
 
 ### Compiles and hot-reloads for development
 
