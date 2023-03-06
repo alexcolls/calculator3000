@@ -17,11 +17,15 @@ export default {
       store.operations = store.operations + ' )';
     }
     function clickANS(inverse: boolean): void {
+      if (store.history.length === 0) {
+        store.message = 'Make calculations first to use ANS...';
+        return;
+      }
       store.message = '';
       let hist: History;
       if (!inverse) {
         if (store.history.length === store.idx+1) {
-          store.message = '🛑 You have no more history!';
+          store.message = '✋ You have no more history!';
           return;
         }
         if (store.idx === maxMemory) {

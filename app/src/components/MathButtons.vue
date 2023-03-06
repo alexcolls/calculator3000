@@ -11,7 +11,7 @@ export default {
     }
     // Keyboard functionality
     function clickPi(): void {
-      store.message = 'The great Pi!';
+      store.message = 'The Great Pi!';
       store.number = '3'
       store.decimals = '.1415926536';
     }
