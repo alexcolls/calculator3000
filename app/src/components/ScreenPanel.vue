@@ -1,10 +1,11 @@
 <script lang="ts">
-import useStore from '../services/store';
+import useStore, { History } from '../services/store';
 
 export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
+    const maxMemory = 10; // max operations cache
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
@@ -15,16 +16,36 @@ export default {
       if (ops.length > 3)   
       store.operations = store.operations + ' )';
     }
-    function clickANS(): void {
-      if (store.history.length === store.idx+1) {
-        store.message = 'You have no more history!';
-        return;
+    function clickANS(inverse: boolean): void {
+      let hist: History;
+      if (!inverse) {
+        if (store.history.length === store.idx+1) {
+          store.message = 'You have no more history!';
+          return;
+        }
+        if (store.idx === maxMemory) {
+          store.idx = 0;
+          store.operations = '';
+          store.number = '0';
+          store.operator = '';
+          return alert('Sorry, I can only record last 10 operations :(');
+        }
+        hist = store.history[store.idx+1];
+        store.idx++;
+      } else {
+        if (store.idx === 0) {
+          store.message = "I'm ready, give me numbers! 😋";
+          store.operations = '';
+          store.number = '0';
+          store.operator = '';
+          return;
+        }
+        hist = store.history[store.idx - 1];
+        store.idx--;
       }
-      const hist = store.history[store.idx];
       store.operations = hist.operations;
       store.number = hist.number;
       store.operator = '=';
-      store.idx++;
     }
     return {
       store,
@@ -66,13 +87,14 @@ export default {
       <div class="flex justify-between">
         <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
-        @click="clickANS()" >
+        @click="clickANS(false)" >
           ANS
         </button>
         <p class="pt-4 text-xs">
           {{ store.message }}
         </p>
-        <button class="mr-3 pt-2 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
+        <button class="mr-3 pt-2 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" 
+        @click="clickANS(true)" >
           [ {{String(store.idx)}} ]
         </button>
       </div>

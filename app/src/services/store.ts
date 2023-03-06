@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-interface State {
+export interface State {
   number: string;
   decimals: string;
   operator: string;
@@ -15,7 +15,7 @@ interface State {
   message: string;
 }
 
-interface History {
+export interface History {
   operations: string;
   number: string;
 }
@@ -57,7 +57,7 @@ const useStore = defineStore("main", {
         operations: this.operations,
         number: this.number,
       };
-      this.history.push(hist);
+      this.history.unshift(hist);
     },
     switchDark(): void {
       this.dark = !this.dark;
