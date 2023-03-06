@@ -100,6 +100,7 @@ export default {
     function calculate(): void {
       if (store.operator === '=' 
        || (!store.operations && store.number === '0')) {
+        playBeep();
         clickAC();
         return;
       }
