@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "vue serve",
-    "serve": "vue serve",
-    "build": "vue build",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "deploy": "gh-pages -d dist",
-    "lint": "vue lint"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.8.3",

@@ -4,7 +4,6 @@
 
 https://quanitum-rock.github.io/innocv-calculator
 
-
 ## Run the app
 
 ### Clone repo
@@ -43,12 +42,11 @@ yarn build
 
 ### Deploy the app
 
-Deploy to gh-pages:
+After success build, deploy to gh-pages:
 
 ```
 yarn deploy
 ```
-
 
 ## Instructions
 
