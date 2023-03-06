@@ -17,7 +17,7 @@ interface State {
 
 interface History {
   operations: string;
-  result: number;
+  number: string;
 }
 
 const useStore = defineStore("main", {
@@ -34,7 +34,7 @@ const useStore = defineStore("main", {
       sound: true,
       color: "blue-500",
       heart: "💙",
-      message: "Welcome to CALCULATOR 3000",
+      message: "👋 Welcome to CALCULATOR 3000",
     };
   },
   actions: {
@@ -55,7 +55,7 @@ const useStore = defineStore("main", {
     addHistory(): void {
       const hist: History = {
         operations: this.operations,
-        result: this.result,
+        number: this.number,
       };
       this.history.push(hist);
     },

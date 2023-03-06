@@ -22,7 +22,7 @@ export default {
       }
       const hist = store.history[store.idx];
       store.operations = hist.operations;
-      store.result = hist.result;
+      store.number = hist.number;
       store.operator = '=';
       store.idx++;
     }
@@ -72,7 +72,7 @@ export default {
         <p class="pt-4 text-xs">
           {{ store.message }}
         </p>
-        <button class="mr-3 pt-1 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
+        <button class="mr-3 pt-2 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
           [ {{String(store.idx)}} ]
         </button>
       </div>

@@ -69,6 +69,8 @@ export default {
       store.decimals = '';
     }
     function clickDEL(): void {
+      store.message = '';
+      store.idx = 0;
       if (store.operator === '=') {
         clickAC();
         return;
@@ -91,6 +93,8 @@ export default {
       resetNum();
       store.operator = '';
       store.operations = '';
+      store.message = '';
+      store.idx = 0;
       return;
     } 
     function calculate(): void {
