@@ -5,7 +5,7 @@ export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-    const maxMemory = 10; // max operations cache
+    const maxMemory = 7; // max operations cache
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
@@ -20,7 +20,7 @@ export default {
       let hist: History;
       if (!inverse) {
         if (store.history.length === store.idx+1) {
-          store.message = 'You have no more history!';
+          store.message = '🛑 You have no more history!';
           return;
         }
         if (store.idx === maxMemory) {
@@ -28,11 +28,12 @@ export default {
           store.operations = '';
           store.number = '0';
           store.operator = '';
-          return alert('Sorry, I can only record last 10 operations :(');
+          return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
-        hist = store.history[store.idx+1];
+        hist = store.history[store.idx + 1];
         store.idx++;
       } else {
+        store.message = '';
         if (store.idx === 0) {
           store.message = "I'm ready, give me numbers! 😋";
           store.operations = '';
@@ -40,8 +41,8 @@ export default {
           store.operator = '';
           return;
         }
-        hist = store.history[store.idx - 1];
         store.idx--;
+        hist = store.history[store.idx - 2];
       }
       store.operations = hist.operations;
       store.number = hist.number;
@@ -77,26 +78,35 @@ export default {
           )
         </button>
       </div>
-      <div class="m-auto">
+      <div class="m-auto px-4">
         {{ store.operations }}
       </div>
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
-      :class="`from-${store.color} to-orange-600`" >
+      :class="`from-${store.color} to-orange-500`" >
         <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
       </div>
       <div class="flex justify-between">
-        <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
-        :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
-        @click="clickANS(false)" >
-          ANS
-        </button>
+        <div class="flex">
+          <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
+          :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
+          @click="clickANS(false)" >
+            ANS
+          </button>
+          <button v-if="store.idx > 0"
+          class="rounded-full mt-2 pt-1 h-6 w-6 flex justify-center items-center shadow-sm text-xs font-bold" 
+          :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-gray-400' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
+          @click="clickANS(true)" >
+            ^
+          </button>
+        </div>
         <p class="pt-4 text-xs">
           {{ store.message }}
         </p>
-        <button class="mr-3 pt-2 ounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" 
-        @click="clickANS(true)" >
-          [ {{String(store.idx)}} ]
-        </button>
+        <div class="mt-2">
+          <p class="mr-3 rounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
+            [ {{String(store.idx)}} ]
+          </p>
+        </div>
       </div>
     </div>
   </div>
