@@ -5,7 +5,6 @@ export interface State {
   decimals: string;
   operator: string;
   operations: string;
-  result: number;
   history: History[];
   idx: number;
   dark: boolean;
@@ -27,7 +26,6 @@ const useStore = defineStore("main", {
       decimals: "",
       operator: "",
       operations: "",
-      result: 0,
       history: [],
       idx: 0,
       dark: true,

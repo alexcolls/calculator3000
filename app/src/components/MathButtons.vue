@@ -1,14 +1,12 @@
 <script lang="ts">
 import useStore from '../services/store';
-// import click_sound from '../assets/sound/beep.mp3';
-
+import beep_sound from '../assets/sounds/beep.mp3';
 export default {
   setup () {
     const store = useStore();
-    const audio = new Audio();
-    function playSound(): void {
-      if (store.sound) audio.play();
-    }
+    // Sounds
+    const beep_ = new Audio(beep_sound);
+    function playBeep(): void { if (store.sound) beep_.play(); }
     // Keyboard functionality
     function clickPi(): void {
       store.message = 'The Great Pi!';
@@ -35,7 +33,7 @@ export default {
     }
     return {
       store,
-      playSound,
+      playBeep,
       clickPi,
       clickPhi,
       clickEuler,
@@ -49,35 +47,35 @@ export default {
   <div class="m-auto w-80">
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- π -->
-      <button @click="[clickPi(), playSound()]" 
+      <button @click="[clickPi(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl">
         π
       </button>
       <!-- Φ -->
-      <button @click="[clickPhi(), playSound()]" 
+      <button @click="[clickPhi(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         Φ
       </button>
       <!-- e -->
-      <button @click="[clickEuler(), playSound()]" 
+      <button @click="[clickEuler(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl rounded-tr-xl">
         e
       </button>
       <!-- < -->
-      <button @click="[clickLeft(), playSound()]" 
+      <button @click="[clickLeft(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl">
         &lt;
       </button>
       <!-- > -->
-      <button @click="[clickRight(), playSound()]" 
+      <button @click="[clickRight(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl rounded-tr-xl">

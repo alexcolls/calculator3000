@@ -1,21 +1,21 @@
 <script lang="ts">
 import useStore from '../services/store';
-// import click_sound from '../assets/sound/beep.mp3';
-
+import beep_sound from '../assets/sounds/beep.mp3';
+import success_sound from '../assets/sounds/success.mp3';
+import error_sound from '../assets/sounds/error.wav';
 export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
     const maxNumber = 1000000000000; // trillion
     const maxDecimals = 8;
-    const audio = new Audio();
-    const audio2 = new Audio();
-    function playSound(): void {
-      if (store.sound) audio.play();
-    }
-    function playSound2(): void {
-      if (store.sound) audio2.play();
-    }
+    // Sounds
+    const beep_ = new Audio(beep_sound);
+    const success_ = new Audio(success_sound);
+    const error_ = new Audio(error_sound);
+    function playBeep(): void { if (store.sound) beep_.play(); }
+    function playSuccess(): void { if (store.sound) success_.play(); }
+    function playError(): void { if (store.sound) error_.play(); }
     // Keyboard functionality
     function clickNum(n: number): void {
       store.message = '';
@@ -130,6 +130,10 @@ export default {
         console.log()
       }
       store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
+      // Sounds
+      if (!Number(store.number)) playError();
+      else playSuccess();
+      // Success messages
       const randomMsgs = [
         'Great calculation!',
         'You are a 🧠',
@@ -144,8 +148,7 @@ export default {
     }
     return {
       store,
-      playSound,
-      playSound2,
+      playBeep,
       clickNum,
       clickOperator,
       clickDecimals,
@@ -160,140 +163,140 @@ export default {
   <div class="m-auto w-80">
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- 1 -->
-      <button @click="[clickNum(1), playSound()]" 
+      <button @click="[clickNum(1), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl">
         1
       </button>
       <!-- 2 -->
-      <button @click="[clickNum(2), playSound()]" 
+      <button @click="[clickNum(2), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         2
       </button>
       <!-- 3 -->
-      <button @click="[clickNum(3), playSound()]" 
+      <button @click="[clickNum(3), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl">
         3
       </button>
       <!-- DEL -->
-      <button @click="[clickDEL(), playSound()]" 
+      <button @click="[clickDEL(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tl-xl text-sm">
         DEL
       </button>
       <!-- AC -->
-      <button @click="[clickAC(), playSound()]"
+      <button @click="[clickAC(), playBeep()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-tr-xl text-sm">
         AC
       </button>
       <!-- 4 -->
-      <button @click="[clickNum(4), playSound()]" 
+      <button @click="[clickNum(4), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         4
       </button>
       <!-- 5 -->
-      <button @click="[clickNum(5), playSound()]" 
+      <button @click="[clickNum(5), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         5
       </button>
       <!-- 6 -->
-      <button @click="[clickNum(6), playSound()]" 
+      <button @click="[clickNum(6), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         6
       </button>
       <!-- + -->
-      <button @click="[clickOperator('+'), playSound()]" 
+      <button @click="[clickOperator('+'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         +
       </button>
       <!-- - -->
-      <button @click="[clickOperator('-'), playSound()]" 
+      <button @click="[clickOperator('-'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         -
       </button>
       <!-- 7 -->
-      <button @click="[clickNum(7), playSound()]" 
+      <button @click="[clickNum(7), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         7
       </button>
       <!-- 8 -->
-      <button @click="[clickNum(8), playSound()]" 
+      <button @click="[clickNum(8), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         8
       </button>
       <!-- 9 -->
-      <button @click="[clickNum(9), playSound()]" 
+      <button @click="[clickNum(9), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         9
       </button>
        <!-- x -->
-      <button @click="[clickOperator('x'), playSound()]" 
+      <button @click="[clickOperator('x'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm text-sm">
         x
       </button>
       <!-- ÷ -->
-      <button @click="[clickOperator('÷'), playSound()]" 
+      <button @click="[clickOperator('÷'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         ÷
       </button>
       <!-- · -->
-      <button @click="[clickDecimals(), playSound()]" 
+      <button @click="[clickDecimals(), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
         ·
       </button>
       <!-- 0 -->
-      <button @click="[clickNum(0), playSound()]" 
+      <button @click="[clickNum(0), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm">
         0
       </button>
       <!-- = -->
-      <button @click="[calculate(), playSound2()]" 
+      <button @click="calculate()" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
         =
       </button>
       <!-- xⁿ -->
-      <button @click="[clickOperator('×ⁿ'), playSound()]" 
+      <button @click="[clickOperator('×ⁿ'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl">
         ×ⁿ
       </button>
       <!-- √ -->
-      <button @click="[clickOperator('√'), playSound()]" 
+      <button @click="[clickOperator('√'), playBeep()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl text-sm">

@@ -69,6 +69,7 @@ export default {
     </h1>
     <div class="m-auto py-2 w-80 rounded-xl border shadow-inner"
     :class="store.dark ? `bg-black/50 text-white/80 border-white/30 shadow-${store.color}` : `bg-white/50 text-black/80 border-black/30 shadow-${store.color}`" >
+      <!-- Parenthesis buttons -->
       <div class="flex justify-between">
         <button class="ml-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
@@ -84,10 +85,12 @@ export default {
       <div class="m-auto px-8">
         {{ store.operations }}
       </div>
+      <!-- Main number -->
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-500`" >
         <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
       </div>
+      <!-- ANS buttons -->
       <div class="flex justify-between">
         <div class="flex">
           <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
