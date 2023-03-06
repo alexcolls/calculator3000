@@ -1,6 +1,11 @@
 # Calculator 300 Vue3 ts app
 
-## App commands
+## Calculator3000 demo
+
+https://quanitum-rock.github.io/innocv-calculator
+
+
+## Run the app
 
 Clone the app repo, main branch:
 
@@ -21,17 +26,26 @@ You can use 'npm i' instead.
 Run locally:
 
 ```
-yarn serve
+yarn start
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies for production /dist
 
 Build for production:
 
 ```
-npm run build
+yarn build
 
 ```
+
+### Deploy the app
+
+Deploy to gh-pages:
+
+```
+yarn deploy
+```
+
 
 ## Instructions
 
