@@ -35,7 +35,6 @@ Build for production:
 
 ```
 yarn build
-
 ```
 
 ### Deploy the app
