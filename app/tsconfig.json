@@ -1,44 +1,63 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "webpack-env",
-      "jest"
-    ],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+      "sourceMap": true,
+      "target": "es5",
+      "experimentalDecorators": true,
+      "noImplicitAny": false
   },
-  // "include": [
-  //   "src/**/*.ts",
-  //   "src/**/*.tsx",
-  //   "src/**/*.vue",
-  //   "tests/**/*.ts",
-  //   "tests/**/*.tsx" 
-  // ],
-  // "exclude": [
-  //   "node_modules"
-  // ]
+  "exclude": [
+      "node_modules"
+  ],
+  "filesGlob": [
+      "src/**/*.ts",
+      "test/**/*.ts",
+      "typings/index.d.ts"
+  ]
 }
+
+// {
+//   "compilerOptions": {
+//     "rootDir": "src",
+//     "target": "ESNext",
+//     "module": "CommonJS",
+//     "strict": true,
+//     "jsx": "preserve",
+//     "moduleResolution": "node",
+//     "experimentalDecorators": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "allowJs": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "useDefineForClassFields": true,
+//     "sourceMap": true,
+//     "baseUrl": ".",
+//     "types": [
+//       "webpack-env",
+//       "jest"
+//     ],
+//     "typeRoots": ["./node_modules/@types", "./src/types"],
+//     "paths": {
+//       "@/*": [
+//         "src/*"
+//       ]
+//     },
+//     "lib": [
+//       "esnext",
+//       "dom",
+//       "dom.iterable",
+//       "scripthost"
+//     ]
+//   },
+//   "include": [
+//     "src/**/*.ts",
+//     "src/**/*.tsx",
+//     "src/**/*.vue",
+//     "tests/**/*.ts",
+//     "tests/**/*.tsx" 
+//   ],
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }

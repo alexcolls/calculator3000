@@ -1,6 +1,6 @@
 <script lang="ts">
 import useStore from '../services/store';
-// import sound_black from '../assets/images/sound.png';
+import sound_black from '../assets/images/sound.png';
 
 export default {
   setup() {
@@ -14,10 +14,10 @@ export default {
     return {
       colorModal: false,
       //sound_black//require('../assets/image/sound.png'),
-      sound_white: require('../assets/img/sound-white.png'),
+      sound_white: '', //require('../assets/img/sound-white.png'),
       mute_black: '', //require('../assets/img/mute.png'),
       mute_white: '', //require('../assets/img/mute-white.png)',
-      // s_black: sound_black
+      s_black: sound_black
     }
   }
 }
