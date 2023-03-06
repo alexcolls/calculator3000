@@ -48,15 +48,14 @@ export default {
       <img alt="Sound" v-else :src="store.dark ? mute_white : mute_black" class="h-4 w-4"/>
     </button>
     <!-- Color buttons -->
-    <button 
-    class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
+    <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl"
     @click="colorModal=!colorModal"
     :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
       <div class="h-4 w-4 rounded-full"
       :class="`bg-${store.color}`"></div>
       <div v-if="colorModal"
-      class="z-50 absolute mt-72 py-4 flex flex-wrap justify-center w-36 p-2 rounded-xl shadow-xl"
-      :class="store.dark ? 'bg-black/90 shadow-gray-700' : 'bg-white'">
+      class="z-50 absolute mb-52 py-4 flex flex-wrap justify-center w-36 p-2 rounded-xl shadow-sm rotate-90"
+      :class="[store.dark ? 'bg-black/90 shadow-gray-700' : 'bg-white', `shadow-${store.color}`]">
         <!-- Dark mode -->
         <button class="rounded-full h-8 w-8 m-1 flex justify-center items-center shadow-xl" 
         @click="[store.changeColor('white/90'), store.changeHeart('🤍')]"
@@ -160,22 +159,22 @@ export default {
         </button>
       </div>
     </button>
-    <!-- Github Button -->
-    <a :href="github_url" target="_blank">
-      <button class="rounded-full h-10 w-10 m-2 flex justify-center items-center shadow-xl" 
-      :class="store.dark ? 'bg-white/10 shadow-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-white hover:bg-gray-200 text-gray-600'" 
-      @mouseover="github_gif = github_img" 
-      @mouseleave="github_gif = require('../assets/images/github.gif')">
-        <img :src="github_gif" class="h-6 w-6"/>
-      </button>
-    </a>
     <!-- Linkedin Button -->
     <a :href="linkedin_url" target="_blank">
-      <button class="rounded-full h-10 w-10 m-2 flex justify-center items-center shadow-xl" 
+      <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
       :class="store.dark ? 'bg-white/10 shadow-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-white hover:bg-gray-200 text-gray-600'" 
       @mouseover="linkedin_gif = linkedin_img"
       @mouseleave="linkedin_gif = require('../assets/images/linkedin.gif')">
-        <img :src="linkedin_gif" class="h-7 w-7"/>
+        <img :src="linkedin_gif" class="h-5 w-5"/>
+      </button>
+    </a>
+    <!-- Github Button -->
+    <a :href="github_url" target="_blank">
+      <button class="rounded-full h-9 w-9 m-2 flex justify-center items-center shadow-xl" 
+      :class="store.dark ? 'bg-white/10 shadow-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-white hover:bg-gray-200 text-gray-600'" 
+      @mouseover="github_gif = github_img" 
+      @mouseleave="github_gif = require('../assets/images/github.gif')">
+        <img :src="github_gif" class="h-[28px] w-[28px]"/>
       </button>
     </a>
   </div>

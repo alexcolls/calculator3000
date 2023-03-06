@@ -27,13 +27,13 @@ export default {
 }
 </script>
 <template>
-  <div class="py-16 mt-16 text-center text-xs text-gray-400" 
+  <div class="py-8 mt-16 text-center text-xs text-gray-400" 
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-white/90 shadow-gray-300 border-gray-900 text-gray-800'"> 
     <settings-buttons />
     <social-buttons />
-    <div class="py-12 flex flex-wrap justify-center items-center rounded-xl min-w-full">
+    <div class="py-4 flex flex-wrap justify-center items-center rounded-xl min-w-full">
       <!-- UTC date -->
       <div class="text-md tracking-widest font-semibold justify-center mr-4">
         {{ date }}
