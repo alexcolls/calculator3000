@@ -1,4 +1,3 @@
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 import useStore from './services/store';
@@ -14,7 +13,6 @@ export default defineComponent({
     KeyboardPanel,
     FooterBar,
     MathButtons,
-    // HistoryList
   },
   setup() {
     const store = useStore();
