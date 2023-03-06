@@ -5,7 +5,7 @@ export default {
   setup () {
     const store = useStore();
     const nf = Intl.NumberFormat();
-    const maxMemory = 7; // max operations cache
+    const maxMemory = 10; // max operations cache
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
@@ -17,6 +17,7 @@ export default {
       store.operations = store.operations + ' )';
     }
     function clickANS(inverse: boolean): void {
+      store.message = '';
       let hist: History;
       if (!inverse) {
         if (store.history.length === store.idx+1) {
@@ -33,7 +34,7 @@ export default {
         hist = store.history[store.idx + 1];
         store.idx++;
       } else {
-        store.message = '';
+        store.idx--;
         if (store.idx === 0) {
           store.message = "I'm ready, give me numbers! 😋";
           store.operations = '';
@@ -41,7 +42,6 @@ export default {
           store.operator = '';
           return;
         }
-        store.idx--;
         hist = store.history[store.idx - 2];
       }
       store.operations = hist.operations;
