@@ -4,7 +4,7 @@
 
 https://quantium-rock.github.io/innocv-calculator
 
-### Run the app locally
+### Run locally
 
 #### Clone repo
 
@@ -23,8 +23,6 @@ yarn
 You can use ' npm i ' instead.
 
 #### Compiles and hot-reloads for development
-
-Run locally:
 
 ```
 yarn serve
