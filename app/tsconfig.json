@@ -1,63 +1,44 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-      "sourceMap": true,
-      "target": "es5",
-      "experimentalDecorators": true,
-      "noImplicitAny": false
+    "rootDir": "src",
+    "target": "ESNext",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env",
+      "jest"
+    ],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
-  "exclude": [
-      "node_modules"
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx" 
   ],
-  "filesGlob": [
-      "src/**/*.ts",
-      "test/**/*.ts",
-      "typings/index.d.ts"
+  "exclude": [
+    "node_modules"
   ]
 }
-
-// {
-//   "compilerOptions": {
-//     "rootDir": "src",
-//     "target": "ESNext",
-//     "module": "CommonJS",
-//     "strict": true,
-//     "jsx": "preserve",
-//     "moduleResolution": "node",
-//     "experimentalDecorators": true,
-//     "skipLibCheck": true,
-//     "esModuleInterop": true,
-//     "allowSyntheticDefaultImports": true,
-//     "allowJs": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "useDefineForClassFields": true,
-//     "sourceMap": true,
-//     "baseUrl": ".",
-//     "types": [
-//       "webpack-env",
-//       "jest"
-//     ],
-//     "typeRoots": ["./node_modules/@types", "./src/types"],
-//     "paths": {
-//       "@/*": [
-//         "src/*"
-//       ]
-//     },
-//     "lib": [
-//       "esnext",
-//       "dom",
-//       "dom.iterable",
-//       "scripthost"
-//     ]
-//   },
-//   "include": [
-//     "src/**/*.ts",
-//     "src/**/*.tsx",
-//     "src/**/*.vue",
-//     "tests/**/*.ts",
-//     "tests/**/*.tsx" 
-//   ],
-//   "exclude": [
-//     "node_modules"
-//   ]
-// }
