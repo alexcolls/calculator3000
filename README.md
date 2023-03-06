@@ -4,9 +4,9 @@
 
 https://quantium-rock.github.io/innocv-calculator
 
-## Run the app locally
+### Run the app locally
 
-### Clone repo
+#### Clone repo
 
 Clone the app repo, main branch:
 
@@ -14,7 +14,7 @@ Clone the app repo, main branch:
 git clone https://github.com/quantium-rock/innocv-calculator && cd innocv-calculator/app
 ```
 
-### Install packages
+#### Install packages
 
 ```
 yarn
@@ -22,7 +22,7 @@ yarn
 
 You can use ' npm i ' instead.
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 
 Run locally:
 
@@ -30,7 +30,7 @@ Run locally:
 yarn serve
 ```
 
-### Compiles and minifies for production /dist
+#### Compiles and minifies for production /dist
 
 Build for production:
 
@@ -38,7 +38,7 @@ Build for production:
 yarn build
 ```
 
-### Deploy the app
+#### Deploy the app
 
 After success build, deploy to gh-pages:
 
