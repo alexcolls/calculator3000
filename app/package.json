@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "vue serve",
     "serve": "vue serve",
     "build": "vue build",
-    "deploy": "yarn build && gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "lint": "vue lint"
   },
   "dependencies": {
@@ -27,9 +28,11 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^5.0.0",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
     "postcss": "^8.4.21",
+    "push-dir": "^0.4.1",
     "tailwindcss": "^3.2.7",
     "typescript": "~4.5.5"
   },
