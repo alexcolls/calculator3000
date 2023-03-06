@@ -1,4 +1,4 @@
-# Calculator 300 Vue3 ts app
+# Calculator 300 vue3-ts app
 
 ## Calculator3000 demo
 
