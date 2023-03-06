@@ -5,9 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "git add dist && git commit -m 'build' && git subtree push --prefix dist origin gh-pages && gh-pages -d dist",
-    "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test"
+    "deploy": "git add dist && git commit -m 'build' && git push --prefix dist origin gh-pages && gh-pages -d dist",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.8.3",
