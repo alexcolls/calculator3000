@@ -13,6 +13,12 @@ export default {
       sound_white: require('../assets/images/sound-white.png'),
       mute_black: require('../assets/images/mute-black.png'),
       mute_white: require('../assets/images/mute-white.png'),
+      github_img: require("..../assets/images/instagram.png"),
+      github_gif: require("..../assets/images/instagram.gif"),
+      github_url: 'https://www.github.com/quantium-rock',
+      linkedin_img: require("../assets/images/linkedin.png"),
+      linkedin_gif: require("../assets/images/linkedin.gif"),
+      linkedin_url: 'https://www.linkedin.com/in/alex-colls-outumuro',
     }
   }
 }
@@ -155,19 +161,23 @@ export default {
       </div>
     </button>
     <!-- Github Button -->
-    <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
-    @click="[store.switchDark(),
-    store.color.includes('white') && !store.dark ? store.changeColor(store.color.replace('white', 'black')) : '',
-    store.color.includes('black') && store.dark ? store.changeColor(store.color.replace('black', 'white')) : '']" 
-    :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-    </button>
+    <a :href="github_url" target="_blank">
+      <button class="rounded-full h-10 w-10 m-2 flex justify-center items-center shadow-xl" 
+      :class="store.dark ? 'bg-white/10 shadow-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-white hover:bg-gray-200 text-gray-600'" 
+      @mouseover="github_gif = github_img" 
+      @mouseleave="github_gif = require('../assets/images/github.gif')">
+        <img :src="github_gif" class="h-6 w-6"/>
+      </button>
+    </a>
     <!-- Linkedin Button -->
-    <button class="rounded-full h-8 w-8 m-2 flex justify-center items-center shadow-xl" 
-    @click="[store.switchDark(),
-    store.color.includes('white') && !store.dark ? store.changeColor(store.color.replace('white', 'black')) : '',
-    store.color.includes('black') && store.dark ? store.changeColor(store.color.replace('black', 'white')) : '']" 
-    :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'">
-    </button>
+    <a :href="linkedin_url" target="_blank">
+      <button class="rounded-full h-10 w-10 m-2 flex justify-center items-center shadow-xl" 
+      :class="store.dark ? 'bg-white/10 shadow-gray-700 hover:bg-gray-600 text-gray-200' : 'bg-white hover:bg-gray-200 text-gray-600'" 
+      @mouseover="linkedin_gif = linkedin_img"
+      @mouseleave="linkedin_gif = require('../assets/images/linkedin.gif')">
+        <img :src="linkedin_gif" class="h-7 w-7"/>
+      </button>
+    </a>
   </div>
   <!-- bg text (init colors) -->
   <div class="bg-black/90 text-black/90"></div>
