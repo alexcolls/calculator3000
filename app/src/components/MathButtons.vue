@@ -160,25 +160,11 @@ export default {
   <div class="m-auto w-80">
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- φ -->
-      <button @click="[clickDecimals(), playSound()]" 
+      <button @click="[calculate(), playSound2()]" 
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl">
         φ
-      </button>
-      <!-- 0 -->
-      <button @click="[clickNum(0), playSound()]" 
-      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
-      `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm">
-        0
-      </button>
-      <!-- = -->
-      <button @click="[calculate(), playSound2()]" 
-      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
-      `shadow-${store.color}`]" 
-      class="py-4 px-2 align-middle relative border shadow-sm">
-        =
       </button>
       <!-- xⁿ -->
       <button @click="[clickOperator('×ⁿ'), playSound()]" 
@@ -193,6 +179,20 @@ export default {
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl rounded-tr-xl">
         √
+      </button>
+      <!-- < -->
+      <button @click="[clickDecimals(), playSound()]" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl">
+        &lt;
+      </button>
+      <!-- > -->
+      <button @click="[clickNum(0), playSound()]" 
+      :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
+      `shadow-${store.color}`]" 
+      class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl rounded-tr-xl">
+        &gt;
       </button>
     </div>
   </div>
