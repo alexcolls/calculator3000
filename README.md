@@ -14,8 +14,6 @@ Clone the app repo, main branch:
 git clone https://github.com/quantium-rock/innocv-calculator && cd innocv-calculator/app
 ```
 
-
-
 ### Install packages
 
 ```
@@ -29,7 +27,7 @@ You can use ' npm i ' instead.
 Run locally:
 
 ```
-yarn start
+yarn serve
 ```
 
 ### Compiles and minifies for production /dist
