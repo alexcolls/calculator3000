@@ -2,8 +2,10 @@
 
 ## App commands
 
+Clone the app repo, main branch:
+
 ```
-cd app
+https://github.com/quantium-rock/innocv-calculator/tree/main/app
 ```
 
 ### Install packages
