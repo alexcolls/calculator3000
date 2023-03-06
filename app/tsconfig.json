@@ -5,15 +5,20 @@
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
+    "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "node_modules/@types",
+      "src/types/",
+      "webpack-env",
+      "jest"
     ],
     "paths": {
       "@/*": [
@@ -33,9 +38,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/services/store/stor.ets", "src/services/store/stor.ets"  ],
   "exclude": [
     "node_modules"
-  ],
-  "typeRoots" : ["node_modules/@types", "src/types", "src/**"],
+  ]
 }
