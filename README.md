@@ -1,6 +1,6 @@
 # Calculator 3000 Vue3-ts App
 
-#### App demo:
+#### App demo
 
 https://quantium-rock.github.io/innocv-calculator
 
