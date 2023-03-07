@@ -1,9 +1,12 @@
 node_modules
+dist
+
 package-lock.json
 yarn-lock.json
 yarn-error.json
 
 # local env files
+.env
 .env.local
 .env.*.local
 
