@@ -22,6 +22,8 @@ yarn
 
 You can use ' npm i ' instead.
 
+\* Make sure to be in the app/ folder
+
 #### Compiles and hot-reloads for development
 
 ```
