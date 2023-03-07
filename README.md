@@ -2,7 +2,7 @@
 
 #### App demo
 
-https://quantium-rock.github.io/innocv-calculator
+https://calculator3000.onrender.com
 
 ### Run locally
 
