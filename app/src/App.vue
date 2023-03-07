@@ -23,7 +23,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div :class="store.dark ?
+  <div class="min-h-screen"
+  :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
     <div class="p-4 pt-20 flex justify-center align-middle">
@@ -31,10 +32,13 @@ export default defineComponent({
         <img alt="INNOCV logo" src="./assets/images/logo.png">
       </a>
     </div>
-    <screen-panel />
-    <keyboard-panel />
-    <math-buttons class="py-8 pb-14"/>
-    <footer-bar />
+    <div class="main">
+      <screen-panel />
+      <keyboard-panel />
+      <math-buttons class="py-8 pb-14 m-auto"/>
+    </div>
+    <footer-bar class="m-auto"/>
+    
   </div>
 </template>
 
@@ -43,10 +47,16 @@ export default defineComponent({
   text-align: center;
   height: 100% !important;
   width: 100% !important;
+  margin: auto;
 }
 html {
   box-sizing: content-box;
   overflow-x: hidden;
+}
+.main  {
+  height: 100%;
+  width: 100%;
+  margin: auto;
 }
 ::-webkit-scrollbar {
   width: 3px;
