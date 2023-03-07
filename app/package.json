@@ -11,6 +11,7 @@
     "core-js": "^3.8.3",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "pinia": "^2.0.32",
+    "vite": "^4.1.4",
     "vue": "^3.2.13"
   },
   "devDependencies": {
