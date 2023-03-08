@@ -93,14 +93,17 @@ export default {
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-500`" >
         <div v-if="store.cursor > 0" >
+          {{ store.startMsg }}
+          <span class="font-medium">
+          |
+          </span>
+          {{ store.endMsg }}
+        </div>
+        <div v-else >
           <span class="text-md">
             {{ store.operator }}
           </span> 
           {{ store.console }}
-        </div>
-        <div v-else >
-          {{ store.number }}
-          
         </div>
       </div>
       <!-- ANS & ^ buttons -->

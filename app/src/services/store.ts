@@ -17,6 +17,8 @@ const useStore = defineStore("main", {
       heart: "💙",
       message: "👋 Welcome to CALCULATOR 3000",
       cursor: 0,
+      startMsg: "",
+      endMsg: "",
     };
   },
   actions: {
@@ -52,11 +54,15 @@ const useStore = defineStore("main", {
       } else if (cmd === ">") {
         this.cursor--;
       }
-      const startMsg = this.console.slice(0, this.console.length - this.cursor);
-      const endMsg = this.console.slice(
+      const consoleTxt = this.number + this.decimals;
+      const startMsg = consoleTxt.slice(0, this.console.length - this.cursor);
+      const endMsg = consoleTxt.slice(
         this.console.length - this.cursor,
         this.console.length
       );
+      this.startMsg = startMsg;
+      this.endMsg = endMsg;
+      console.log(this.cursor);
       return {
         startMsg,
         endMsg,

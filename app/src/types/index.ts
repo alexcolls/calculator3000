@@ -17,6 +17,8 @@ export interface State {
   heart: string;
   message: string;
   cursor: number;
+  startMsg: string;
+  endMsg: string;
 }
 
 export interface History {

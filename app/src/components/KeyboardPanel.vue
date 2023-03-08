@@ -105,6 +105,7 @@ export default {
       store.operations = '';
       store.message = '';
       store.idx = 0;
+      store.cursor = 0;
       return;
     } 
     function calculate(): void {
