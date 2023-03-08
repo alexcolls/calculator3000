@@ -63,7 +63,6 @@ const useStore = defineStore("main", {
       );
       this.startMsg = startMsg;
       this.endMsg = endMsg;
-      console.log(this.cursor);
       return {
         startMsg,
         endMsg,

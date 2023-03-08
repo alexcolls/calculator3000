@@ -32,10 +32,12 @@ export default {
     function clickLeft(): void {
       store.message = '< Left';
       cursorConsole.value = store.moveCursor('<');
+      if (cursorConsole.value === 'ERROR') console.log('Move cursor left cmd error! Should be <');
     }
     function clickRight(): void {
       store.message = 'Right >';
       cursorConsole.value = store.moveCursor('>');
+      if (cursorConsole.value === 'ERROR') console.log('Move cursor right cmd error! Should be >');
     }
     return {
       store,
