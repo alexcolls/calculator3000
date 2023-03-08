@@ -117,7 +117,7 @@ export default {
       store.cursor = 0;
       return;
     } 
-    function calculate(): void {
+    function calculateResult(): void {
       store.animate = false;
       if (store.operator === '=' 
        || (!store.operations && store.number === '0')) {
@@ -127,29 +127,15 @@ export default {
       }
       clickOperator(store.operator);
       store.addOperator('=');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const operations: any = {
-        '+': (a: number, b: number): number => { return a + b },
-        '-': (a: number, b: number): number => { return a - b },
-        'x': (a: number, b: number): number => { return a * b },
-        '÷': (a: number, b: number): number => { return a / b },
-        'ⁿ': (a: number, b: number): number => { return Math.pow(a, b) },
-        '√': (a: number, b: number): number => { return a + Math.sqrt(b) },
-      };
-      const ops = store.operations.split(' ');
-      let result = Number(ops[1]);
-      if (ops[0] === '-') result = -result;
-      let num = 0;
-      for (const op of ops) {
-        console.log(op);
-        if (/\d/.test(op)) {
-          num = Number(op);
-        } else {
-          const opSplit = op.split(' '); // For negative operations. Example: op: 'x -'
-          result = operations[opSplit[0]](result, num);
-          if (opSplit.length > 1) result = -result;
-        }
-      }
+      const operations = store.operations
+        .replace('x', '*')
+        .replace('÷', '/')
+        .replace('xⁿ', '**')
+        // .replace('√', '//');
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Parser = require('expr-eval').Parser;
+      const parser = new Parser();
+      const result = parser(operations);
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
       const totalSpit = String(total).split('.');
       store.number = totalSpit[0];
@@ -186,7 +172,7 @@ export default {
       clickDecimals,
       clickDEL,
       clickAC,
-      calculate,
+      calculateResult,
       handleKeyDown
     };
   }
@@ -316,8 +302,8 @@ export default {
         0
       </button>
       <!-- = -->
-      <button @click="calculate()"
-      v-on:keyup.enter="[calculate(), playBeep()]"
+      <button @click="calculateResult()"
+      v-on:keyup.enter="[calculateResult(), playBeep()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
