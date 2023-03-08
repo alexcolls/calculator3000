@@ -80,12 +80,12 @@ export default {
     }
     function clickDEL(): void {
       store.animate = false;
-      store.message = '';
+      store.message = 'DEL';
       store.idx = 0;
       if (store.cursor > 0) {
         store.startMsg = store.startMsg.slice(0, store.startMsg.length -1);
         store.concatConsole();
-        store.cursor++;
+        return;
       }
       if (store.operator === '=') {
         clickAC();
@@ -106,6 +106,8 @@ export default {
         return;
       }
       resetNum();
+      store.message = '';
+      return;
     }
     function clickAC(): void {
       resetNum();

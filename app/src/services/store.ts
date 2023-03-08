@@ -30,13 +30,8 @@ const useStore = defineStore("main", {
     },
     concatConsole(): void {
       const msg: string[] = (this.startMsg + this.endMsg).split(".");
-      try {
-        this.number = msg[0];
-        this.decimals = msg[1];
-      } catch {
-        this.number = "0";
-        this.decimals = "";
-      }
+      this.number = msg[0];
+      if (msg.length > 1) this.decimals = msg[1];
       this.updateConsole();
     },
     addOperator(op: string): void {
