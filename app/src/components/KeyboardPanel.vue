@@ -18,6 +18,7 @@ export default {
     function playError(): void { if (store.sound) error_.play(); }
     // Keyboard functionality
     function clickNum(n: number): void {
+      store.animate = false;
       store.message = '';
       store.idx = 0;
       if (store.operator === '=') clickAC();

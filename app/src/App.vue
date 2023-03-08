@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, Ref } from 'vue';
 import useStore from './services/store';
 import ConsoleScreen from './components/ConsoleScreen.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
@@ -15,8 +15,15 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
+    const animate: Ref<boolean> = ref(true);
+    const onClick = () => { 
+      animate.value = !animate.value;
+      store.animate = false;
+    };
     return {
-      store
+      store,
+      animate,
+      onClick
     }
   }
 });
@@ -26,9 +33,11 @@ export default defineComponent({
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
-    <div class="p-4 pt-20 flex justify-center align-middle">
+    <div class="p-4 pt-20 flex justify-center align-middle"
+    v-on:click="onClick()">
       <a href="https://www.innocv.com/" target="_blank">
-        <img alt="INNOCV logo" src="./assets/images/logo.png">
+        <img alt="INNOCV logo" src="./assets/images/logo.png"
+        :class="store.animate ? 'animate-bounce' : 'animate-none'">
       </a>
     </div>
     <div class="main">
@@ -37,7 +46,6 @@ export default defineComponent({
       <math-buttons class="py-8 pb-14 m-auto"/>
     </div>
     <footer-bar class="m-auto"/>
-    
   </div>
 </template>
 <style>

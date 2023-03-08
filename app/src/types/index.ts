@@ -19,6 +19,7 @@ export interface State {
   cursor: number;
   startMsg: string;
   endMsg: string;
+  animate: boolean;
 }
 
 export interface History {
