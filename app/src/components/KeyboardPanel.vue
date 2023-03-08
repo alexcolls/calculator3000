@@ -54,8 +54,13 @@ export default {
       }
       if (store.number === '0') {
         store.addOperator(op);
-      } else {
-        store.addOperation(`${store.operator} ${store.number}${store.decimals}`);
+      } else if (store.operator === '√') {
+        if (op === '√') {
+          store.addOperation(`* ${store.operator} ${store.number}${store.decimals}`);
+          store.operator = op + ' ' + store.operator;
+        } else {
+          store.addOperation(`${store.operator} ${store.number}${store.decimals}`);
+        }
         store.addOperator(op);
         resetNum();
       }
@@ -127,6 +132,7 @@ export default {
       clickOperator(store.operator);
       store.addOperator('=');
       const operations = store.operations
+        .replace(' ', '')
         .replace('x', '*')
         .replace('÷', '/')
         .replace('xⁿ', '**')
