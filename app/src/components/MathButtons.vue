@@ -27,30 +27,20 @@ export default {
       const len: number = store.operator.length + store.number.length + store.decimals.length;
       if (store.cursor >= len) {
         store.message = '';
+        store.cursor = 0;
         return;
       }
       store.message = '< Left';
-      moveCursor('<');
+      store.moveCursor('<');
     }
     function clickRight(): void {
       if (store.cursor === 0) {
         store.message = '';
-        return
+        store.cursor = store.console.length -1;
+        return;
       }
       store.message = 'Right >';
-      moveCursor('>');
-    }
-    type CursorCmd = '<' | '>';
-    function moveCursor(cmd:CursorCmd): void {
-      if (cmd === '<') {
-        store.cursor++;
-      } else if (cmd === '>') {
-        store.cursor--;
-      }
-      const consoleText = `${store.operator} ${store.number+store.decimals}`;
-      const startMsg = consoleText.slice(0, consoleText.length - store.cursor);
-      const endMsg = consoleText.slice(consoleText.length - store.cursor, consoleText.length);
-      store.console = startMsg + '|' + endMsg;
+      store.moveCursor('>');
     }
     return {
       store,
@@ -59,7 +49,7 @@ export default {
       clickPhi,
       clickEuler,
       clickLeft,
-      clickRight,
+      clickRight
     };
   }
 }

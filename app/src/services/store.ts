@@ -21,6 +21,13 @@ export interface History {
   number: string;
 }
 
+export interface moveCursorRet {
+  startMsg: string;
+  endMsg: string;
+}
+
+export type CursorCmd = "<" | ">";
+
 const useStore = defineStore("main", {
   state: (): State => {
     return {
@@ -65,6 +72,19 @@ const useStore = defineStore("main", {
         number: this.number,
       };
       this.history.unshift(hist);
+    },
+    moveCursor(cmd: CursorCmd): moveCursorRet {
+      if (cmd === "<") {
+        this.cursor++;
+      } else if (cmd === ">") {
+        this.cursor--;
+      }
+      const startMsg = this.console.slice(0, this.console.length - this.cursor);
+      const endMsg = this.console.slice(
+        this.console.length - this.cursor,
+        this.console.length
+      );
+      return { startMsg, endMsg };
     },
     switchDark(): void {
       this.dark = !this.dark;

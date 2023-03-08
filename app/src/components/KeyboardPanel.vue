@@ -25,6 +25,7 @@ export default {
         if (store.number[0] === '0') {
           store.number = String(n);
           store.updateConsole();
+
           return;
         }
         if (Number(store.number) + n <= maxNumber) {

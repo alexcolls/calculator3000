@@ -91,10 +91,16 @@ export default {
       <!-- Main number -->
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-500`" >
-        <span class="text-md">
-          {{ store.operator }}
-        </span> 
-         {{ store.console }}
+        <div v-if="store.cursor > 0" >
+          <span class="text-md">
+            {{ store.operator }}
+          </span> 
+          {{ store.console }}
+        </div>
+        <div v-else >
+          {{ store.number }}
+          
+        </div>
       </div>
       <!-- ANS buttons -->
       <div class="flex justify-between">
@@ -123,3 +129,52 @@ export default {
     </div>
   </div>
 </template>
+<style scoped>
+._blink_ {
+
+  animation-name: _blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name: _blink;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+@keyframes _blink {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@-moz-keyframes _blink {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+@-webkit-keyframes _blink {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}</style>
