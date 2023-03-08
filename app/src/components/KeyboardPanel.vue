@@ -46,6 +46,7 @@ export default {
       }
     }
     function clickOperator(op: string): void {
+      store.animate = false;
       store.message = '';
       store.idx = 0;
       if (store.operator === '=') {
@@ -63,6 +64,7 @@ export default {
       }
     }
     function clickDecimals(): void {
+      store.animate = false;
       if (store.operator === '0') return;
       if (store.operator === '=') {
         clickAC();
@@ -78,6 +80,7 @@ export default {
       store.updateConsole();
     }
     function clickDEL(): void {
+      store.animate = false;
       store.message = '';
       store.idx = 0;
       if (store.operator === '=') {
@@ -102,6 +105,7 @@ export default {
     }
     function clickAC(): void {
       resetNum();
+      store.animate = false;
       store.operator = '';
       store.operations = '';
       store.message = '';
@@ -110,6 +114,7 @@ export default {
       return;
     } 
     function calculate(): void {
+      store.animate = false;
       if (store.operator === '=' 
        || (!store.operations && store.number === '0')) {
         playBeep();

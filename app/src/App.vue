@@ -18,7 +18,7 @@ export default defineComponent({
     const animate: Ref<boolean> = ref(true);
     const onClick = () => { 
       animate.value = !animate.value;
-      store.animate = false;
+      store.animate = !animate.value;
     };
     return {
       store,
