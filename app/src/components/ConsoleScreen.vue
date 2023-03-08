@@ -1,5 +1,6 @@
 <script lang="ts">
-import useStore, { History } from '../services/store';
+import useStore from '../services/store';
+import { History } from '../types';
 export default {
   setup () {
     const store = useStore();
@@ -88,7 +89,7 @@ export default {
       <div class="m-auto px-8">
         {{ store.operations }}
       </div>
-      <!-- Main number -->
+      <!-- Console nujmber -->
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-500`" >
         <div v-if="store.cursor > 0" >

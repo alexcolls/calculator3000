@@ -1,9 +1,15 @@
 <script lang="ts">
+import { ref, Ref } from 'vue';
+import { moveCursorRet } from '../types';
 import useStore from '../services/store';
 import beep_sound from '../assets/sounds/beep.mp3';
 export default {
   setup () {
     const store = useStore();
+    const cursorConsole: Ref<moveCursorRet> = ref({
+      startMsg: '',
+      endMsg: ''
+    });
     // Sounds
     const beep_ = new Audio(beep_sound);
     function playBeep(): void { if (store.sound) beep_.play(); }
@@ -31,7 +37,7 @@ export default {
         return;
       }
       store.message = '< Left';
-      store.moveCursor('<');
+      cursorConsole.value = store.moveCursor('<');
     }
     function clickRight(): void {
       if (store.cursor === 0) {
@@ -40,7 +46,7 @@ export default {
         return;
       }
       store.message = 'Right >';
-      store.moveCursor('>');
+      cursorConsole.value = store.moveCursor('>');
     }
     return {
       store,
