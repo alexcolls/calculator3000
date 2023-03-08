@@ -131,11 +131,11 @@ export default {
         .replace('x', '*')
         .replace('÷', '/')
         .replace('xⁿ', '**')
-        // .replace('√', '//');
+        .replace(/√\s*(\d+)/g, 'Math.sqrt($1)');
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      const Parser = require('expr-eval').Parser;
-      const parser = new Parser();
-      const result = parser(operations);
+      // const Parser = require('expr-eval').Parser;
+      // const parser = new Parser();
+      const result = eval(operations);
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
       const totalSpit = String(total).split('.');
       store.number = totalSpit[0];
