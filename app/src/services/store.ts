@@ -29,6 +29,7 @@ const useStore = defineStore("main", {
       this.operator = "";
       this.number = "0";
       this.decimals = "";
+      this.message = "";
       this.updateConsole();
     },
     updateConsole(): void {
@@ -41,6 +42,7 @@ const useStore = defineStore("main", {
       else txt = result.split(".");
       this.number = txt[0];
       if (txt.length > 1) this.decimals = txt[1];
+      if (this.decimals) this.decimals = "." + this.decimals;
       this.updateConsole();
     },
     addOperator(op: string): void {

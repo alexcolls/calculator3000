@@ -80,7 +80,7 @@ export default {
     }
     function clickDEL(): void {
       store.animate = false;
-      store.message = 'DEL';
+      store.message = 'DEL 💀';
       store.idx = 0;
       if (store.cursor > 0) {
         store.startMsg = store.startMsg.slice(0, store.startMsg.length -1);
@@ -111,10 +111,8 @@ export default {
     }
     function clickAC(): void {
       resetNum();
+      store.resetConsole();
       store.animate = false;
-      store.operator = '';
-      store.operations = '';
-      store.message = '';
       store.idx = 0;
       store.cursor = 0;
       return;
@@ -152,10 +150,15 @@ export default {
           if (opSplit.length > 1) result = -result;
         }
       }
-      store.console = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
+      const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
+      const totalSpit = String(total).split('.');
+      store.number = totalSpit[0];
+      if (totalSpit.length > 1) store.decimals = '.' + totalSpit[1];
+      else store.decimals = '';
+      store.updateConsole();
       store.addHistory();
       // Sounds
-      if (!Number(store.console)) playError();
+      if (!total) playError();
       else playSuccess();
       // Success messages
       const randomMsgs = [
