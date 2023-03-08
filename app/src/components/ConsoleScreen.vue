@@ -103,7 +103,7 @@ export default {
           
         </div>
       </div>
-      <!-- ANS buttons -->
+      <!-- ANS & ^ buttons -->
       <div class="flex justify-between">
         <div class="flex">
           <button class="ml-3 rounded-full h-6 w-12 m-2 flex justify-center items-center shadow-sm text-xs font-bold" 
