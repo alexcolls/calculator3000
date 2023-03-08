@@ -1,14 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import useStore from './services/store';
-import ScreenPanel from './components/ScreenPanel.vue';
+import ConsoleScreen from './components/ConsoleScreen.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
 import MathButtons from './components/MathButtons.vue';
 import FooterBar from './components/FooterBar.vue';
 export default defineComponent({
   name: 'App',
   components: {
-    ScreenPanel,
+    ConsoleScreen,
     KeyboardPanel,
     FooterBar,
     MathButtons,
@@ -21,7 +21,6 @@ export default defineComponent({
   }
 });
 </script>
-
 <template>
   <div class="min-h-screen"
   :class="store.dark ?
@@ -33,7 +32,7 @@ export default defineComponent({
       </a>
     </div>
     <div class="main">
-      <screen-panel />
+      <console-screen />
       <keyboard-panel />
       <math-buttons class="py-8 pb-14 m-auto"/>
     </div>
@@ -41,7 +40,6 @@ export default defineComponent({
     
   </div>
 </template>
-
 <style>
 #app {
   text-align: center;

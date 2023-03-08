@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 
 export interface State {
+  console: string;
   number: string;
   decimals: string;
   operator: string;
@@ -12,6 +13,7 @@ export interface State {
   color: string;
   heart: string;
   message: string;
+  cursor: number;
 }
 
 export interface History {
@@ -22,6 +24,7 @@ export interface History {
 const useStore = defineStore("main", {
   state: (): State => {
     return {
+      console: "",
       number: "0",
       decimals: "",
       operator: "",
@@ -33,6 +36,7 @@ const useStore = defineStore("main", {
       color: "blue-500",
       heart: "💙",
       message: "👋 Welcome to CALCULATOR 3000",
+      cursor: 0,
     };
   },
   actions: {

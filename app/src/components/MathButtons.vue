@@ -24,12 +24,33 @@ export default {
       store.decimals = '.7182818284';
     }
     function clickLeft(): void {
+      const len: number = store.operator.length + store.number.length + store.decimals.length;
+      if (store.cursor >= len) {
+        store.message = '';
+        return;
+      }
       store.message = '< Left';
-      return;
+      moveCursor('<');
     }
     function clickRight(): void {
+      if (store.cursor === 0) {
+        store.message = '';
+        return
+      }
       store.message = 'Right >';
-      return;
+      moveCursor('>');
+    }
+    type CursorCmd = '<' | '>';
+    function moveCursor(cmd:CursorCmd): void {
+      if (cmd === '<') {
+        store.cursor++;
+      } else if (cmd === '>') {
+        store.cursor--;
+      }
+      const consoleText = `${store.operator} ${store.number+store.decimals}`;
+      const startMsg = consoleText.slice(0, consoleText.length - store.cursor);
+      const endMsg = consoleText.slice(consoleText.length - store.cursor, consoleText.length);
+      store.console = startMsg + '|' + endMsg;
     }
     return {
       store,

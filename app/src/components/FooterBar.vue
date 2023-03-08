@@ -4,7 +4,6 @@ import { ref } from 'vue';
 import { getTime, getDate } from '../utils';
 import useStore from '../services/store';
 import SettingsButtons from './SettingsButtons.vue';
-
 export default {
   components: {
     SettingsButtons

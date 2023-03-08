@@ -5,6 +5,7 @@ export default {
     const store = useStore();
     const nf = Intl.NumberFormat();
     const maxMemory = 10; // max operations cache
+    const consoleText = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
@@ -54,6 +55,7 @@ export default {
     return {
       store,
       nf,
+      consoleText,
       openParenthesis,
       closeParenthesis,
       clickANS
@@ -88,7 +90,10 @@ export default {
       <!-- Main number -->
       <div class="py-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r" 
       :class="`from-${store.color} to-orange-500`" >
-        <span class="text-md">{{ store.operator }}</span> {{ nf.format(Number(store.number)).replaceAll(',', ' ') }}{{ store.decimals }}
+        <span class="text-md">
+          {{ store.operator }}
+        </span> 
+         {{ consoleText }}
       </div>
       <!-- ANS buttons -->
       <div class="flex justify-between">
