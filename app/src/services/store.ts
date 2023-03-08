@@ -48,9 +48,10 @@ const useStore = defineStore("main", {
       };
       this.history.unshift(hist);
     },
-    moveCursor(cmd: CursorCmd): moveCursorRet {
+    moveCursor(cmd: CursorCmd): moveCursorRet | string {
       if (cmd === "<") this.cursor++;
       else if (cmd === ">") this.cursor--;
+      else return "ERROR";
       const consoleTxt = this.number + this.decimals;
       if (this.cursor < 0) this.cursor = consoleTxt.length - 1;
       if (this.cursor > consoleTxt.length) this.cursor = 0;

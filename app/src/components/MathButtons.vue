@@ -6,7 +6,7 @@ import beep_sound from '../assets/sounds/beep.mp3';
 export default {
   setup () {
     const store = useStore();
-    const cursorConsole: Ref<moveCursorRet> = ref({
+    const cursorConsole: Ref<moveCursorRet | string> = ref({
       startMsg: '',
       endMsg: ''
     });
