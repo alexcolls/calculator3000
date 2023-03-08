@@ -89,7 +89,9 @@ export default {
       :class="`from-${store.color} to-orange-500`" >
         <div v-if="store.cursor > 0" >
           {{ store.startMsg }}
-          <span class="blink inline-block font-medium">|</span>
+          <span class="blink inline-block font-light">
+            |
+          </span>
           {{ store.endMsg }}
         </div>
         <div v-else >
