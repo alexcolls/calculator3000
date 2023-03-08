@@ -1,13 +1,3 @@
-export function shortWallet(addrs: string, n: number): string {
-  return addrs.slice(0, n) + ".." + addrs.slice(-n);
-}
-
-export function markWallet(address: string, wallet: string): string {
-  if (wallet == address)
-    return "font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-400 border-y border-green-500";
-  else return "";
-}
-
 export function formatNumber(number: number): string {
   const nf = Intl.NumberFormat();
   return nf.format(number).replaceAll(",", " ");
