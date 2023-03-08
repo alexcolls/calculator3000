@@ -33,7 +33,7 @@ const useStore = defineStore("main", {
       if (
         op === "-" &&
         !rest.includes(this.operator) &&
-        !this.operator.includes("-")
+        !this.operator.includs("-")
       )
         this.operator = this.operator + " -";
       else this.operator = op;
