@@ -15,18 +15,21 @@ export default {
     function playBeep(): void { if (store.sound) beep_.play(); }
     // Keyboard functionality
     function clickPi(): void {
+      if (store.operator === '=') store.resetConsole();
       store.message = 'The Great Pi!';
       store.number = '3'
       store.decimals = '.1415926536';
       store.updateConsole();
     }
     function clickPhi(): void {
+      if (store.operator === '=') store.resetConsole();
       store.message = 'Phi, the Golden Ratio!';
       store.number = '1'
       store.decimals = '.6180339887';
       store.updateConsole();
     }
     function clickEuler(): void {
+      if (store.operator === '=') store.resetConsole();
       store.message = "Euler's number!";
       store.number = '2'
       store.decimals = '.7182818284';
