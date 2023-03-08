@@ -49,16 +49,16 @@ const useStore = defineStore("main", {
       this.history.unshift(hist);
     },
     moveCursor(cmd: CursorCmd): moveCursorRet {
-      if (cmd === "<") {
-        this.cursor++;
-      } else if (cmd === ">") {
-        this.cursor--;
-      }
+      if (cmd === "<") this.cursor++;
+      else if (cmd === ">") this.cursor--;
       const consoleTxt = this.number + this.decimals;
-      const startMsg = consoleTxt.slice(0, this.console.length - this.cursor);
+      if (this.cursor < 0) this.cursor = consoleTxt.length - 1;
+      if (this.cursor > consoleTxt.length) this.cursor = 0;
+      else this.message = "";
+      const startMsg = consoleTxt.slice(0, consoleTxt.length - this.cursor);
       const endMsg = consoleTxt.slice(
-        this.console.length - this.cursor,
-        this.console.length
+        consoleTxt.length - this.cursor,
+        consoleTxt.length
       );
       this.startMsg = startMsg;
       this.endMsg = endMsg;

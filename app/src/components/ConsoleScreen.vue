@@ -4,7 +4,6 @@ import { History } from '../types';
 export default {
   setup () {
     const store = useStore();
-    const nf = Intl.NumberFormat();
     const maxMemory = 10; // max operations cache
     function openParenthesis(): void {
       let op = store.operator;
@@ -33,7 +32,7 @@ export default {
           store.operations = '';
           store.number = '0';
           store.operator = '';
-          store.console = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
+          store.updateConsole();
           return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
         hist = store.history[store.idx + 1];
@@ -52,12 +51,11 @@ export default {
       }
       store.operations = hist.operations;
       store.number = hist.number;
-      store.console = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
+      store.updateConsole();
       store.operator = '=';
     }
     return {
       store,
-      nf,
       openParenthesis,
       closeParenthesis,
       clickANS

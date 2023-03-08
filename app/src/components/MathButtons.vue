@@ -30,21 +30,10 @@ export default {
       store.decimals = '.7182818284';
     }
     function clickLeft(): void {
-      const len: number = store.operator.length + store.number.length + store.decimals.length;
-      if (store.cursor >= len) {
-        store.message = '';
-        store.cursor = 0;
-        return;
-      }
       store.message = '< Left';
       cursorConsole.value = store.moveCursor('<');
     }
     function clickRight(): void {
-      if (store.cursor === 0) {
-        store.message = '';
-        store.cursor = store.console.length -1;
-        return;
-      }
       store.message = 'Right >';
       cursorConsole.value = store.moveCursor('>');
     }
