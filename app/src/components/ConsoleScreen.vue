@@ -134,7 +134,7 @@ export default {
 </template>
 <style scoped>
 .blink {
-  animation: blink-animation 0.3s steps(10, start) infinite;
+  animation: blink-animation 1s steps(10, start) infinite;
   -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 @keyframes blink-animation {
