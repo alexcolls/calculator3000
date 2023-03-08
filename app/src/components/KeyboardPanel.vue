@@ -24,10 +24,12 @@ export default {
       if (!store.decimals) {
         if (store.number[0] === '0') {
           store.number = String(n);
+          store.updateConsole();
           return;
         }
         if (Number(store.number) + n <= maxNumber) {
           store.number += n;
+          store.updateConsole();
           return;
         } else {
           return alert(`Number must be between -${nf.format(maxNumber)} and ${nf.format(maxNumber)}, including both.`);
@@ -35,7 +37,10 @@ export default {
       } else {
         if (store.decimals.length > maxDecimals)
           return alert(`Sorry, maximum ${maxDecimals} decimals allowed.`);
-        else store.decimals += n;
+        else { 
+          store.decimals += n;
+          store.updateConsole();
+        }
       }
     }
     function clickOperator(op: string): void {
@@ -63,10 +68,12 @@ export default {
       }
       if (store.decimals) store.decimals = '';
       else store.decimals = '.';
+      store.updateConsole();
     }
     function resetNum(): void {
       store.number = '0';
       store.decimals = '';
+      store.updateConsole();
     }
     function clickDEL(): void {
       store.message = '';
@@ -81,10 +88,12 @@ export default {
       }
       if (store.decimals) {
         store.decimals = store.decimals.slice(0, -1);
+        store.updateConsole();
         return;
       }
       if (store.number.length > 1) {
         store.number = store.number.slice(0, -1);
+        store.updateConsole();
         return;
       }
       resetNum();
@@ -130,7 +139,7 @@ export default {
         }
         console.log()
       }
-      store.number = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
+      store.console = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
       // Sounds
       if (!Number(store.number)) playError();
       else playSuccess();

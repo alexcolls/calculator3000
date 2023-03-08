@@ -24,7 +24,7 @@ export interface History {
 const useStore = defineStore("main", {
   state: (): State => {
     return {
-      console: "",
+      console: "0",
       number: "0",
       decimals: "",
       operator: "",
@@ -40,6 +40,11 @@ const useStore = defineStore("main", {
     };
   },
   actions: {
+    updateConsole(): void {
+      const nf = Intl.NumberFormat();
+      this.console =
+        nf.format(Number(this.number)).replaceAll(",", " ") + this.decimals;
+    },
     addOperator(op: string): void {
       const rest = ["+", "-"];
       if (

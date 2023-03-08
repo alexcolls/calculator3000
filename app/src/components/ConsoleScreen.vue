@@ -5,7 +5,6 @@ export default {
     const store = useStore();
     const nf = Intl.NumberFormat();
     const maxMemory = 10; // max operations cache
-    const consoleText = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
@@ -33,6 +32,7 @@ export default {
           store.operations = '';
           store.number = '0';
           store.operator = '';
+          store.console = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
           return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
         hist = store.history[store.idx + 1];
@@ -44,18 +44,19 @@ export default {
           store.operations = '';
           store.number = '0';
           store.operator = '';
+          store.console = '';
           return;
         }
         hist = store.history[store.idx - 2];
       }
       store.operations = hist.operations;
       store.number = hist.number;
+      store.console = nf.format(Number(store.number)).replaceAll(',', ' ') + store.decimals;
       store.operator = '=';
     }
     return {
       store,
       nf,
-      consoleText,
       openParenthesis,
       closeParenthesis,
       clickANS
@@ -93,7 +94,7 @@ export default {
         <span class="text-md">
           {{ store.operator }}
         </span> 
-         {{ consoleText }}
+         {{ store.console }}
       </div>
       <!-- ANS buttons -->
       <div class="flex justify-between">
