@@ -51,7 +51,7 @@ const useStore = defineStore("main", {
     addHistory(): void {
       const hist: History = {
         operations: this.operations,
-        result: this.console,
+        result: "= " + this.console,
       };
       this.history.unshift(hist);
     },

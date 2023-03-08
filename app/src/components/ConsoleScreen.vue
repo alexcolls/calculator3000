@@ -17,13 +17,13 @@ export default {
     }
     function clickANS(inverse: boolean): void {
       if (store.history.length === 0) {
-        store.message = 'Make calculations first to use ANS...';
+        store.message = 'Make calculations first to use ANS';
         return;
       }
       store.message = '';
       let hist: History;
       if (!inverse) {
-        if (store.history.length === store.idx+1) {
+        if (store.history.length === store.idx) {
           store.message = '✋ You have no more history!';
           return;
         }
@@ -36,7 +36,7 @@ export default {
           store.updateConsole();
           return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
-        hist = store.history[store.idx + 1];
+        hist = store.history[store.idx];
         store.idx++;
       } else {
         store.idx--;
@@ -49,7 +49,7 @@ export default {
           store.updateConsole();
           return;
         }
-        hist = store.history[store.idx - 2];
+        hist = store.history[store.idx - 1];
       }
       store.operations = hist.operations;
       store.console = hist.result;
