@@ -29,11 +29,7 @@ export default {
         }
         if (store.idx === maxMemory) {
           store.idx = 0;
-          store.operations = '';
-          store.operator = '';
-          store.number = '0';
-          store.decimals = '';
-          store.updateConsole();
+          store.resetConsole();
           return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
         hist = store.history[store.idx];
@@ -42,18 +38,13 @@ export default {
         store.idx--;
         if (store.idx === 0) {
           store.message = "I'm ready, give me numbers! 😋";
-          store.operations = '';
-          store.operator = '';
-          store.number = '0';
-          store.decimals = '';
-          store.updateConsole();
+          store.resetConsole();
           return;
         }
         hist = store.history[store.idx - 1];
       }
       store.operations = hist.operations;
-      store.console = hist.result;
-      store.updateConsole();
+      store.concatConsole(hist.result);
       store.operator = '=';
       return;
     }

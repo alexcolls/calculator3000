@@ -153,6 +153,7 @@ export default {
         }
       }
       store.console = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
+      store.addHistory();
       // Sounds
       if (!Number(store.console)) playError();
       else playSuccess();
@@ -166,7 +167,6 @@ export default {
       ];
       const idx = Math.floor(Math.random() * randomMsgs.length + 1);
       store.message = randomMsgs[idx];
-      store.addHistory();
       return;
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

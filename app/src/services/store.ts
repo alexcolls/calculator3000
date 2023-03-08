@@ -24,14 +24,23 @@ const useStore = defineStore("main", {
     };
   },
   actions: {
+    resetConsole(): void {
+      this.operations = "";
+      this.operator = "";
+      this.number = "0";
+      this.decimals = "";
+      this.updateConsole();
+    },
     updateConsole(): void {
       this.console =
         formatNumber(Number(this.number)).replaceAll(",", " ") + this.decimals;
     },
-    concatConsole(): void {
-      const msg: string[] = (this.startMsg + this.endMsg).split(".");
-      this.number = msg[0];
-      if (msg.length > 1) this.decimals = msg[1];
+    concatConsole(result = ""): void {
+      let txt: string[];
+      if (!result) txt = (this.startMsg + this.endMsg).split(".");
+      else txt = result.split(".");
+      this.number = txt[0];
+      if (txt.length > 1) this.decimals = txt[1];
       this.updateConsole();
     },
     addOperator(op: string): void {
@@ -51,7 +60,7 @@ const useStore = defineStore("main", {
     addHistory(): void {
       const hist: History = {
         operations: this.operations,
-        result: "= " + this.console,
+        result: this.console,
       };
       this.history.unshift(hist);
     },
