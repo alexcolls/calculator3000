@@ -1,19 +1,22 @@
 <script lang="ts">
+import { ref , Ref } from 'vue';
 import useStore from '../services/store';
 import { History } from '../types';
 export default {
   setup () {
     const store = useStore();
     const maxMemory = 10; // max operations cache
+    const openParen: Ref<boolean> = ref(false);
     function openParenthesis(): void {
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
       store.operations = `${store.operations} ${op} (`;
+      openParen.value = true;
     }
     function closeParenthesis(): void {
-      const ops = store.operations.split(' ');
-      if (ops.length > 3)   
+      if (!openParen.value) return;
       store.operations = store.operations + ' )';
+      openParen.value = false;
     }
     function clickANS(inverse: boolean): void {
       if (store.history.length === 0) {
@@ -74,7 +77,7 @@ export default {
         </button>
         <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
-        @click="openParenthesis()" >
+        @click="closeParenthesis()" >
           )
         </button>
       </div>

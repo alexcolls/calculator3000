@@ -55,9 +55,7 @@ export default {
       if (store.number === '0') {
         store.addOperator(op);
       } else {
-        let operator = '+';
-        if (store.operator) operator = store.operator;
-        store.addOperation(`${operator} ${store.number}${store.decimals}`);
+        store.addOperation(`${store.operator} ${store.number}${store.decimals}`);
         store.addOperator(op);
         resetNum();
       }
