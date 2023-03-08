@@ -1,10 +1,10 @@
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue';
-import useStore from './services/store';
 import ConsoleScreen from './components/ConsoleScreen.vue';
 import KeyboardPanel from './components/KeyboardPanel.vue';
 import MathButtons from './components/MathButtons.vue';
 import FooterBar from './components/FooterBar.vue';
+import useStore from './services/store';
 export default defineComponent({
   name: 'App',
   components: {

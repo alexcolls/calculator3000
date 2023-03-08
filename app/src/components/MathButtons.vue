@@ -1,12 +1,12 @@
 <script lang="ts">
 import { ref, Ref } from 'vue';
-import { moveCursorRet } from '../types';
+import { MoveCursor } from '../types';
 import useStore from '../services/store';
 import beep_sound from '../assets/sounds/beep.mp3';
 export default {
   setup () {
     const store = useStore();
-    const cursorConsole: Ref<moveCursorRet | string> = ref({
+    const cursorConsole: Ref<MoveCursor | string> = ref({
       startMsg: '',
       endMsg: ''
     });
@@ -32,12 +32,12 @@ export default {
     function clickLeft(): void {
       store.message = '< Left';
       cursorConsole.value = store.moveCursor('<');
-      if (cursorConsole.value === 'ERROR') console.log('Move cursor left cmd error! Should be <');
+      if (cursorConsole.value === 'ERROR') console.log('Move cursor left input error! Should be <');
     }
     function clickRight(): void {
       store.message = 'Right >';
       cursorConsole.value = store.moveCursor('>');
-      if (cursorConsole.value === 'ERROR') console.log('Move cursor right cmd error! Should be >');
+      if (cursorConsole.value === 'ERROR') console.log('Move cursor right input error! Should be >');
     }
     return {
       store,

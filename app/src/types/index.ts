@@ -1,4 +1,4 @@
-import "images.d.ts";
+import "image.d.ts";
 import "audio.d.ts";
 
 export interface State {
@@ -25,7 +25,7 @@ export interface History {
   number: string;
 }
 
-export interface moveCursorRet {
+export interface MoveCursor {
   startMsg: string;
   endMsg: string;
 }

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { State, History, moveCursorRet, CursorCmd } from "../types";
+import { State, History, MoveCursor, CursorCmd } from "../types";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -19,7 +19,7 @@ const useStore = defineStore("main", {
       cursor: 0,
       startMsg: "",
       endMsg: "",
-      animate: true
+      animate: true,
     };
   },
   actions: {
@@ -49,7 +49,7 @@ const useStore = defineStore("main", {
       };
       this.history.unshift(hist);
     },
-    moveCursor(cmd: CursorCmd): moveCursorRet | string {
+    moveCursor(cmd: CursorCmd): MoveCursor | string {
       if (cmd === "<") this.cursor++;
       else if (cmd === ">") this.cursor--;
       else return "ERROR";
