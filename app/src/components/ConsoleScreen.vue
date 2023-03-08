@@ -92,9 +92,7 @@ export default {
       :class="`from-${store.color} to-orange-500`" >
         <div v-if="store.cursor > 0" >
           {{ store.startMsg }}
-          <span class="font-medium">
-          |
-          </span>
+          <span class="inline-block blink">|</span>
           {{ store.endMsg }}
         </div>
         <div v-else >
@@ -132,51 +130,18 @@ export default {
   </div>
 </template>
 <style scoped>
-._blink_ {
-
-  animation-name: _blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  -webkit-animation-name: _blink;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
-@keyframes _blink {
-  0% {
-    opacity: 1.0;
-  }
-
-  50% {
-    opacity: 0.0;
-  }
-
-  100% {
-    opacity: 1.0;
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
-
-@-moz-keyframes _blink {
-  0% {
-    opacity: 1.0;
-  }
-  50% {
-    opacity: 0.0;
-  }
-  100% {
-    opacity: 1.0;
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
-@-webkit-keyframes _blink {
-  0% {
-    opacity: 1.0;
-  }
-  50% {
-    opacity: 0.0;
-  }
-  100% {
-    opacity: 1.0;
-  }
-}</style>
+</style>
