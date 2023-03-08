@@ -113,6 +113,7 @@ export default {
       store.animate = false;
       store.idx = 0;
       store.cursor = 0;
+      store.message = "Let's go 🚀";
       return;
     } 
     function calculateResult(): void {
