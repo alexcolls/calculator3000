@@ -55,7 +55,7 @@ const useStore = defineStore("main", {
       const consoleTxt = this.number + this.decimals;
       if (this.cursor < 0) this.cursor = consoleTxt.length - 1;
       if (this.cursor > consoleTxt.length) this.cursor = 0;
-      else this.message = "";
+      if (this.cursor === 0) this.message = "";
       const startMsg = consoleTxt.slice(0, consoleTxt.length - this.cursor);
       const endMsg = consoleTxt.slice(
         consoleTxt.length - this.cursor,
