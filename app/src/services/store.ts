@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { State, History, MoveCursor, CursorCmd } from "../types";
+import { formatNumber } from "../utils";
 
 const useStore = defineStore("main", {
   state: (): State => {
@@ -24,9 +25,19 @@ const useStore = defineStore("main", {
   },
   actions: {
     updateConsole(): void {
-      const nf = Intl.NumberFormat();
       this.console =
-        nf.format(Number(this.number)).replaceAll(",", " ") + this.decimals;
+        formatNumber(Number(this.number)).replaceAll(",", " ") + this.decimals;
+    },
+    concatConsole(): void {
+      const msg: string[] = (this.startMsg + this.endMsg).split(".");
+      try {
+        this.number = msg[0];
+        this.decimals = msg[1];
+      } catch {
+        this.number = "0";
+        this.decimals = "";
+      }
+      this.updateConsole();
     },
     addOperator(op: string): void {
       const rest = ["+", "-"];

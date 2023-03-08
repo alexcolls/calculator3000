@@ -26,7 +26,6 @@ export default {
         if (store.number[0] === '0') {
           store.number = String(n);
           store.updateConsole();
-
           return;
         }
         if (Number(store.number) + n <= maxNumber) {
@@ -83,6 +82,11 @@ export default {
       store.animate = false;
       store.message = '';
       store.idx = 0;
+      if (store.cursor > 0) {
+        store.startMsg = store.startMsg.slice(0, store.startMsg.length -1);
+        store.concatConsole();
+        store.cursor++;
+      }
       if (store.operator === '=') {
         clickAC();
         return;
@@ -145,7 +149,6 @@ export default {
           result = operations[opSplit[0]](result, num);
           if (opSplit.length > 1) result = -result;
         }
-        console.log()
       }
       store.console = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
       // Sounds

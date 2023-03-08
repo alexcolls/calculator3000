@@ -18,26 +18,31 @@ export default {
       store.message = 'The Great Pi!';
       store.number = '3'
       store.decimals = '.1415926536';
+      store.updateConsole();
     }
     function clickPhi(): void {
       store.message = 'Phi, the Golden Ratio!';
       store.number = '1'
       store.decimals = '.6180339887';
+      store.updateConsole();
     }
     function clickEuler(): void {
       store.message = "Euler's number!";
       store.number = '2'
       store.decimals = '.7182818284';
+      store.updateConsole();
     }
     function clickLeft(): void {
+      if (store.number === '0') return;
       store.message = '< Left';
       cursorConsole.value = store.moveCursor('<');
-      if (cursorConsole.value === 'ERROR') console.log('Move cursor left input error! Should be <');
+      if (cursorConsole.value === 'ERROR') console.log("Move cursor left input error! Should be '<' ");
     }
     function clickRight(): void {
+      if (store.number === '0') return;
       store.message = 'Right >';
       cursorConsole.value = store.moveCursor('>');
-      if (cursorConsole.value === 'ERROR') console.log('Move cursor right input error! Should be >');
+      if (cursorConsole.value === 'ERROR') console.log("Move cursor right input error! Should be '>' ");
     }
     return {
       store,
