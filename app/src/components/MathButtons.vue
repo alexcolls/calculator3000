@@ -76,14 +76,16 @@ export default {
         e
       </button>
       <!-- < -->
-      <button @click="[clickLeft(), playBeep()]" 
+      <button @click="[clickLeft(), playBeep()]"
+      v-on:keyup.left="[clickLeft(), playBeep()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-bl-xl rounded-tl-xl">
         &lt;
       </button>
       <!-- > -->
-      <button @click="[clickRight(), playBeep()]" 
+      <button @click="[clickRight(), playBeep()]"
+      v-on:keyup.right="[clickRight(), playBeep()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl rounded-tr-xl">

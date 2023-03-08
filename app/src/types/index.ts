@@ -22,7 +22,7 @@ export interface State {
 
 export interface History {
   operations: string;
-  number: string;
+  result: string;
 }
 
 export interface MoveCursor {

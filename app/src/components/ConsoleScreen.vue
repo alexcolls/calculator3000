@@ -30,8 +30,9 @@ export default {
         if (store.idx === maxMemory) {
           store.idx = 0;
           store.operations = '';
-          store.number = '0';
           store.operator = '';
+          store.number = '0';
+          store.decimals = '';
           store.updateConsole();
           return alert(`Sorry, I can only record last ${maxMemory} operations 😞`);
         }
@@ -42,17 +43,19 @@ export default {
         if (store.idx === 0) {
           store.message = "I'm ready, give me numbers! 😋";
           store.operations = '';
-          store.number = '0';
           store.operator = '';
-          store.console = '';
+          store.number = '0';
+          store.decimals = '';
+          store.updateConsole();
           return;
         }
         hist = store.history[store.idx - 2];
       }
       store.operations = hist.operations;
-      store.number = hist.number;
+      store.console = hist.result;
       store.updateConsole();
       store.operator = '=';
+      return;
     }
     return {
       store,
@@ -92,7 +95,7 @@ export default {
       :class="`from-${store.color} to-orange-500`" >
         <div v-if="store.cursor > 0" >
           {{ store.startMsg }}
-          <span class="inline-block blink">|</span>
+          <span class="blink inline-block font-medium">|</span>
           {{ store.endMsg }}
         </div>
         <div v-else >
@@ -131,7 +134,7 @@ export default {
 </template>
 <style scoped>
 .blink {
-  animation: blink-animation 1s steps(5, start) infinite;
+  animation: blink-animation 0.3s steps(10, start) infinite;
   -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 @keyframes blink-animation {

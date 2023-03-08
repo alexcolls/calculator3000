@@ -149,7 +149,7 @@ export default {
       }
       store.console = String(Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals));
       // Sounds
-      if (!Number(store.number)) playError();
+      if (!Number(store.console)) playError();
       else playSuccess();
       // Success messages
       const randomMsgs = [
@@ -164,6 +164,12 @@ export default {
       store.addHistory();
       return;
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function handleKeyDown(event: any) {
+      if (event.keyCode >= 48 && event.keyCode <= 57) {
+        clickNum(event.keyCode);
+      }
+    }
     return {
       store,
       playBeep,
@@ -172,13 +178,15 @@ export default {
       clickDecimals,
       clickDEL,
       clickAC,
-      calculate
+      calculate,
+      handleKeyDown
     };
   }
 }
 </script>
 <template>
   <div class="m-auto w-80">
+    <div @keydown="handleKeyDown"></div>
     <div class="grid grid-cols-5 gap-1 text-s font-semibold text-center rounded-xl">
       <!-- 1 -->
       <button @click="[clickNum(1), playBeep()]" 
@@ -300,7 +308,8 @@ export default {
         0
       </button>
       <!-- = -->
-      <button @click="calculate()" 
+      <button @click="calculate()"
+      v-on:keyup.enter="[calculate(), playBeep()]"
       :class="[store.dark ? 'bg-gray/900 hover:bg-gray-600 border-gray-500' : 'bg-gray-50 hover:bg-gray-200 border-gray-100',
       `shadow-${store.color}`]" 
       class="py-4 px-2 align-middle relative border shadow-sm rounded-br-xl">
