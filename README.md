@@ -58,6 +58,11 @@ git subtree push --prefix app origin gh-pages && gh-pages
 npm i -g gh-pages
 ```
 
+## TODO
+
+1. Refactor components in smaller ones.
+2. Add more complex expresions calculation.
+
 ## Instructions
 
 Using the Vue framework, build a functional calculator with a nice user interface using only HTML, CSS or a style preprocessor and TypeScript (JavaScript can be used but the use of TypeScript is the one that will be most valued). It does not need to handle all types of errors, but there should be some basic error reporting.
