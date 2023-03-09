@@ -74,7 +74,7 @@ npm i -g gh-pages
 12. In terminal, add scraping web commands.
 13. In terminal, add image, audio and video supporting.
 
-* Pull requests are accepted.
+* Pull requests are accepted and proposals welcome.
 
 ## Project Instructions
 
