@@ -67,7 +67,9 @@ npm i -g gh-pages
 5. Add equation solving function with greek letters.
 6. Add more complex expressions calculations.
 7. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
-8. Add derivative and differential operators.
+8. Add derivatives calculations with differential operator.
+9. Upgrade store.operations to 'latex' syntax.
+10. Add letters keyboard option for future terminal implementation with openai api.
 
 * Pull requests are accepted.
 
