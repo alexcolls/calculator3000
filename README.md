@@ -76,7 +76,7 @@ npm i -g gh-pages
 14. In terminal, implement speech-to-text & text-to-speech multi-language models.
 15. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
 
-* Proposals and Pull Requests are most welcome.
+Proposals and Pull Requests are most welcome.
 
 ## Project Instructions
 
