@@ -62,7 +62,11 @@ npm i -g gh-pages
 
 1. Refactor components in smaller ones
 2. Extract component's functions to servcies/index.ts
-2. Add more complex expressions and operators
+3. Add long number exponential reduction.
+4. Add % operator.
+5. Add equation solving function.
+6. Add more complex expressions calculations.
+7. Add letters keyboard.
 
 * Pull requests are accepted.
 
