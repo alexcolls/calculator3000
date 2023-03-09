@@ -61,7 +61,9 @@ npm i -g gh-pages
 ## TODO
 
 1. Refactor components in smaller ones.
-2. Add more complex expresions calculation.
+2. Add more complex expressions and operators.
+
+Pull requests are accepted.
 
 ## Project Instructions
 
