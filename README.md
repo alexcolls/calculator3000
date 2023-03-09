@@ -94,3 +94,7 @@ Nice to have's:
 4.  Intensive usage of TS's typing parametrization subsystem (`interface MyInterface<TGender> { ... }` or `type NumberKey = '0' | '1' | ...`).
 
 5.  There is not too much room for "big architectures" in a tiny project like this calculator, but usage of good practices, design patterns and "solid" coding will be highly appreciated.
+
+### License
+
+MIT License: Free rights of use.
