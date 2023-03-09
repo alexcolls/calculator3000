@@ -39,6 +39,7 @@ export default {
       } else if (e.key === 'r' || e.key === 's' || e.key === '√') {
         clickOperator('√');
       } else {
+        store.animate = false;
         store.message = 'Keyboard input not supported: ' + e.key;
         store.tempMsg(2000);
       }
