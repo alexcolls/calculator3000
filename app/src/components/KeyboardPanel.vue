@@ -96,19 +96,23 @@ export default {
       if (store.operator === '=') {
         clickAC();
         return;
-      }
-      if (store.number === '0') {
-        store.addOperator(op);
       } else if (store.operator === '√') {
         if (op === '√') {
-          store.addOperation(`* ${store.operator} ${store.number}${store.decimals}`);
+          store.addOperator(`* ${store.operator}`);
           store.operator = op + ' ' + store.operator;
         } else {
-          store.addOperation(`${store.operator} ${store.number}${store.decimals}`);
+          store.addOperator(`${store.operator} ${store.number}${store.decimals}`);
         }
-        store.addOperator(op);
-        resetNum();
       }
+      store.addOperator(op);
+      if (!store.operations) {
+        store.addOperation(store.console);
+      } else {
+        const operation = store.operator + ' ' + store.console;
+        store.addOperation(operation);
+      }
+      resetNum();
+      return;
     }
     function resetNum(): void {
       store.number = '0';
