@@ -25,28 +25,26 @@ export default {
       } else if (e.key === 'Delete') {
         clickDEL();
         return;
-      }
-      const key = String.fromCharCode(e.keyCode);
-      if (key === '=') {
+      } else if (e.key === '=') {
         calculateResult();
-      } else if (key === '.' || key === ',') {
+      } else if (e.key === '.' || e.key === ',') {
         clickDecimals();
-      } else if (!isNaN(Number(key))) {
-        clickNum(Number(key));
-      } else if (['+', '-'].includes(key)) {
-        clickOperator(key);
-      } else if (key === 'x' || key === '*') {
+      } else if (!isNaN(Number(e.key))) {
+        clickNum(Number(e.key));
+      } else if (['+', '-'].includes(e.key)) {
+        clickOperator(e.key);
+      } else if (e.key === 'x' || e.key === '*') {
         clickOperator('x');
-      } else if (key === '/' || key === ':' || key === '÷') {
+      } else if (e.key === '/' || e.key === ':' || e.key === '÷') {
         clickOperator('÷');
-      } else if (key === 'e' || key === '^' || key === 'ⁿ') {
+      } else if (e.key === 'e' || e.key === '^' || e.key === 'ⁿ') {
         clickOperator('×ⁿ');
-      } else if (key === 'r' || key === 's' || key === '√') {
+      } else if (e.key === 'r' || e.key === 's' || e.key === '√') {
         clickOperator('√');
       } else {
         clickAC();
       }
-      console.log(key);
+      console.log(e.key);
     });
     function clickNum(n: number): void {
       playBeep();
@@ -96,14 +94,7 @@ export default {
       if (store.operator === '=') {
         clickAC();
         return;
-      } else if (store.operator === '√') {
-        if (op === '√') {
-          store.addOperator(`* ${store.operator}`);
-          store.operator = op + ' ' + store.operator;
-        } else {
-          store.addOperator(`${store.operator} ${store.number}${store.decimals}`);
-        }
-      }
+      } 
       store.addOperator(op);
       if (!store.operations) {
         store.addOperation(store.console);
@@ -120,9 +111,11 @@ export default {
       store.updateConsole();
     }
     function clickDEL(): void {
+      playBeep();
       if (store.console === '0') return;
       store.animate = false;
       store.message = 'DEL 💀';
+      setTimeout(() => store.message = '', 2000);
       store.idx = 0;
       if (store.cursor > 0) {
         store.startMsg = store.startMsg.slice(0, store.startMsg.length -1);
@@ -152,30 +145,32 @@ export default {
       return;
     }
     function clickAC(): void {
+      playBeep();
       resetNum();
       store.resetConsole();
       store.animate = false;
       store.idx = 0;
       store.cursor = 0;
       store.message = "Let's go 🚀";
+      setTimeout(() => store.message = '', 2000);
       return;
     } 
     function calculateResult(): void {
+      playBeep();
       store.animate = false;
       if (store.operator === '=' 
-       || (!store.operations && store.console === '0')) {
-        playBeep();
+      || (!store.operations && store.console === '0')) {
         clickAC();
         return;
       }
       clickOperator(store.operator);
       store.addOperator('=');
       const operations = store.operations
-        .replace(' ', '')
-        .replace('x', '*')
-        .replace('÷', '/')
-        .replace('xⁿ', '**')
-        .replace(/√\s*(\d+)/g, 'Math.sqrt($1)');
+        .replaceAll('x', '*')
+        .replaceAll('÷', '/')
+        .replaceAll('×ⁿ', '**')
+        .replaceAll(/√\s*(\d+)/g, 'Math.sqrt($1)');
+      console.log(operations)
       const result = eval(operations);
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
       const totalSpit = String(total).split('.');
