@@ -74,7 +74,7 @@ npm i -g gh-pages
 12. In terminal, add scraping web commands.
 13. In terminal, add image, audio and video supporting.
 14. In terminal, implement speech-to-text & text-to-speech multi-language models.
-15. Build & deploy a Node-TS Server + Cloud DB, for user authentification and online app services.
+15. Build & deploy a Node-ts Server + Cloud DB, for user authentification and online app services.
 
 * Pull requests are accepted and proposals welcome.
 
