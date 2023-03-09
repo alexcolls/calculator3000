@@ -8,17 +8,23 @@ export default {
     const maxMemory = 10; // max operations cache
     const openParen: Ref<boolean> = ref(false);
     function openParenthesis(): void {
+      if (store.operator === '=') return;
+      store.animate = false;
       let op = store.operator;
       if (!op && store.number != '0') op = '*';
       store.operations = `${store.operations} ${op} (`;
       openParen.value = true;
+      store.backBtn = true;
     }
     function closeParenthesis(): void {
+      if (store.operator === '=') return;
+      store.animate = false;
       if (!openParen.value) return;
-      store.operations = store.operations + ' )';
+      store.operations = store.operations + '  )';
       openParen.value = false;
     }
     function clickANS(inverse: boolean): void {
+      store.animate = false;
       if (store.history.length === 0) {
         store.message = 'Make calculations first to use ANS';
         return;

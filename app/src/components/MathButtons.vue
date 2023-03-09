@@ -14,6 +14,18 @@ export default {
     const beep_ = new Audio(beep_sound);
     function playBeep(): void { if (store.sound) beep_.play(); }
     // Keyboard functionality
+    window.addEventListener('keypress', e => {
+      console.log(e.key);
+      if (e.key === 'left') {
+        clickLeft();
+      } else if (e.key === 'right') {
+        clickRight();
+      } else if (e.key === '=') {
+        store.animate = false;
+        store.message = 'Keyboard input not supported: ' + e.key;
+        store.tempMsg(2000);
+      }
+    });
     function clickPi(): void {
       if (store.operator === '=') store.resetConsole();
       store.message = 'The Great Pi!';
@@ -38,12 +50,14 @@ export default {
     function clickLeft(): void {
       if (store.number === '0') return;
       store.message = '< Left';
+      store.tempMsg(2000);
       cursorConsole.value = store.moveCursor('<');
       if (cursorConsole.value === 'ERROR') console.log("Move cursor left input error! Should be '<' ");
     }
     function clickRight(): void {
       if (store.number === '0') return;
       store.message = 'Right >';
+      store.tempMsg(2000);
       cursorConsole.value = store.moveCursor('>');
       if (cursorConsole.value === 'ERROR') console.log("Move cursor right input error! Should be '>' ");
     }
