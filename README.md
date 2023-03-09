@@ -49,10 +49,10 @@ yarn deploy
 or in the root directory, after app build:
 
 ```
-git subtree push --prefix app/build origin gh-pages && gh-pages app/dist
+git subtree push --prefix app/dist origin gh-pages && gh-pages app/dist
 ```
 
-\* Make sure to install gh-pages cli
+In this case, make sure to have installed gh-pages cli or install it:
 
 ```
 npm i -g gh-pages
