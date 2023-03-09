@@ -170,7 +170,8 @@ export default {
         .replaceAll('x', '*')
         .replaceAll('÷', '/')
         .replaceAll('×ⁿ', '**')
-        .replaceAll(/√\s*(\d+)/g, 'Math.sqrt($1)');
+        .replaceAll(/√\s*(\d+)/g, 'Math.sqrt($1)')
+        .replaceAll(' ', '');
       console.log(operations)
       const result = eval(operations);
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
