@@ -37,7 +37,7 @@ export default defineComponent({
     v-on:click="onClick()">
       <a href="https://www.innocv.com/" target="_blank">
         <img alt="INNOCV logo" src="./assets/images/logo.png"
-        :class="store.animate ? 'animate-bounce' : 'animate-none'">
+        :class="store.animate ? 'animate-fadein animate-bounce' : 'animate-none'">
       </a>
     </div>
     <div class="main">
