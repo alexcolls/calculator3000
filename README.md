@@ -22,7 +22,7 @@ yarn
 
 You can use ' npm i ' instead.
 
-\* Make sure to be in the app/ folder
+\* Make sure to be in the ' app/ ' folder
 
 #### Compiles and hot-reloads for development
 
@@ -49,7 +49,7 @@ yarn deploy
 or in the root directory, after app build:
 
 ```
-git subtree push --prefix app origin gh-pages && gh-pages
+git subtree push --prefix app/build origin gh-pages && gh-pages app/dist
 ```
 
 \* Make sure to install gh-pages cli
