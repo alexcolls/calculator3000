@@ -87,6 +87,9 @@ const useStore = defineStore("main", {
         endMsg,
       };
     },
+    tempMsg(ms: number): void {
+      setTimeout(() => (this.message = ""), ms);
+    },
     switchDark(): void {
       this.dark = !this.dark;
     },

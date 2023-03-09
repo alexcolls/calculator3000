@@ -40,7 +40,8 @@ export default {
       } else if (e.key === 'r' || e.key === 's' || e.key === '√') {
         clickOperator('√');
       } else {
-        console.log('keyboard input not supported:', e.key);
+        store.message = 'Keyboard input not supported: ' + e.key;
+        store.tempMsg(2000);
       }
     });
     function clickNum(n: number): void {
@@ -113,7 +114,7 @@ export default {
       if (store.console === '0') return;
       store.animate = false;
       store.message = 'DEL 💀';
-      setTimeout(() => store.message = '', 2000);
+      store.tempMsg(2000);
       store.idx = 0;
       if (store.cursor > 0) {
         store.startMsg = store.startMsg.slice(0, store.startMsg.length -1);
@@ -151,7 +152,7 @@ export default {
       store.idx = 0;
       store.cursor = 0;
       store.message = "Let's go 🚀";
-      setTimeout(() => store.message = '', 2000);
+      store.tempMsg(2000);
       return;
     } 
     function calculateResult(): void {
