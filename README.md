@@ -71,7 +71,8 @@ npm i -g gh-pages
 9. Upgrade store.operations to 'latex' syntax.
 10. Add letters keyboard option for future terminal implementation with openai api.
 11. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
-12. In terminal, add scraping web commands, image, audio and video supporting.
+12. In terminal, add scraping web commands.
+13. In terminal, add image, audio and video supporting.
 
 * Pull requests are accepted.
 
