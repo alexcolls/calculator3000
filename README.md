@@ -46,7 +46,7 @@ After success build, deploy to gh-pages:
 yarn deploy
 ```
 
-or in the root directory, after app build:
+Or in the rep root directory, after app build:
 
 ```
 git subtree push --prefix app/dist origin gh-pages && gh-pages app/dist
