@@ -18,6 +18,7 @@ export interface State {
   startMsg: string;
   endMsg: string;
   animate: boolean;
+  backBtn: boolean;
 }
 
 export interface History {

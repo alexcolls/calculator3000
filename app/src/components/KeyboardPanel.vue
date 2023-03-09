@@ -21,10 +21,8 @@ export default {
       console.log(e.key)
       if (e.key === 'Enter') {
         calculateResult();
-        return;
       } else if (e.key === 'Delete') {
         clickDEL();
-        return;
       } else if (e.key === '=') {
         calculateResult();
       } else if (e.key === '.' || e.key === ',') {
@@ -42,9 +40,8 @@ export default {
       } else if (e.key === 'r' || e.key === 's' || e.key === '√') {
         clickOperator('√');
       } else {
-        clickAC();
+        console.log('keyboard input not supported:', e.key);
       }
-      console.log(e.key);
     });
     function clickNum(n: number): void {
       playBeep();
@@ -88,6 +85,7 @@ export default {
     }
     function clickOperator(op: string): void {
       playBeep();
+      store.backBtn = true;
       store.animate = false;
       store.message = '';
       store.idx = 0;
@@ -157,6 +155,7 @@ export default {
     } 
     function calculateResult(): void {
       playBeep();
+      store.backBtn = false;
       store.animate = false;
       if (store.operator === '=' 
       || (!store.operations && store.console === '0')) {

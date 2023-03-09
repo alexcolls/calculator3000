@@ -21,6 +21,7 @@ const useStore = defineStore("main", {
       startMsg: "",
       endMsg: "",
       animate: true,
+      backBtn: false,
     };
   },
   actions: {

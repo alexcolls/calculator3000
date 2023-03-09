@@ -51,11 +51,18 @@ export default {
       store.operator = '=';
       return;
     }
+    function delLastOperation(): void {
+      if (!store.operations) return;
+      const ops = store.operations.split(' ');
+      const temp = ops.slice(0, ops.length - 2);
+      store.operations = temp.join(' ');
+    }
     return {
       store,
       openParenthesis,
       closeParenthesis,
-      clickANS
+      clickANS,
+      delLastOperation
     }
   }
 }
@@ -119,9 +126,14 @@ export default {
             ^
           </button>
         </div>
-        <p class="pt-4 text-xs">
+        <button v-if="store.backBtn" :onclick="delLastOperation"
+        class="text-md text-transparent bg-clip-text bg-gradient-to-r" 
+        :class="`from-${store.color} to-orange-500`" >
+          🗑️
+        </button>
+        <div v-else class="pt-4 text-xs">
           {{ store.message }}
-        </p>
+        </div>
         <div class="mt-2">
           <p class="mr-3 rounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
             [ {{String(store.idx)}} ]
