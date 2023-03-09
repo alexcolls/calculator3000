@@ -157,7 +157,6 @@ export default {
     } 
     function calculateResult(): void {
       playBeep();
-      store.backBtn = false;
       store.animate = false;
       if (store.operator === '=' 
       || (!store.operations && store.console === '0')) {
@@ -172,7 +171,6 @@ export default {
         .replaceAll('×ⁿ', '**')
         .replaceAll(/√\s*(\d+)/g, 'Math.sqrt($1)')
         .replaceAll(' ', '');
-      console.log(operations)
       const result = eval(operations);
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
       const totalSpit = String(total).split('.');
@@ -181,6 +179,7 @@ export default {
       else store.decimals = '';
       store.updateConsole();
       store.addHistory();
+      store.backBtn = false;
       // Sounds
       if (!total) playError();
       else playSuccess();
