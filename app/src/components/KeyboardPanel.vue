@@ -146,6 +146,7 @@ export default {
       playBeep();
       resetNum();
       store.resetConsole();
+      store.backBtn = false;
       store.animate = false;
       store.idx = 0;
       store.cursor = 0;

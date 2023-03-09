@@ -82,6 +82,11 @@ export default {
         @click="openParenthesis()" >
           (
         </button>
+        <button v-if="store.backBtn" :onclick="delLastOperation"
+        class="text-md text-transparent bg-clip-text bg-gradient-to-r" 
+        :class="`from-${store.color} to-orange-500`" >
+          🗑️
+        </button>
         <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
         @click="closeParenthesis()" >
@@ -126,14 +131,9 @@ export default {
             ^
           </button>
         </div>
-        <button v-if="store.backBtn" :onclick="delLastOperation"
-        class="text-md text-transparent bg-clip-text bg-gradient-to-r" 
-        :class="`from-${store.color} to-orange-500`" >
-          🗑️
-        </button>
-        <div v-else class="pt-4 text-xs">
+        <p class="pt-4 text-xs">
           {{ store.message }}
-        </div>
+        </p>
         <div class="mt-2">
           <p class="mr-3 rounded-full h-6 w-8 m-2 flex justify-center text-xs text-gray-500" >
             [ {{String(store.idx)}} ]
