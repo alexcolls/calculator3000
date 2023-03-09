@@ -18,7 +18,6 @@ export default {
     function playError(): void { if (store.sound) error_.play(); }
     // Keyboard functionality
     window.addEventListener('keypress', e => {
-      console.log(e.key)
       if (e.key === 'Enter') {
         calculateResult();
       } else if (e.key === 'Delete') {
