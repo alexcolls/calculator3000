@@ -52,10 +52,13 @@ export default {
       return;
     }
     function delLastOperation(): void {
-      if (!store.operations) return;
       const ops = store.operations.split(' ');
       const temp = ops.slice(0, ops.length - 2);
       store.operations = temp.join(' ');
+      if (!store.operations) {
+        store.backBtn = false;
+        return;
+      }
     }
     return {
       store,
