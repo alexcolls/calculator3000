@@ -64,9 +64,10 @@ npm i -g gh-pages
 2. Extract component's functions to servcies/index.ts.
 3. Add long number exponential reduction (btn) option.
 4. Add %, sin() and cos() operator.
-5. Add equation solving function.
+5. Add equation solving function with greek letters.
 6. Add more complex expressions calculations.
 7. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
+8. Add derivative and differential operator.
 
 * Pull requests are accepted.
 
