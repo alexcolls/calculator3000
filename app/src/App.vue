@@ -44,6 +44,9 @@ export default defineComponent({
       <console-screen />
       <keyboard-panel />
       <math-buttons class="py-8 pb-14 m-auto"/>
+      <h2 class="p-2 mb-2 text-center uppercase text-xs tracking-widest text-gray-500">
+        YOU CAN USE YOUR KEYBOARD
+      </h2>
     </div>
     <footer-bar class="m-auto"/>
   </div>
