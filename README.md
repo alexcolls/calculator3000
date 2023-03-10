@@ -51,7 +51,7 @@ Or in the repo root directory, after app build:
 git subtree push --prefix app/dist origin gh-pages && gh-pages app/dist
 ```
 
-In this case, make sure to have installed gh-pages cli or install it:
+In this case, make sure to have installed gh-pages cli, otherwise, install it with the following cmd:
 
 ```
 npm i -g gh-pages
