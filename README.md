@@ -62,18 +62,19 @@ npm i -g gh-pages
 1. Refactor components in smaller ones.
 2. Extract component's functions to servcies/index.ts.
 3. Add long number exponent reduction (btn) option.
-4. Add %, sin(), cos(), sum(), mean(), median(), mode(), range(), stdev() and r2() operators.
-5. Add equation solving function with greek letters.
-6. Add more complex expressions calculations.
-7. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
-8. Add derivatives calculations with differential operator.
-9. Upgrade store.operations console to 'latex' syntax.
-10. Add letters keyboard option for future terminal implementation with openai api.
-11. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
-12. In terminal, add scraping web commands.
-13. In terminal, add image, audio and video supporting.
-14. In terminal, implement speech-to-text & text-to-speech multi-language models.
-15. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
+4. Add %, sin() and cos() operators.
+5. Add sum(), mean(), median(), mode(), range(), stdev() and r2() functions.
+6. Add equation solving function with greek letters.
+7. Add more complex expressions calculations.
+8. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
+9. Add derivatives calculations with differential operator.
+10. Upgrade store.operations console to 'latex' syntax.
+11. Add letters keyboard option for future terminal implementation with openai api.
+12. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
+13. In terminal, add scraping web commands.
+14. In terminal, add image, audio and video supporting.
+15. In terminal, implement speech-to-text & text-to-speech multi-language models.
+16. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
 
 Proposals and Pull Requests are most welcome.
 
