@@ -19,7 +19,7 @@ git clone https://github.com/quantium-rock/innocv-calculator && cd innocv-calcul
 ```
 yarn
 ```
-\* Make sure to be in the app folder.
+\* Make sure to be in the app/ folder.
 
 You can use ' npm i ' instead.
 
