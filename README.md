@@ -65,7 +65,7 @@ npm i -g gh-pages
 4. Add %, sin() and cos() operators.
 5. Add sum(), mean(), median(), mode(), range(), variance(), stdev(), covariance(), pearsonCorr() and r2() functions.
 7. Add equation solving function with greek letters.
-8. Add more constants.
+8. Add more math constants.
 9. Add more complex expressions calculations.
 10. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
 11. Add derivatives calculations with differential operator.
