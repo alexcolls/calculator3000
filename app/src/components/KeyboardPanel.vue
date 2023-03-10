@@ -171,7 +171,14 @@ export default {
         .replaceAll('×ⁿ', '**')
         .replaceAll(/√\s*(\d+)/g, 'Math.sqrt($1)')
         .replaceAll(' ', '');
-      const result = eval(operations);
+      let result = 0;
+      try { 
+        result = eval(operations);
+      } catch {
+        result = NaN;
+        store.console = 'ERROR';
+        return;
+      }
       const total = Math.round((result + Number.EPSILON) * Math.pow(10, maxDecimals)) / Math.pow(10, maxDecimals);
       const totalSpit = String(total).split('.');
       store.number = totalSpit[0];
