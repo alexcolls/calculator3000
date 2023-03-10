@@ -67,15 +67,16 @@ npm i -g gh-pages
 7. Add equation solving function with greek letters.
 8. Add more complex expressions calculations.
 10. Add more math constants.
-11. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
-12. Add derivatives calculations with differential operator.
-13. Upgrade store.operations console to 'latex' syntax.
-14. Add letters keyboard option for future terminal implementation with openai api.
-15. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
-16. In terminal, add scraping web commands.
-17. In terminal, add image, audio and video supporting.
-18. In terminal, implement speech-to-text & text-to-speech multi-language models.
-19. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
+11. Add array and matrix support.
+12. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
+13. Add derivatives calculations with differential operator.
+14. Upgrade store.operations console to 'latex' syntax.
+15. Add letters keyboard option for future terminal implementation with openai api.
+16. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
+17. In terminal, add scraping web commands.
+18. In terminal, add image, audio and video supporting.
+19. In terminal, implement speech-to-text & text-to-speech multi-language models.
+20. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
 
 Proposals and Pull Requests are most welcome.
 
