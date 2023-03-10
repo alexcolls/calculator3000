@@ -27,7 +27,7 @@ You can use ' npm i ' instead.
 #### Compiles and hot-reloads for development
 
 ```
-yarn serve
+yarn dev
 ```
 
 #### Compiles and minifies for production /dist
