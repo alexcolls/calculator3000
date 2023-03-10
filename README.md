@@ -63,7 +63,7 @@ npm i -g gh-pages
 2. Extract component's functions to servcies/index.ts.
 3. Add long number exponent reduction (btn) option.
 4. Add %, sin() and cos() operators.
-5. Add sum(), mean(), median(), mode(), range(), stdev() and r2() functions.
+5. Add sum(), mean(), median(), mode(), range(), variance(), stdev(), covariance(), pearsonCorr() and r2() functions.
 6. Add equation solving function with greek letters.
 7. Add more complex expressions calculations.
 8. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
