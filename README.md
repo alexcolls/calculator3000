@@ -62,7 +62,7 @@ npm i -g gh-pages
 1. Refactor components in smaller ones.
 2. Extract component's functions to servcies/index.ts.
 3. Add long number exponent reduction (btn) option.
-4. Add %, sin() and cos() operators.
+4. Add %, sin(), cos(), sum(), mean(), median(), mode(), range(), stdev() and r2() operators.
 5. Add equation solving function with greek letters.
 6. Add more complex expressions calculations.
 7. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
