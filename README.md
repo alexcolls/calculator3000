@@ -67,7 +67,7 @@ npm i -g gh-pages
 7. Add equation solving function with greek letters.
 8. Add more complex expressions calculations.
 10. Add more math constants.
-11. Add array and matrix support.
+11. Add arrays and matrices support.
 12. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
 13. Add derivatives calculations with differential operator.
 14. Upgrade store.operations console to 'latex' syntax.
