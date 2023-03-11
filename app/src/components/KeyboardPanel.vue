@@ -90,6 +90,14 @@ export default {
       store.animate = false;
       store.message = '';
       store.idx = 0;
+      if (store.operator === op) {
+        store.operator = '';
+        return;
+      }
+      if (!store.number || store.number === '0') {
+        store.operator = op;
+        return;
+      }
       if (store.operator === '=') {
         clickAC();
         return;

@@ -10,17 +10,25 @@ export default {
     function openParenthesis(): void {
       if (store.operator === '=') return;
       store.animate = false;
-      let op = store.operator;
-      if (!op && store.number != '0') op = '*';
-      store.operations = `${store.operations} ${op} (`;
       openParen.value = true;
       store.backBtn = true;
+      if (!store.operations) {
+        store.operations = '( ';
+        return;
+      } 
+      let op = store.operator;
+      if (!op && !store.number) op = '*';
+      store.operations = `${store.operations} ${op} (`;
     }
     function closeParenthesis(): void {
+      if (!openParen.value) {
+        store.message = 'Open parenthesis first! 🧠';
+        store.tempMsg(2000);
+        return;
+      }
       if (store.operator === '=') return;
       store.animate = false;
-      if (!openParen.value) return;
-      store.operations = store.operations + '  )';
+      store.operations = ` ${store.operations} ${store.operator + store.console} ) `;
       openParen.value = false;
     }
     function clickANS(inverse: boolean): void {
