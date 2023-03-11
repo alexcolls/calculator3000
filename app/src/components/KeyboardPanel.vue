@@ -34,11 +34,14 @@ export default {
         clickOperator('x');
       } else if (e.key === '/' || e.key === ':' || e.key === '÷') {
         clickOperator('÷');
-      } else if (e.key === 'e' || e.key === '^' || e.key === 'ⁿ') {
+      } else if (e.key == 'e' || e.key === '^' || e.key === 'ⁿ') {
         clickOperator('×ⁿ');
-      } else if (e.key === 'r' || e.key === 's' || e.key === '√') {
+      } else if (e.key == 'r' || e.key == 's' || e.key === '√') {
         clickOperator('√');
-      } else {
+      } else { 
+        if (e.key == 'p') return; // Pi number
+        if (e.key == 'o') return; // Golden ratio (Phi)
+        if (e.key == 'd') return; // Euler number)
         store.animate = false;
         store.message = 'Keyboard input not supported: ' + e.key;
         store.tempMsg(2000);

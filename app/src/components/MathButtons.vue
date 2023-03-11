@@ -15,7 +15,6 @@ export default {
     function playBeep(): void { if (store.sound) beep_.play(); }
     // Keyboard functionality
     window.addEventListener('keypress', e => {
-      console.log(e.key);
       if (e.key === 'left') {
         clickLeft();
       } else if (e.key === 'right') {
@@ -24,6 +23,12 @@ export default {
         store.animate = false;
         store.message = 'Keyboard input not supported: ' + e.key;
         store.tempMsg(2000);
+      } else if (e.key == 'p') {
+        clickPi();
+      } else if (e.key == 'g') {
+        clickPi();
+      } else if (e.key == 'u') {
+        clickPi();
       }
     });
     function clickPi(): void {
