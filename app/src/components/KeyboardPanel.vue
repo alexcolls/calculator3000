@@ -102,6 +102,10 @@ export default {
         clickAC();
         return;
       } 
+      if (store.operator === '√') {
+        store.operator = op + store.operator;
+        return;
+      }
       store.addOperator(op);
       if (!store.operations) {
         store.addOperation(store.console);
@@ -119,7 +123,10 @@ export default {
     }
     function clickDEL(): void {
       playBeep();
-      if (store.console === '0') return;
+      if (store.console === '0') {
+        store.operator = '';
+        return;
+      }
       store.animate = false;
       store.message = 'DEL 💀';
       store.tempMsg(2000);
@@ -166,6 +173,11 @@ export default {
     function calculateResult(): void {
       playBeep();
       store.animate = false;
+      if (!store.operator) {
+        store.message = 'Select an operator first for your number.';
+        store.tempMsg(2000);
+        return;
+      }
       if (store.operator === '=' 
       || (!store.operations && store.console === '0')) {
         clickAC();
@@ -204,7 +216,9 @@ export default {
         'You are a 🧠',
         "2+2 is not always 4, isn't it? 🤔",
         'Fantastic! 👍',
-        'You are a genius!'
+        'You are a genius!',
+        'Good job!',
+        'Amazing!'
       ];
       const idx = Math.floor(Math.random() * randomMsgs.length + 1);
       store.message = randomMsgs[idx];
