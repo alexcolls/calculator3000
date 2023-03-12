@@ -186,7 +186,8 @@ export default {
         clickAC();
         return;
       }
-      clickOperator(store.operator);
+      // Add last operation before calculating
+      store.operations = `${store.operations} ${store.operator} ${store.console}`;
       store.addOperator('=');
       const operations = store.operations
         .replaceAll('x', '*')
