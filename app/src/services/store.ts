@@ -58,6 +58,13 @@ const useStore = defineStore("main", {
       else this.operator = op;
     },
     addOperation(op: string): void {
+      if (
+        this.operations[this.operations.length - 2] === "(" &&
+        this.operator != "-"
+      ) {
+        this.operations += " " + this.console;
+        return;
+      }
       if (!this.operations) this.operations = op;
       else this.operations += " " + op;
     },
@@ -113,6 +120,8 @@ const useStore = defineStore("main", {
         this.operator + this.console
       } ) `;
       this.openPar = false;
+      this.operator = "";
+      this.console = "0";
     },
     tempMsg(ms: number): void {
       setTimeout(() => (this.message = ""), ms);
