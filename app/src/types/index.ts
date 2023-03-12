@@ -19,6 +19,7 @@ export interface State {
   endMsg: string;
   animate: boolean;
   backBtn: boolean;
+  openPar: boolean;
 }
 
 export interface History {

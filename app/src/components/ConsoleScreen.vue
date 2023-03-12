@@ -6,31 +6,14 @@ export default {
   setup () {
     const store = useStore();
     const maxMemory = 10; // max operations cache
-    const openParen: Ref<boolean> = ref(false);
-    function openParenthesis(): void {
-      if (store.operator === '=') return;
-      store.animate = false;
-      openParen.value = true;
-      store.backBtn = true;
-      if (!store.operations) {
-        store.operations = '( ';
-        return;
-      } 
-      let op = store.operator;
-      if (!op && !store.number) op = '*';
-      store.operations = `${store.operations} ${op} (`;
-    }
-    function closeParenthesis(): void {
-      if (!openParen.value) {
-        store.message = 'Open parenthesis first! 🧠';
-        store.tempMsg(2000);
-        return;
+    // Keyboard functionality
+    window.addEventListener('keypress', e => {
+      if (e.key === '(') {
+        store.openParenthesis();
+      } else if (e.key === ')') {
+        store.closeParenthesis();
       }
-      if (store.operator === '=') return;
-      store.animate = false;
-      store.operations = ` ${store.operations} ${store.operator + store.console} ) `;
-      openParen.value = false;
-    }
+    });
     function clickANS(inverse: boolean): void {
       store.animate = false;
       if (store.history.length === 0) {
@@ -76,8 +59,6 @@ export default {
     }
     return {
       store,
-      openParenthesis,
-      closeParenthesis,
       clickANS,
       delLastOperation
     }
@@ -96,7 +77,7 @@ export default {
       <div class="flex justify-between">
         <button class="ml-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
-        @click="openParenthesis()" >
+        @click="store.openParenthesis()" >
           (
         </button>
         <button v-if="store.backBtn" :onclick="delLastOperation"
@@ -106,7 +87,7 @@ export default {
         </button>
         <button class="mr-3 rounded-full h-6 w-6 m-2 flex justify-center items-center shadow-xl text-xs font-bold" 
         :class="store.dark ? 'bg-white/10 shadow-gray-700 border-white/20 hover:bg-gray-600 text-white' : 'bg-white hover:bg-gray-200 border-black/20 text-gray-600'"
-        @click="closeParenthesis()" >
+        @click="store.closeParenthesis()" >
           )
         </button>
       </div>

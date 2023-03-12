@@ -42,6 +42,7 @@ export default {
         if (e.key == 'p') return; // Pi number
         if (e.key == 'o') return; // Golden ratio (Phi)
         if (e.key == 'd') return; // Euler number)
+        if (e.key === '(' || e.key === ')') return;
         store.animate = false;
         store.message = 'Keyboard input not supported: ' + e.key;
         store.tempMsg(2000);
@@ -188,6 +189,11 @@ export default {
       }
       // Add last operation before calculating
       store.operations = `${store.operations} ${store.operator} ${store.console}`;
+      if (store.openPar &&
+        store.operations[store.operations.length - 1] != ')') {
+        store.operations = store.operations + ' )';
+      }
+      // Calculate operations
       store.addOperator('=');
       const operations = store.operations
         .replaceAll('x', '*')

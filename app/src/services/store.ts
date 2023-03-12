@@ -22,6 +22,7 @@ const useStore = defineStore("main", {
       endMsg: "",
       animate: true,
       backBtn: false,
+      openPar: false,
     };
   },
   actions: {
@@ -86,6 +87,32 @@ const useStore = defineStore("main", {
         startMsg,
         endMsg,
       };
+    },
+    openParenthesis(): void {
+      if (this.operator === "=") return;
+      this.animate = false;
+      this.openPar = true;
+      this.backBtn = true;
+      if (!this.operations) {
+        this.operations = "( ";
+        return;
+      }
+      let op = this.operator;
+      if (!op && !this.number) op = "*";
+      this.operations = `${this.operations} ${op} (`;
+    },
+    closeParenthesis(): void {
+      if (!this.openPar) {
+        this.message = "Open parenthesis first! 🧠";
+        this.tempMsg(2000);
+        return;
+      }
+      if (this.operator === "=") return;
+      this.animate = false;
+      this.operations = ` ${this.operations} ${
+        this.operator + this.console
+      } ) `;
+      this.openPar = false;
     },
     tempMsg(ms: number): void {
       setTimeout(() => (this.message = ""), ms);
