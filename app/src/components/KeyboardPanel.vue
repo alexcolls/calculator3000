@@ -177,7 +177,7 @@ export default {
       playBeep();
       store.animate = false;
       if (!store.operator) {
-        store.message = 'Select an operator first for your number.';
+        store.message = 'Select an operator for your number.';
         store.tempMsg(2000);
         return;
       }
