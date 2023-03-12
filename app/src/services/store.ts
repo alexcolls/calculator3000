@@ -59,8 +59,10 @@ const useStore = defineStore("main", {
     },
     addOperation(op: string): void {
       if (
-        this.operations[this.operations.length - 2] === "(" &&
-        this.operator != "-"
+        (this.operations[this.operations.length] === "(" ||
+          this.operations[this.operations.length - 1] === "(" ||
+          this.operations[this.operations.length - 2] === "(") &&
+        (this.operator != "-" || op != "-")
       ) {
         this.operations += " " + this.console;
         return;

@@ -98,7 +98,7 @@ export default {
         store.operator = '';
         return;
       }
-      if (!store.number || store.number === '0') {
+      if (!store.number || store.console === '0') {
         store.operator = op;
         return;
       }
