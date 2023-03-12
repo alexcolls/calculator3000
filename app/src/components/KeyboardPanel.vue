@@ -188,7 +188,10 @@ export default {
         return;
       }
       // Add last operation before calculating
-      store.operations = `${store.operations} ${store.operator} ${store.console}`;
+      if (store.console != '0') {
+        store.operations = `${store.operations} ${store.operator} ${store.console}`;
+      }
+      // Close parenthesis if so
       if (store.openPar &&
         store.operations[store.operations.length - 1] != ')') {
         store.operations = store.operations + ' )';
