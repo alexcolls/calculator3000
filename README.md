@@ -1,8 +1,6 @@
 # Calculator 3000 Vue3 Typescript App
 
-#### App demo
-
-https://calculator3000.onrender.com
+A functional calculator built with Vue 3 and TypeScript featuring a modern UI with TailwindCSS, Pinia state management, and advanced mathematical operations.
 
 ### Run locally
 
@@ -11,7 +9,7 @@ https://calculator3000.onrender.com
 Clone the app repo, main branch:
 
 ```
-git clone https://github.com/quantium-rock/innocv-calculator && cd innocv-calculator/app
+git clone https://github.com/alexcolls/calculator3000.git && cd calculator3000/app
 ```
 
 #### Install packages

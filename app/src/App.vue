@@ -33,13 +33,6 @@ export default defineComponent({
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
-    <div class="p-4 pt-20 flex justify-center align-middle"
-    v-on:click="onClick()">
-      <a href="https://www.innocv.com/" target="_blank">
-        <img alt="INNOCV logo" src="./assets/images/logo.png"
-        :class="store.animate ? 'animate-bounce' : 'animate-none'">
-      </a>
-    </div>
     <div class="main">
       <console-screen />
       <keyboard-panel />

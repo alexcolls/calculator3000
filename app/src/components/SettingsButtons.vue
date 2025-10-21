@@ -14,7 +14,7 @@ export default {
       mute_white: require('../assets/images/mute-white.png'),
       github_img: require("../assets/images/github.png"),
       github_gif: require("../assets/images/github.gif"),
-      github_url: 'https://www.github.com/quantium-rock',
+      github_url: 'https://github.com/alexcolls',
       linkedin_img: require("../assets/images/linkedin.png"),
       linkedin_gif: require("../assets/images/linkedin.gif"),
       linkedin_url: 'https://www.linkedin.com/in/alex-colls-outumuro',
