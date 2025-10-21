@@ -10,6 +10,14 @@
 
 **A modern, fully-featured calculator built with Vue 3, TypeScript, and TailwindCSS**
 
+<table>
+  <tr>
+    <td><img src="./examples/red.png" alt="Red Theme" width="300"/></td>
+    <td><img src="./examples/green.png" alt="Green Theme" width="300"/></td>
+    <td><img src="./examples/blue.png" alt="Blue Theme" width="300"/></td>
+  </tr>
+</table>
+
 </div>
 
 ---

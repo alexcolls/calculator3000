@@ -29,7 +29,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="min-h-screen"
+  <div class="min-h-screen pt-8"
   :class="store.dark ?
   'bg-black/90 shadow-gray-700 border-gray-200 text-gray-200' :
   'bg-gray-100 shadow-gray-300 border-gray-900 text-gray-800'">
