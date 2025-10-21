@@ -1,115 +1,298 @@
-# Calculator 3000 Vue3 Typescript App
+# 🔢 Calculator 3000
 
-A functional calculator built with Vue 3 and TypeScript featuring a modern UI with TailwindCSS, Pinia state management, and advanced mathematical operations.
+<div align="center">
 
-### Run locally
+![Calculator 3000](https://img.shields.io/badge/Calculator-3000-blue?style=for-the-badge&logo=vue.js)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.2+-4FC08D?style=for-the-badge&logo=vue.js)](https://vuejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.2+-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-#### Clone repo
+**A modern, fully-featured calculator built with Vue 3, TypeScript, and TailwindCSS**
 
-Clone the app repo, main branch:
+</div>
 
-```
-git clone https://github.com/alexcolls/calculator3000.git && cd calculator3000/app
-```
+---
 
-#### Install packages
+## 📖 Overview
 
-```
-yarn
-```
-\* Make sure to be in the ./app/ folder.
+Calculator 3000 is a powerful web-based calculator application that combines elegant design with advanced mathematical capabilities. Built with modern web technologies, it offers a beautiful user interface with dark mode support, keyboard navigation, and sound effects.
 
-You can use ' npm i ' instead.
+## ✨ Features
 
-#### Compiles and hot-reloads for development
+- 🎨 **Beautiful UI** - Modern design with dark/light theme support and customizable color themes
+- ⌨️ **Keyboard Support** - Full keyboard navigation with visual feedback
+- 🔊 **Sound Effects** - Optional audio feedback for button presses
+- 🎯 **Advanced Operations** - Support for complex expressions with multiple operands
+- 💾 **Memory Functions** - Last result memory and operation history
+- 🌈 **Customizable Themes** - Multiple color schemes and theme options
+- 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
+- ⚡ **Fast & Lightweight** - Optimized performance with Pinia state management
+- 🛡️ **Safe Evaluation** - No eval() usage, secure expression parsing
+- 🎭 **Smooth Animations** - Engaging user experience with CSS animations
 
-```
+## 📦 Installation
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/alexcolls/calculator3000.git
+cd calculator3000/app
+
+# Install dependencies
+yarn install
+# or
+npm install
+
+# Start development server
 yarn dev
+# or
+npm run dev
 ```
 
-#### Compiles and minifies for production /dist
+### Prerequisites
 
-Build for production:
+- Node.js 16.x or higher
+- Yarn or npm package manager
 
+## 🚀 Usage
+
+### Development
+
+```bash
+# Start development server with hot-reload
+yarn dev
+
+# Access the app at http://localhost:8080
 ```
+
+### Production Build
+
+```bash
+# Build for production
 yarn build
+
+# Preview production build
+yarn preview
 ```
 
-#### Deploy the app
+### Deployment
 
-After success build, deploy to gh-pages:
-
-```
+```bash
+# Deploy to GitHub Pages
 yarn deploy
+
+# Or manually with git subtree
+git subtree push --prefix app/dist origin gh-pages
 ```
 
-Or in the repo root directory, after app build:
+## 🎮 Keyboard Controls
+
+The calculator supports full keyboard navigation:
+
+- **Numbers**: `0-9` - Enter numbers
+- **Operators**: `+`, `-`, `*`, `/` - Mathematical operations
+- **Enter/=**: Calculate result
+- **Backspace**: Delete last character
+- **Escape/C**: Clear display
+- **Decimal**: `.` - Add decimal point
+
+## 🔧 Configuration
+
+### Theme Customization
+
+Customize the calculator appearance through the settings panel:
+
+- **Color Theme**: Choose from multiple color schemes (red, blue, green, purple, etc.)
+- **Dark/Light Mode**: Toggle between light and dark themes or use system preference
+- **Sound Effects**: Enable/disable button click sounds
+- **Animations**: Toggle bounce animations
+
+### Advanced Settings
+
+Edit `vue.config.js` or `tailwind.config.js` to customize:
+
+- Color schemes
+- Font families
+- Button styles
+- Animation timings
+
+## 🏗️ Architecture
+
+### Tech Stack
+
+- **Vue 3** - Progressive JavaScript framework with Composition API
+- **TypeScript** - Type-safe JavaScript with enhanced IDE support
+- **Pinia** - Modern state management for Vue 3
+- **TailwindCSS** - Utility-first CSS framework
+- **Vite** - Next-generation frontend tooling
+
+### Project Structure
 
 ```
-git subtree push --prefix app/dist origin gh-pages && gh-pages app/dist
+app/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images, sounds, and other assets
+│   ├── components/      # Vue components
+│   │   ├── ConsoleScreen.vue
+│   │   ├── KeyboardPanel.vue
+│   │   ├── MathButtons.vue
+│   │   ├── FooterBar.vue
+│   │   └── SettingsButtons.vue
+│   ├── services/        # Business logic and state management
+│   │   └── store.ts     # Pinia store
+│   ├── utils/           # Utility functions
+│   ├── App.vue          # Root component
+│   ├── main.ts          # Application entry point
+│   └── index.css        # Global styles
+├── babel.config.js
+├── tailwind.config.js
+├── tsconfig.json
+└── package.json
 ```
 
-In this case, make sure to have installed gh-pages cli, otherwise, install it with the following cmd:
+### Key Components
 
-```
-npm i -g gh-pages
-```
+- **ConsoleScreen**: Display area for input and results
+- **KeyboardPanel**: Number and basic operation buttons
+- **MathButtons**: Advanced mathematical functions
+- **FooterBar**: Clock, date, and application info
+- **SettingsButtons**: Theme controls and customization options
 
-## TODO
+## 🎯 Roadmap
 
-1. Refactor components in smaller ones.
-2. Extract component's functions to servcies/index.ts.
-3. Add long number exponent reduction (btn) option.
-4. Add %, sin() and cos() operators.
-5. Add arrays and matrices support.
-6. Add sum(), mean(), median(), mode(), range(), variance(), stdev(), covariance(), pearsonCorr() and r2() functions.
-7. Add equation solving function with greek letters.
-8. Add more complex expressions calculations.
-9. Add more math constants.
-10. Add animations for imaginary numbers (like infinite or negative roots), NANs and zero divides.
-11. Add derivatives calculations with differential operator.
-12. Upgrade store.operations console to 'latex' syntax.
-13. Add letters keyboard option for future terminal implementation with openai api.
-14. In terminal, add transfer crypto & NFT commands with web3-wallet adapters.
-15. In terminal, add scraping web commands.
-16. In terminal, add image, audio and video supporting.
-17. In terminal, implement speech-to-text & text-to-speech multi-language models.
-18. Build & deploy a Node(ts) (or Bun) server + cloud DB, for user's authentification and online app services.
+### Phase 1: Core Improvements
+- [ ] Refactor components into smaller, reusable pieces
+- [ ] Extract business logic to services layer
+- [ ] Add scientific notation support
+- [ ] Implement %, sin(), cos(), tan() operators
 
-Proposals and Pull Requests are most welcome.
+### Phase 2: Advanced Math
+- [ ] Arrays and matrices support
+- [ ] Statistical functions (mean, median, mode, variance, stdev)
+- [ ] Correlation functions (covariance, pearsonCorr, r2)
+- [ ] Equation solver with Greek letters
+- [ ] Derivative calculations with differential operator
+- [ ] Complex number support
 
-## Project Instructions
+### Phase 3: Enhanced UX
+- [ ] LaTeX syntax for operation display
+- [ ] Animations for special results (NaN, Infinity, errors)
+- [ ] Additional math constants (φ, τ, etc.)
+- [ ] Expression history and favorites
 
-Using the Vue framework, build a functional calculator with a nice user interface using only HTML, CSS or a style preprocessor and TypeScript (JavaScript can be used but the use of TypeScript is the one that will be most valued). It does not need to handle all types of errors, but there should be some basic error reporting.
+### Phase 4: Terminal Mode
+- [ ] Letter keyboard for terminal commands
+- [ ] OpenAI API integration
+- [ ] Web3 wallet adapters for crypto transactions
+- [ ] Web scraping commands
+- [ ] Multimedia support (images, audio, video)
+- [ ] Speech-to-text & text-to-speech
 
-Requirements:
+### Phase 5: Backend & Services
+- [ ] Node.js/Bun backend server
+- [ ] Cloud database integration
+- [ ] User authentication
+- [ ] Cloud sync for settings and history
+- [ ] Multi-device support
 
-1.  Should be able to perform an operation on two numbers.
+## 🤝 Contributing
 
-2.  Basic error reporting.
+Contributions are welcome! Feel free to submit a Pull Request.
 
-3.  Code is modular, bug-free and not prune to code injections (beware of "eval" ;) ).
+### How to Contribute
 
-Nice to have's:
+1. **Fork the repository**
+2. **Create your feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your changes** (`git commit -m '✨ Add some AmazingFeature'`)
+4. **Push to the branch** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
 
-- Functionals
+### Development Guidelines
 
-1.  Support for more complex operations (3 o more operands).
+- Follow Vue 3 Composition API best practices
+- Use TypeScript for type safety
+- Write meaningful commit messages with emojis
+- Maintain consistent code style
+- Add comments for complex logic
+- Test thoroughly before submitting PR
 
-2.  Support for "last result memory".
+### Code Quality Standards
 
-- Technicals
+1. **Modular Code** - Keep components small and focused
+2. **Type Safety** - Use TypeScript interfaces and types
+3. **No eval()** - Secure expression evaluation
+4. **Error Handling** - Proper error reporting and recovery
+5. **Performance** - Optimize for speed and efficiency
 
-1.  State management (Vuex for vue2, Pinia for vue3)
+## 📝 Technical Requirements
 
-2.  Usage or CSS postprocessors instead of preprocesors. Usage of utility-first tools like TailwindCSS will be appreciated.
+### Core Requirements
 
-3.  Usage of class components, either if you use version 2 or 3 of the framework.
+✅ Perform operations on two or more numbers  
+✅ Basic error reporting and handling  
+✅ Modular, maintainable code structure  
+✅ Secure evaluation (no eval injection vulnerabilities)  
 
-4.  Intensive usage of TS's typing parametrization subsystem (`interface MyInterface<TGender> { ... }` or `type NumberKey = '0' | '1' | ...`).
+### Advanced Features
 
-5.  There is not too much room for "big architectures" in a tiny project like this calculator, but usage of good practices, design patterns and "solid" coding will be highly appreciated.
+✅ Support for complex operations (3+ operands)  
+✅ Last result memory functionality  
+✅ Pinia state management  
+✅ TailwindCSS utility-first styling  
+✅ Composition API architecture  
+✅ TypeScript type system with interfaces  
+✅ SOLID principles and design patterns  
 
-### License
+## 📄 License
 
-MIT License: Free rights of use.
+[MIT License](./LICENSE.md)
+
+Copyright (c) 2025 [Alex Colls](https://github.com/alexcolls)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 🙏 Acknowledgments
+
+Built with [Vue 3](https://vuejs.org), [TypeScript](https://www.typescriptlang.org), [TailwindCSS](https://tailwindcss.com), [Pinia](https://pinia.vuejs.org), and [Vite](https://vitejs.dev).
+
+---
+
+## ⭐ Show Your Support
+
+If this project helped you, please consider:
+
+- ⭐ **Starring the repository**
+- 🐛 **Reporting bugs**
+- 💡 **Suggesting features**
+- 🤝 **Contributing code**
+- 📢 **Sharing with others**
+
+---
+
+<p align="center">
+  <b>Made with ❤️ and Vue 3</b><br>
+  <i>Calculate anything, beautifully</i>
+</p>
+
+<p align="center">
+  <sub>© 2025 Calculator 3000 | MIT License</sub>
+</p>
