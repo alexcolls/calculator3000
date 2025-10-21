@@ -43,7 +43,7 @@ export default {
     </div>
     <!-- Credits -->
     <div class="py-4 -mb-2">
-      Calculator 3000 © 2025 — MIT License — Free rights of use.
+      Calculator 3000 © 2023 — MIT License — Free rights of use.
     </div>  
   </div>
 </template>
